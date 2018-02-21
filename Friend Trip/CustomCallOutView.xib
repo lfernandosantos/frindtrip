@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CustomCalloutView" id="iN0-l3-epB" customClass="CustomCallOutClass" customModule="Friend_Trip" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casa do Fernando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-NP-sQ6">
+                    <rect key="frame" x="0.0" y="42" width="125" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="25/06  20:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uc9-kb-Z6s">
+                    <rect key="frame" x="151" y="42" width="79" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ure-1U-utR">
+                    <rect key="frame" x="0.0" y="0.0" width="230" height="34.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_type" translatesAutoresizingMaskIntoConstraints="NO" id="s8W-MF-hgb">
+                            <rect key="frame" x="8" y="5" width="23" height="24.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="dfwefwsd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITd-I7-AQj">
+                            <rect key="frame" x="39" y="7" width="150" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-i7-quJ">
+                            <rect key="frame" x="197" y="6" width="24.5" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99719709157943726" green="0.51865530014038086" blue="0.024847090244293213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="s8W-MF-hgb" firstAttribute="leading" secondItem="Ure-1U-utR" secondAttribute="leading" constant="8" id="NYx-ay-Gfc"/>
+                        <constraint firstItem="FbG-i7-quJ" firstAttribute="leading" secondItem="ITd-I7-AQj" secondAttribute="trailing" constant="8" id="P8Y-Me-g8A"/>
+                        <constraint firstItem="s8W-MF-hgb" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="top" constant="5" id="UAz-CP-sZY"/>
+                        <constraint firstAttribute="bottom" secondItem="s8W-MF-hgb" secondAttribute="bottom" constant="5" id="Yqr-qm-1Ky"/>
+                        <constraint firstAttribute="trailing" secondItem="FbG-i7-quJ" secondAttribute="trailing" constant="8.5" id="c8f-AQ-ljn"/>
+                        <constraint firstItem="ITd-I7-AQj" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="top" constant="7" id="cfs-TC-DgQ"/>
+                        <constraint firstAttribute="bottom" secondItem="FbG-i7-quJ" secondAttribute="bottom" constant="7.5" id="dh8-Xh-Xz3"/>
+                        <constraint firstItem="ITd-I7-AQj" firstAttribute="leading" secondItem="s8W-MF-hgb" secondAttribute="trailing" constant="8" id="ncx-tR-2gO"/>
+                        <constraint firstItem="FbG-i7-quJ" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="top" constant="6" id="o7h-1E-1bh"/>
+                        <constraint firstAttribute="bottom" secondItem="ITd-I7-AQj" secondAttribute="bottom" constant="7" id="qzw-82-9gd"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Rio de Janeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qG-yq-beH">
+                    <rect key="frame" x="0.0" y="64" width="125" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e9Z-NP-sQ6" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="bottom" constant="7.5" id="1Jn-uz-EOj"/>
+                <constraint firstItem="Ure-1U-utR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2Dn-04-ufO"/>
+                <constraint firstItem="Uc9-kb-Z6s" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="bottom" constant="7.5" id="3eR-3c-ack"/>
+                <constraint firstItem="Ure-1U-utR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="44d-2w-eG2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Uc9-kb-Z6s" secondAttribute="bottom" constant="25" id="88T-jK-J7a"/>
+                <constraint firstItem="e9Z-NP-sQ6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BkS-dv-ao3"/>
+                <constraint firstItem="e9Z-NP-sQ6" firstAttribute="top" secondItem="Ure-1U-utR" secondAttribute="bottom" constant="7.5" id="Le2-Ji-PXS"/>
+                <constraint firstItem="1qG-yq-beH" firstAttribute="top" secondItem="e9Z-NP-sQ6" secondAttribute="bottom" constant="4" id="Lnz-Fa-kjp"/>
+                <constraint firstItem="1qG-yq-beH" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Oux-4a-29z"/>
+                <constraint firstItem="1qG-yq-beH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TlE-up-GjL"/>
+                <constraint firstItem="Uc9-kb-Z6s" firstAttribute="leading" secondItem="e9Z-NP-sQ6" secondAttribute="trailing" constant="26" id="Vxr-s3-r9c"/>
+                <constraint firstItem="Ure-1U-utR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YYI-KA-C0c"/>
+                <constraint firstItem="Uc9-kb-Z6s" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ZTF-ee-axf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1qG-yq-beH" secondAttribute="trailing" constant="105" id="bea-l6-e5T"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="descricao" destination="Uc9-kb-Z6s" id="Yxm-RN-cKt"/>
+                <outlet property="img" destination="s8W-MF-hgb" id="neu-pU-EZp"/>
+                <outlet property="subTitle" destination="e9Z-NP-sQ6" id="vjN-V3-xSD"/>
+                <outlet property="title" destination="ITd-I7-AQj" id="gtO-KK-CVP"/>
+            </connections>
+            <point key="canvasLocation" x="-40" y="240"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_type" width="23" height="22"/>
+    </resources>
+</document>
