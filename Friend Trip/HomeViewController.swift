@@ -7,22 +7,27 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class HomeViewController: UIViewController {
 
-
     @IBOutlet weak var imageViewIcons: UIImageView!
     @IBOutlet weak var btnFriendTrip: UIButton!
+    var user: UserFace?
+
+    @IBAction func logout(_ sender: Any) {
+        LoginManager().logOut()
+        dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         btnFriendTrip.layer.cornerRadius = btnFriendTrip.frame.height/5
 
-        // Do any additional setup after loading the view.
+        print(user?.toJSONString())
     }
-
 
 
     override func didReceiveMemoryWarning() {
@@ -33,15 +38,5 @@ class HomeViewController: UIViewController {
     @IBAction func backHere(){
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
