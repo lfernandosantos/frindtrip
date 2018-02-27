@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dc8-fq-w88">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,34 +26,30 @@
                                     <constraint firstAttribute="width" secondItem="9VO-Y3-PEU" secondAttribute="height" multiplier="94:75" id="zhK-Qj-QjF"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-VH-3FY">
-                                <rect key="frame" x="77" y="361.5" width="166" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="hRJ-WE-etH"/>
-                                    <constraint firstAttribute="width" secondItem="fQT-VH-3FY" secondAttribute="height" multiplier="13:3" id="zsr-2l-P6X"/>
-                                </constraints>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cA6-ez-DGq" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="38" y="263" width="244" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fQT-VH-3FY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="LF9-pr-O47"/>
+                            <constraint firstItem="cA6-ez-DGq" firstAttribute="top" secondItem="9VO-Y3-PEU" secondAttribute="bottom" constant="76.5" id="0gd-CN-1uS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9VO-Y3-PEU" secondAttribute="trailing" constant="113" id="PBZ-C7-NeJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA6-ez-DGq" secondAttribute="trailing" constant="38" id="Pag-Iu-zkC"/>
                             <constraint firstItem="9VO-Y3-PEU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="R3X-CI-sdK"/>
                             <constraint firstItem="9VO-Y3-PEU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-135" id="UME-Ta-3ey"/>
-                            <constraint firstItem="fQT-VH-3FY" firstAttribute="top" secondItem="9VO-Y3-PEU" secondAttribute="bottom" constant="175" id="Uy5-gm-T7i"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fQT-VH-3FY" secondAttribute="trailing" constant="77" id="XHI-Il-8J2"/>
+                            <constraint firstItem="cA6-ez-DGq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="dDf-IY-QVs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="viewBtnFace" destination="fQT-VH-3FY" id="WW8-Bo-oaV"/>
+                        <outlet property="loginFBbtn" destination="cA6-ez-DGq" id="aJL-KD-ncT"/>
                         <segue destination="QdU-fo-VQ8" kind="showDetail" identifier="goHome" id="dMy-Io-3Si"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-250.72463768115944" y="136.95652173913044"/>
+            <point key="canvasLocation" x="-251.25" y="136.26760563380282"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="w4H-7W-d5R">
@@ -100,6 +96,13 @@
                                     <segue destination="Dc8-fq-w88" kind="show" id="Ftr-mf-4P9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nir-hw-edz">
+                                <rect key="frame" x="137" y="40" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logout:" destination="QdU-fo-VQ8" eventType="touchUpInside" id="VUt-YF-z93"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -109,9 +112,11 @@
                             <constraint firstItem="C7a-R7-yks" firstAttribute="centerY" secondItem="aUO-8y-LLH" secondAttribute="centerY" id="PrX-tt-wTo"/>
                             <constraint firstItem="eEi-CL-SGC" firstAttribute="leading" secondItem="SI6-Tb-PPn" secondAttribute="leading" constant="127" id="RdE-ir-jQt"/>
                             <constraint firstItem="C7a-R7-yks" firstAttribute="top" secondItem="WGB-hg-F29" secondAttribute="bottom" constant="16" id="aIh-Sg-A9k"/>
+                            <constraint firstItem="Nir-hw-edz" firstAttribute="leading" secondItem="SI6-Tb-PPn" secondAttribute="leading" constant="137" id="aVl-K2-ep5"/>
                             <constraint firstItem="eEi-CL-SGC" firstAttribute="top" secondItem="SI6-Tb-PPn" secondAttribute="top" constant="58" id="dYx-zU-6iw"/>
                             <constraint firstItem="SI6-Tb-PPn" firstAttribute="trailing" secondItem="eEi-CL-SGC" secondAttribute="trailing" constant="127" id="fDE-eJ-Qfe"/>
                             <constraint firstItem="WGB-hg-F29" firstAttribute="top" secondItem="eEi-CL-SGC" secondAttribute="bottom" constant="21" id="hDT-IM-Bij"/>
+                            <constraint firstItem="Nir-hw-edz" firstAttribute="top" secondItem="SI6-Tb-PPn" secondAttribute="top" constant="20" id="jGO-Yu-m3N"/>
                             <constraint firstItem="C7a-R7-yks" firstAttribute="leading" secondItem="SI6-Tb-PPn" secondAttribute="leading" constant="40" id="pEy-Er-4gG"/>
                             <constraint firstItem="WGB-hg-F29" firstAttribute="leading" secondItem="SI6-Tb-PPn" secondAttribute="leading" constant="23" id="wEH-fV-8on"/>
                             <constraint firstItem="DVh-3Y-J1r" firstAttribute="top" secondItem="C7a-R7-yks" secondAttribute="bottom" constant="103.33333333333331" id="wJq-KG-P5G"/>
