@@ -16,10 +16,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var btnFriendTrip: UIButton!
     var user: UserFace?
 
-    @IBAction func logout(_ sender: Any) {
-        LoginManager().logOut()
-        dismiss(animated: true, completion: nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +33,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func backHere(){
 
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }
