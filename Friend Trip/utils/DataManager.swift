@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import FacebookCore
 
 class DataManager: NSObject {
+
+    func checkAccessData( completion:(Bool, AccessToken?) -> Void){
+        if let accessToken = AccessToken.current {
+            completion(true, accessToken)
+        }else{
+            completion(false, nil)
+            print("sem login")
+        }
+    }
 
 }
