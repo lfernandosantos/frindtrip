@@ -11,6 +11,9 @@ pod 'ObjectMapper'
 pod 'ParallaxHeader'
 pod 'MXParallaxHeader'
 pod 'SnapKit'
+pod 'SDWebImage'
+pod 'Kingfisher'
+pod 'LTMorphingLabel'
 
   # Pods for Friend Trip
 
