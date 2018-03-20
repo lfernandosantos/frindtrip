@@ -16,7 +16,7 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
     @IBOutlet weak var tipoTrip: UIPickerView!
     @IBOutlet weak var btnSalvarTrip: UIButton!
     var evento: String?
-    let tiposTripList = ["Beer", "Night", "Tour", "Party", "Club"]
+    let tiposTripList = ["Beer", "Night", "Party", "Beach"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
