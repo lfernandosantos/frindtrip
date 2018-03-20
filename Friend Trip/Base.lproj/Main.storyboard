@@ -257,7 +257,6 @@
         <!-- -->
         <scene sceneID="BSv-c8-mtA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWS-lJ-VcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="lDi-AJ-VK2" customClass="MapListFriendTripVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YYa-Fj-zha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -308,7 +307,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title=" " id="dsn-ke-YO9">
-                        <barButtonItem key="backBarButtonItem" title="  " id="OKf-uV-yOl"/>
+                        <barButtonItem key="backBarButtonItem" systemItem="cancel" id="OKf-uV-yOl">
+                            <color key="tintColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -319,23 +320,146 @@
                         <segue destination="MZC-Ma-kVj" kind="show" identifier="clickcallout" id="wI8-TU-SDE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWS-lJ-VcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1387.5" y="929.57746478873241"/>
         </scene>
         <!--New Trip-->
         <scene sceneID="ToK-Md-pga">
             <objects>
-                <viewController title="New Trip" id="TKD-BY-JPB" sceneMemberID="viewController">
+                <viewController title="New Trip" id="TKD-BY-JPB" customClass="NewTripVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qxG-Es-gyw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMM-Cj-R1b">
+                                <rect key="frame" x="16" y="80" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnk-Wf-WEf">
+                                <rect key="frame" x="16" y="147" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8HC-Zz-OIv">
+                                <rect key="frame" x="16" y="176" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="street-address"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TKD-BY-JPB" id="kgm-Ep-Rth"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-20-U2V">
+                                <rect key="frame" x="0.0" y="243" width="320" height="120"/>
+                                <color key="tintColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jRT-20-U2V" secondAttribute="height" multiplier="8:3" id="yIw-ke-ilh"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="543089158.26631403">
+                                    <!--2018-03-18 18:05:58 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.67228524543378998" green="0.36516144162122577" blue="0.010563630591797248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSM-cS-1tx">
+                                <rect key="frame" x="16" y="214" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETl-oi-gMZ">
+                                <rect key="frame" x="16" y="109" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TKD-BY-JPB" id="Udi-uT-YcW"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de evento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQu-XU-RhT">
+                                <rect key="frame" x="16" y="371" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS1-Iq-non">
+                                <rect key="frame" x="0.0" y="400" width="320" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IS1-Iq-non" secondAttribute="height" multiplier="320:89" id="aHN-Sj-jcE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.77309860159817356" green="0.41991967218139048" blue="0.012147712736204084" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TKD-BY-JPB" id="uHW-xf-w2h"/>
+                                    <outlet property="delegate" destination="TKD-BY-JPB" id="vOQ-Lu-hg2"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqt-b1-Xg3">
+                                <rect key="frame" x="16" y="497" width="288" height="30"/>
+                                <state key="normal" title="Salvar">
+                                    <color key="titleColor" red="1" green="0.53463476899999995" blue="0.0057727540840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="salvarTrip:" destination="TKD-BY-JPB" eventType="touchUpInside" id="itT-Eb-meL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IS1-Iq-non" firstAttribute="trailing" secondItem="DqB-ge-5aM" secondAttribute="trailing" id="24w-7g-ZbR"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="8HC-Zz-OIv" secondAttribute="trailing" constant="16" id="8wR-qw-ejs"/>
+                            <constraint firstItem="Nqt-b1-Xg3" firstAttribute="top" secondItem="IS1-Iq-non" secondAttribute="bottom" constant="8" id="BiE-0F-g5j"/>
+                            <constraint firstItem="jSM-cS-1tx" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="Blz-O9-OSb"/>
+                            <constraint firstItem="IS1-Iq-non" firstAttribute="top" secondItem="BQu-XU-RhT" secondAttribute="bottom" constant="8" id="EGL-Ay-6jW"/>
+                            <constraint firstItem="vMM-Cj-R1b" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="GhM-sh-uk8"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="BQu-XU-RhT" secondAttribute="trailing" constant="16" id="Go8-rf-pAY"/>
+                            <constraint firstItem="8HC-Zz-OIv" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="HLv-vm-ldg"/>
+                            <constraint firstItem="jRT-20-U2V" firstAttribute="trailing" secondItem="DqB-ge-5aM" secondAttribute="trailing" id="HWm-N1-tIY"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="vMM-Cj-R1b" secondAttribute="trailing" constant="16" id="Ifg-76-J6O"/>
+                            <constraint firstItem="jSM-cS-1tx" firstAttribute="top" secondItem="8HC-Zz-OIv" secondAttribute="bottom" constant="8" id="ImH-MX-oSJ"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="bnk-Wf-WEf" secondAttribute="trailing" constant="16" id="Jgr-Ie-99e"/>
+                            <constraint firstItem="jRT-20-U2V" firstAttribute="top" secondItem="jSM-cS-1tx" secondAttribute="bottom" constant="8" id="OJR-Et-PIs"/>
+                            <constraint firstItem="BQu-XU-RhT" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="Obh-H5-NKZ"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="ETl-oi-gMZ" secondAttribute="trailing" constant="16" id="Ovo-pO-rRT"/>
+                            <constraint firstItem="Nqt-b1-Xg3" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="QFz-Lk-uAa"/>
+                            <constraint firstItem="8HC-Zz-OIv" firstAttribute="top" secondItem="bnk-Wf-WEf" secondAttribute="bottom" constant="8" id="cXS-Ey-cOw"/>
+                            <constraint firstItem="vMM-Cj-R1b" firstAttribute="top" secondItem="DqB-ge-5aM" secondAttribute="top" constant="16" id="d5a-0a-j5K"/>
+                            <constraint firstItem="bnk-Wf-WEf" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="e3f-CK-eib"/>
+                            <constraint firstItem="BQu-XU-RhT" firstAttribute="top" secondItem="jRT-20-U2V" secondAttribute="bottom" constant="8" id="fk1-3E-aQz"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="jSM-cS-1tx" secondAttribute="trailing" constant="16" id="jpY-yF-RTW"/>
+                            <constraint firstItem="IS1-Iq-non" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" id="pzA-0B-Gjj"/>
+                            <constraint firstItem="bnk-Wf-WEf" firstAttribute="top" secondItem="ETl-oi-gMZ" secondAttribute="bottom" constant="8" id="r27-jN-HyG"/>
+                            <constraint firstItem="jRT-20-U2V" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" id="t5J-dd-Qm9"/>
+                            <constraint firstItem="ETl-oi-gMZ" firstAttribute="top" secondItem="vMM-Cj-R1b" secondAttribute="bottom" constant="8" id="tqG-dS-gwm"/>
+                            <constraint firstItem="ETl-oi-gMZ" firstAttribute="leading" secondItem="DqB-ge-5aM" secondAttribute="leading" constant="16" id="wab-UL-NCJ"/>
+                            <constraint firstItem="DqB-ge-5aM" firstAttribute="trailing" secondItem="Nqt-b1-Xg3" secondAttribute="trailing" constant="16" id="zFl-PA-lEN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DqB-ge-5aM"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSalvarTrip" destination="Nqt-b1-Xg3" id="ahT-yI-Hde"/>
+                        <outlet property="dataTrip" destination="jRT-20-U2V" id="uN1-k5-h1f"/>
+                        <outlet property="localTrip" destination="8HC-Zz-OIv" id="YKR-A5-RBh"/>
+                        <outlet property="nameTrip" destination="ETl-oi-gMZ" id="kMU-GB-6rP"/>
+                        <outlet property="tipoTrip" destination="IS1-Iq-non" id="qlH-qJ-req"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWL-w6-9Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="1655"/>
+            <point key="canvasLocation" x="1387.5" y="1654.2253521126761"/>
         </scene>
         <!--Detail Event TableVC-->
         <scene sceneID="Dh9-UY-Kcw">
