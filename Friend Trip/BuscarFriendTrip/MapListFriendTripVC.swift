@@ -13,8 +13,14 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var addTrip: UIButton!
-
     @IBOutlet weak var mapView: MKMapView!
+
+
+
+    @IBAction func closeView(_ sender: Any) {
+        print("Close")
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +30,14 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         navigationController?.navigationBar.shadowImage = UIImage()
 
         self.mapView.delegate = self
+
         addTrip.layer.cornerRadius = addTrip.frame.width/2
 
         addTrip.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         addTrip.layer.masksToBounds = false
         addTrip.layer.shadowOpacity = 0.6
         addTrip.layer.shadowColor = UIColor.black.cgColor
+
         let trips: [CLLocation] = [CLLocation.init(latitude: -22.767654, longitude: -43.426178),
                                    CLLocation.init(latitude: -22.767654, longitude: -43.426000),
                                    CLLocation.init(latitude: -22.764696, longitude: -43.424816),
@@ -52,11 +60,23 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         }
         let initialLocation = CLLocation(latitude: -22.767654, longitude: -43.426178)
 
-
-
         centralizar(coordenadas: initialLocation.coordinate)
 
         mapView.bringSubview(toFront: addTrip)
+
+
+
+    }
+
+
+    func getRoundShadowButton(button: UIButton) -> CALayer {
+        let layer = CALayer()
+        layer.cornerRadius = button.frame.width/2
+        layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.6
+        layer.shadowColor = UIColor.black.cgColor
+        return layer
     }
 
     func setGradientStatusBar(){

@@ -20,6 +20,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         btnFriendTrip.layer.cornerRadius = btnFriendTrip.frame.height/5
 
         print(user?.toJSONString())
