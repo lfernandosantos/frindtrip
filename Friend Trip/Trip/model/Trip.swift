@@ -10,4 +10,19 @@ import UIKit
 
 class Trip: NSObject {
 
+    let nome: String
+    let local: String
+    let data: String
+    let tipoEvento: String
+
+    init(nome: String, local: String, data: String, tipoEvento: String) {
+        self.nome = nome
+        self.local = local
+        self.data = data
+        self.tipoEvento = tipoEvento
+    }
+
+    override var description: String {
+        return "\(nome), \(local), \(data), \(tipoEvento)"
+    }
 }
