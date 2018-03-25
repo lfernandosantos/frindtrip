@@ -142,6 +142,7 @@ extension MapViewDelegate
         calloutView.starbucksAddress.text = starbucksAnnotation.address
         calloutView.starbucksPhone.text = starbucksAnnotation.phone
         calloutView.starbucksImage.image = starbucksAnnotation.image
+        calloutView.starbucksImage.contentMode = .scaleAspectFit
 
         let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
         calloutView.addGestureRecognizer(gestureSwift2AndHigher)
