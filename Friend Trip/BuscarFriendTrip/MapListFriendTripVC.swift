@@ -15,12 +15,13 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
 
-
+    var tripsList = [Trip]()
 
     @IBAction func closeView(_ sender: Any) {
         print("Close")
         self.dismiss(animated: true, completion: nil)
     }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,22 +39,21 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         addTrip.layer.shadowOpacity = 0.6
         addTrip.layer.shadowColor = UIColor.black.cgColor
 
-        let trips: [CLLocation] = [CLLocation.init(latitude: -22.767654, longitude: -43.426178),
-                                   CLLocation.init(latitude: -22.767654, longitude: -43.426000),
-                                   CLLocation.init(latitude: -22.764696, longitude: -43.424816),
-                                   CLLocation.init(latitude: -22.767000, longitude: -42.426178),
-                                   CLLocation.init(latitude: -22.766942, longitude: -43.423743),
-                                   CLLocation.init(latitude: -22.767644, longitude: -43.426178),
-                                   CLLocation.init(latitude: -22.766546, longitude: -43.427187)
-        ]
+        tripsList.append(Trip(nome: "Viagem1", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.767654, lon: -43.426178))
+        tripsList.append( Trip(nome: "Viagem2", local: "Local", data: "Data", tipoEvento: "Night", lat: -22.767654, lon: -43.426000))
+        tripsList.append(Trip(nome: "Viagem3", local: "Local", data: "Data", tipoEvento: "Beach", lat: -22.764696, lon: -43.424816))
+        tripsList.append(Trip(nome: "Viagem4", local: "Local", data: "Data", tipoEvento: "Party", lat: -22.767000, lon: -42.426178))
+        tripsList.append(Trip(nome: "Viagem5", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.767644, lon: -43.423743))
+        tripsList.append(Trip(nome: "Viagem6", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.766546, lon: -43.426178))
 
-        for trip in trips{
+        for trip in tripsList{
 
-            let point = StarbucksAnnotation(coordinate: trip.coordinate)
-            point.image = UIImage(named: "icon_type")
-            point.name = "Programar Até Morrer"
-            point.address = "Casa do Fernando - 27/01/2018 20:30"
-            point.phone = "Mesquita"
+            let coordinate = CLLocation(latitude: trip.lat, longitude: trip.lon)
+            let point = StarbucksAnnotation(coordinate: coordinate.coordinate)
+            point.image = UIImage(named: trip.tipoEvento)
+            point.name = trip.nome
+            point.address = trip.local
+            point.phone = trip.data
 
             self.mapView.addAnnotation(point)
 
@@ -63,8 +63,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         centralizar(coordenadas: initialLocation.coordinate)
 
         mapView.bringSubview(toFront: addTrip)
-
-
 
     }
 
@@ -144,6 +142,7 @@ extension MapViewDelegate
         calloutView.starbucksAddress.text = starbucksAnnotation.address
         calloutView.starbucksPhone.text = starbucksAnnotation.phone
         calloutView.starbucksImage.image = starbucksAnnotation.image
+        calloutView.starbucksImage.contentMode = .scaleAspectFit
 
         let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
         calloutView.addGestureRecognizer(gestureSwift2AndHigher)

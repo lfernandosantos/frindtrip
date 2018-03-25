@@ -60,7 +60,7 @@
 		BE33F9B3201D752A00F45737 /* CustomCallOutClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallOutClass.swift; sourceTree = "<group>"; };
 		BE33F9B5201D762400F45737 /* TripAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnnotation.swift; sourceTree = "<group>"; };
 		BE33F9B7201D775D00F45737 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
-		BE33F9BB2020089F00F45737 /* CustomCalloutV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCalloutV.xib; path = custom/CustomCalloutV.xib; sourceTree = "<group>"; };
+		BE33F9BB2020089F00F45737 /* CustomCalloutV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutV.xib; sourceTree = "<group>"; };
 		BE33F9BD2020089F00F45737 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		BE33F9C92020089F00F45737 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventTableVC.swift; sourceTree = "<group>"; };
@@ -149,9 +149,19 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		BE30682C20649446004C2893 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BE33F9BB2020089F00F45737 /* CustomCalloutV.xib */,
+				BE33F9B1201D743A00F45737 /* CustomCallOutView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		BE33F9A8201C25EA00F45737 /* BuscarFriendTrip */ = {
 			isa = PBXGroup;
 			children = (
+				BE30682C20649446004C2893 /* view */,
 				BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */,
 			);
 			path = BuscarFriendTrip;
@@ -197,7 +207,6 @@
 				BE2ED6A4205EE889006086EF /* Trip */,
 				BE1093622046439A007E9FA0 /* profile */,
 				BE10935D204500BF007E9FA0 /* login */,
-				BE33F9BB2020089F00F45737 /* CustomCalloutV.xib */,
 				BE33F9D92027A4FD00F45737 /* event */,
 				BE33F9BD2020089F00F45737 /* StarbucksAnnotation.swift */,
 				BE33F9D8202008FE00F45737 /* custom */,
@@ -216,7 +225,6 @@
 				BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */,
 				BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */,
 				BE33F9AF201D688200F45737 /* CustomAnnotationView.swift */,
-				BE33F9B1201D743A00F45737 /* CustomCallOutView.xib */,
 				BE33F9B3201D752A00F45737 /* CustomCallOutClass.swift */,
 				BE33F9B5201D762400F45737 /* TripAnnotation.swift */,
 				BE33F9B7201D775D00F45737 /* AnnotationView.swift */,

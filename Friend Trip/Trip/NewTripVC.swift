@@ -16,7 +16,7 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
     @IBOutlet weak var tipoTrip: UIPickerView!
     @IBOutlet weak var btnSalvarTrip: UIButton!
     var evento: String?
-    let tiposTripList = ["Beer", "Night", "Tour", "Party", "Club"]
+    let tiposTripList = ["Beer", "Night", "Party", "Beach"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,7 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
 
         print(data)
 
-        let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento)
+        let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento, lat: -22.767654, lon: -43.426178)
         print(trip.description)
     }
 

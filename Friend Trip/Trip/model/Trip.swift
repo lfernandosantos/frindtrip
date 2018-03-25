@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class Trip: NSObject {
 
@@ -14,15 +15,19 @@ class Trip: NSObject {
     let local: String
     let data: String
     let tipoEvento: String
+    let lat: CLLocationDegrees
+    let lon: CLLocationDegrees
 
-    init(nome: String, local: String, data: String, tipoEvento: String) {
+    init(nome: String, local: String, data: String, tipoEvento: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
         self.nome = nome
         self.local = local
         self.data = data
         self.tipoEvento = tipoEvento
+        self.lat = lat
+        self.lon = lon
     }
 
     override var description: String {
-        return "\(nome), \(local), \(data), \(tipoEvento)"
+        return "\(nome), \(local), \(data), \(tipoEvento), \(lat), \(lon)"
     }
 }
