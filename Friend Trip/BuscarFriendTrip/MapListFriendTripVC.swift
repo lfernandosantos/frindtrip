@@ -15,6 +15,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
 
+    var selectedTrip: Trip!
+
     var tripsList = [Trip]()
 
     @IBAction func closeView(_ sender: Any) {
@@ -26,9 +28,9 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = true
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
 
         self.mapView.delegate = self
 
@@ -39,17 +41,27 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         addTrip.layer.shadowOpacity = 0.6
         addTrip.layer.shadowColor = UIColor.black.cgColor
 
-        tripsList.append(Trip(nome: "Viagem1", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.767654, lon: -43.426178))
-        tripsList.append( Trip(nome: "Viagem2", local: "Local", data: "Data", tipoEvento: "Night", lat: -22.767654, lon: -43.426000))
-        tripsList.append(Trip(nome: "Viagem3", local: "Local", data: "Data", tipoEvento: "Beach", lat: -22.764696, lon: -43.424816))
-        tripsList.append(Trip(nome: "Viagem4", local: "Local", data: "Data", tipoEvento: "Party", lat: -22.767000, lon: -42.426178))
-        tripsList.append(Trip(nome: "Viagem5", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.767644, lon: -43.423743))
-        tripsList.append(Trip(nome: "Viagem6", local: "Local", data: "Data", tipoEvento: "Beer", lat: -22.766546, lon: -43.426178))
+        let jsonUser: [String : Any] = ["picture":
+                                [ "data":
+                                    [ "height": 200,
+            "is_silhouette": 0,
+            "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1522876279&hash=AeQOe6O7qufeR2Rl",
+                                        "width": 200 ]
+
+            ],
+                        "last_name": "Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650, "first_name": "Fernando"]
+
+        tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
+        tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
+        tripsList.append(Trip(nome: "Niver do Fernando", local: "Arraial", data: "28 - Maio - 2018", tipoEvento: "Beach", descriptionTrip: "eerarareresedes",lat: -22.764696, lon: -43.424816, userAdm: UserFace(JSON: jsonUser)!))
+        tripsList.append(Trip(nome: "Caminhada no bosque", local: "Matinho da esquina, Floresta da Tijuca", data: "11 - Setembro - 2019", tipoEvento: "Matagal", descriptionTrip: "eerarareresedes", lat: -22.767000, lon: -42.426178, userAdm: UserFace(JSON: jsonUser)!))
+        tripsList.append(Trip(nome: "Viagem5", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUser)!))
+        tripsList.append(Trip(nome: "Viagem6", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
 
         for trip in tripsList{
 
             let coordinate = CLLocation(latitude: trip.lat, longitude: trip.lon)
-            let point = StarbucksAnnotation(coordinate: coordinate.coordinate)
+            let point = StarbucksAnnotation(coordinate: coordinate.coordinate, trip: trip)
             point.image = UIImage(named: trip.tipoEvento)
             point.name = trip.nome
             point.address = trip.local
@@ -128,25 +140,27 @@ extension MapViewDelegate
 
         annotationView?.image = icon
 
-        // or for swift 2 +
-
         return annotationView
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
 
         let starbucksAnnotation = view.annotation as! StarbucksAnnotation
-        let views = Bundle.main.loadNibNamed("CustomCalloutV", owner: nil, options: nil)
-        let calloutView = views?[0] as! CustomCalloutView
-        calloutView.starbucksName.text = starbucksAnnotation.name
-        calloutView.starbucksAddress.text = starbucksAnnotation.address
-        calloutView.starbucksPhone.text = starbucksAnnotation.phone
-        calloutView.starbucksImage.image = starbucksAnnotation.image
-        calloutView.starbucksImage.contentMode = .scaleAspectFit
+        let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
+        let calloutView = views?[0] as! CustomCallOutClass
+
+        calloutView.title.text = starbucksAnnotation.name
+        calloutView.subTitle.text = starbucksAnnotation.address
+        calloutView.tipeTrip.text = starbucksAnnotation.trip.tipoEvento
+        calloutView.data.text = starbucksAnnotation.trip.data
+        calloutView.img.image = starbucksAnnotation.image
+        calloutView.img.contentMode = .scaleAspectFit
 
         let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
         calloutView.addGestureRecognizer(gestureSwift2AndHigher)
 
+
+        selectedTrip = starbucksAnnotation.trip
 
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
@@ -164,7 +178,14 @@ extension MapViewDelegate
             }
         }
     }
+
     @objc func someAction(_ sender:UITapGestureRecognizer){
         performSegue(withIdentifier: "clickcallout", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination as? DetailTripVC {
+            detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
+        }
     }
 }

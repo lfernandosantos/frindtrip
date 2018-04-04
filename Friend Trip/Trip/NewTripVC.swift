@@ -10,11 +10,15 @@ import UIKit
 
 class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTrip: UITextField!
     @IBOutlet weak var localTrip: UITextField!
     @IBOutlet weak var dataTrip: UIDatePicker!
     @IBOutlet weak var tipoTrip: UIPickerView!
     @IBOutlet weak var btnSalvarTrip: UIButton!
+    @IBOutlet weak var txfDescription: UITextField!
+    
+
     var evento: String?
     let tiposTripList = ["Beer", "Night", "Party", "Beach"]
 
@@ -31,6 +35,32 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
         dataTrip.setValue(UIColor.orange, forKey: "textColor")
         tipoTrip.setValue(UIColor.orange, forKey: "textColor")
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:.UIKeyboardWillShow , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    @objc func keyboardWillShow(notification:NSNotification){
+
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 30
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -82,10 +112,22 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
             return
         }
 
-        print(data)
+        guard let description = txfDescription.text else {
+            print("descrição em branco")
+            return
+        }
 
-        let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento, lat: -22.767654, lon: -43.426178)
-        print(trip.description)
+        let jsonUser: [String : Any] = ["picture":
+            [ "data":
+                [ "height": 200,
+                  "is_silhouette": 0,
+                  "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1522876279&hash=AeQOe6O7qufeR2Rl",
+                  "width": 200 ]
+
+            ],
+                                        "last_name": "Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650, "first_name": "Fernando"]
+        let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento, descriptionTrip: description, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
     }
+    
 
 }

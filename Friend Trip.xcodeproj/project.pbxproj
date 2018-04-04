@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		436880E3945FB0D308674064 /* Pods_Friend_Trip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD685ECED0DD6CE1909E594 /* Pods_Friend_Trip.framework */; };
-		BE10935F204500FB007E9FA0 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10935E204500FB007E9FA0 /* LoginVM.swift */; };
+		BE10935F204500FB007E9FA0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10935E204500FB007E9FA0 /* LoginPresenter.swift */; };
 		BE1093612045013E007E9FA0 /* LoginFBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1093602045013E007E9FA0 /* LoginFBRequest.swift */; };
 		BE109364204643D5007E9FA0 /* ProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE109363204643D5007E9FA0 /* ProfileTableVC.swift */; };
 		BE1093662046440F007E9FA0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1093652046440F007E9FA0 /* DataManager.swift */; };
+		BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA3722071039700951A73 /* DetailTripVC.swift */; };
+		BE2EA3762074752500951A73 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA3752074752500951A73 /* APIUser.swift */; };
+		BE2EA3782074754300951A73 /* UserRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA3772074754300951A73 /* UserRequestModel.swift */; };
 		BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */; };
 		BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A8205EF1F1006086EF /* Trip.swift */; };
 		BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */; };
@@ -27,6 +30,7 @@
 		BE33F9D7202008A000F45737 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9C92020089F00F45737 /* CustomCalloutView.swift */; };
 		BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */; };
 		BE33F9DD2027AD0100F45737 /* UIVIew+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */; };
+		BE349E9A20687B540081422A /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE349E9920687B540081422A /* TripViewModel.swift */; };
 		BE39E3D0202BDE340055B411 /* HeaderDetailV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE39E3CF202BDE340055B411 /* HeaderDetailV.xib */; };
 		BE39E3D2202BE09C0055B411 /* HeaderDetailsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE39E3D1202BE09C0055B411 /* HeaderDetailsClass.swift */; };
 		BE42D8121FE7419C004FF9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42D8111FE7419C004FF9C1 /* AppDelegate.swift */; };
@@ -39,17 +43,20 @@
 		BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B3721FF1341000A1AB1C /* UserFace.swift */; };
 		BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B3741FF1349200A1AB1C /* DataPicture.swift */; };
 		BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B3771FF146AD00A1AB1C /* DefaultColors.swift */; };
-		BE48B37E1FF1BCCD00A1AB1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B37D1FF1BCCD00A1AB1C /* HomeViewController.swift */; };
+		BE48B37E1FF1BCCD00A1AB1C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3DD685ECED0DD6CE1909E594 /* Pods_Friend_Trip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friend_Trip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA5AA56C91D331A0916FA1E /* Pods-Friend Trip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.release.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.release.xcconfig"; sourceTree = "<group>"; };
-		BE10935E204500FB007E9FA0 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		BE10935E204500FB007E9FA0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		BE1093602045013E007E9FA0 /* LoginFBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFBRequest.swift; sourceTree = "<group>"; };
 		BE109363204643D5007E9FA0 /* ProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableVC.swift; sourceTree = "<group>"; };
 		BE1093652046440F007E9FA0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BE2EA3722071039700951A73 /* DetailTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripVC.swift; sourceTree = "<group>"; };
+		BE2EA3752074752500951A73 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
+		BE2EA3772074754300951A73 /* UserRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestModel.swift; sourceTree = "<group>"; };
 		BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripVC.swift; sourceTree = "<group>"; };
 		BE2ED6A8205EF1F1006086EF /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListFriendTripVC.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 		BE33F9C92020089F00F45737 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventTableVC.swift; sourceTree = "<group>"; };
 		BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Blur.swift"; sourceTree = "<group>"; };
+		BE349E9920687B540081422A /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
 		BE39E3CF202BDE340055B411 /* HeaderDetailV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderDetailV.xib; sourceTree = "<group>"; };
 		BE39E3D1202BE09C0055B411 /* HeaderDetailsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailsClass.swift; sourceTree = "<group>"; };
 		BE42D80E1FE7419C004FF9C1 /* Friend Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friend Trip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +87,7 @@
 		BE48B3721FF1341000A1AB1C /* UserFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFace.swift; sourceTree = "<group>"; };
 		BE48B3741FF1349200A1AB1C /* DataPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicture.swift; sourceTree = "<group>"; };
 		BE48B3771FF146AD00A1AB1C /* DefaultColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColors.swift; sourceTree = "<group>"; };
-		BE48B37D1FF1BCCD00A1AB1C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				BE42D8131FE7419C004FF9C1 /* LoginVC.swift */,
-				BE10935E204500FB007E9FA0 /* LoginVM.swift */,
+				BE10935E204500FB007E9FA0 /* LoginPresenter.swift */,
 				BE1093602045013E007E9FA0 /* LoginFBRequest.swift */,
+				BE2EA3752074752500951A73 /* APIUser.swift */,
+				BE2EA3772074754300951A73 /* UserRequestModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -132,11 +142,22 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
+		BE2EA3742074701700951A73 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		BE2ED6A4205EE889006086EF /* Trip */ = {
 			isa = PBXGroup;
 			children = (
 				BE2ED6A7205EF1AE006086EF /* model */,
+				BE349E9920687B540081422A /* TripViewModel.swift */,
 				BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */,
+				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
+				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -178,7 +199,6 @@
 		BE33F9D92027A4FD00F45737 /* event */ = {
 			isa = PBXGroup;
 			children = (
-				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -204,6 +224,7 @@
 		BE42D8101FE7419C004FF9C1 /* Friend Trip */ = {
 			isa = PBXGroup;
 			children = (
+				BE2EA3742074701700951A73 /* home */,
 				BE2ED6A4205EE889006086EF /* Trip */,
 				BE1093622046439A007E9FA0 /* profile */,
 				BE10935D204500BF007E9FA0 /* login */,
@@ -221,7 +242,6 @@
 				BE42D81D1FE7419C004FF9C1 /* LaunchScreen.storyboard */,
 				BE42D8201FE7419C004FF9C1 /* Info.plist */,
 				BE42D8181FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld */,
-				BE48B37D1FF1BCCD00A1AB1C /* HomeViewController.swift */,
 				BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */,
 				BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */,
 				BE33F9AF201D688200F45737 /* CustomAnnotationView.swift */,
@@ -367,6 +387,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -376,14 +397,13 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -393,9 +413,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -411,19 +429,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */,
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
 				BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */,
 				BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */,
-				BE10935F204500FB007E9FA0 /* LoginVM.swift in Sources */,
+				BE10935F204500FB007E9FA0 /* LoginPresenter.swift in Sources */,
 				BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */,
 				BE1093662046440F007E9FA0 /* DataManager.swift in Sources */,
 				BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */,
 				BE109364204643D5007E9FA0 /* ProfileTableVC.swift in Sources */,
 				BE33F9B8201D775D00F45737 /* AnnotationView.swift in Sources */,
-				BE48B37E1FF1BCCD00A1AB1C /* HomeViewController.swift in Sources */,
+				BE48B37E1FF1BCCD00A1AB1C /* HomeVC.swift in Sources */,
 				BE33F9B4201D752A00F45737 /* CustomCallOutClass.swift in Sources */,
 				BE33F9DD2027AD0100F45737 /* UIVIew+Blur.swift in Sources */,
+				BE349E9A20687B540081422A /* TripViewModel.swift in Sources */,
 				BE33F9D7202008A000F45737 /* CustomCalloutView.swift in Sources */,
 				BE33F9B6201D762400F45737 /* TripAnnotation.swift in Sources */,
 				BE39E3D2202BE09C0055B411 /* HeaderDetailsClass.swift in Sources */,
@@ -431,7 +451,9 @@
 				BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */,
 				BE33F9B0201D688200F45737 /* CustomAnnotationView.swift in Sources */,
 				BE42D81A1FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld in Sources */,
+				BE2EA3762074752500951A73 /* APIUser.swift in Sources */,
 				BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */,
+				BE2EA3782074754300951A73 /* UserRequestModel.swift in Sources */,
 				BE1093612045013E007E9FA0 /* LoginFBRequest.swift in Sources */,
 				BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */,
 				BE33F9AE201D09D200F45737 /* CustomAnnotation.swift in Sources */,

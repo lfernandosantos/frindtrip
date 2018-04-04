@@ -15,8 +15,10 @@ class StarbucksAnnotation: NSObject, MKAnnotation {
     var name: String!
     var address: String!
     var image: UIImage!
+    var trip: Trip
     
-    init(coordinate: CLLocationCoordinate2D) {
+    init(coordinate: CLLocationCoordinate2D, trip: Trip) {
         self.coordinate = coordinate
+        self.trip = trip
     }
 }

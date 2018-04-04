@@ -26,4 +26,5 @@ class UserFace: NSObject, Mappable {
         email <- map["email"]
         picture <- map["picture"]
     }
+   
 }
