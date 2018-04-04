@@ -12,11 +12,19 @@ import SnapKit
 
 class DetailEventTableVC: UITableViewController {
 
+
+    @IBOutlet weak var imgSaveEvent: UIImageView!
     @IBOutlet weak var img: UIImageView!
+
+    var tripViewModel: TripViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(saveEvent(tapGestureRecognizer:)))
+        imgSaveEvent.isUserInteractionEnabled = true
+        imgSaveEvent.addGestureRecognizer(tap)
             //self.tableView.contentInset = UIEdgeInsetsMake(-100,0,0,0)
 
 //        if let imageView = Bundle.main.loadNibNamed("HeaderDetailV", owner: self, options: nil)?.first as? HeaderDetailsClass{
@@ -47,6 +55,17 @@ class DetailEventTableVC: UITableViewController {
 //                make.width.height.equalTo(100)
 //            }
 //        }
+    }
+
+    @objc func saveEvent(tapGestureRecognizer: UITapGestureRecognizer){
+        print("foi ")
+        if imgSaveEvent.isHighlighted {
+            imgSaveEvent.isHighlighted = false
+
+        } else {
+            imgSaveEvent.isHighlighted = true
+
+        }
     }
 
     override func viewDidLayoutSubviews() {

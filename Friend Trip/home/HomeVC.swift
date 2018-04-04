@@ -10,7 +10,7 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 
-class HomeViewController: UIViewController {
+class HomeVC: UIViewController {
 
     @IBOutlet weak var imageViewIcons: UIImageView!
     @IBOutlet weak var btnFriendTrip: UIButton!

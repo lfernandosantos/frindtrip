@@ -10,7 +10,7 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 
-class LoginVM: NSObject, LoginButtonDelegate {
+class LoginPresenter: NSObject, LoginButtonDelegate {
 
     var viewLogin: LoginVC
 
