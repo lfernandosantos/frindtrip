@@ -15,16 +15,20 @@ class Trip: NSObject {
     let local: String
     let data: String
     let tipoEvento: String
+    let descriptionTrip: String
     let lat: CLLocationDegrees
     let lon: CLLocationDegrees
+    let userAdm: UserFace
 
-    init(nome: String, local: String, data: String, tipoEvento: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
+    init(nome: String, local: String, data: String, tipoEvento: String, descriptionTrip: String, lat: CLLocationDegrees, lon: CLLocationDegrees, userAdm: UserFace) {
         self.nome = nome
         self.local = local
         self.data = data
         self.tipoEvento = tipoEvento
+        self.descriptionTrip = descriptionTrip
         self.lat = lat
         self.lon = lon
+        self.userAdm = userAdm
     }
 
     override var description: String {
