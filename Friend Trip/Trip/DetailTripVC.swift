@@ -7,29 +7,74 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailTripVC: UIViewController {
 
+    @IBOutlet weak var imgTrip: UIImageView!
+    @IBOutlet weak var lblTitleTrip: UILabel!
+    @IBOutlet weak var lblLocalTrip: UILabel!
+    @IBOutlet weak var lblTypeTrip: UILabel!
+    @IBOutlet weak var lblMonthTrip: UILabel!
+    @IBOutlet weak var lblDayTrip: UILabel!
+    @IBOutlet weak var lvlTotalConfirm: UIView!
+    @IBOutlet weak var imgFavoriteTrip: UIImageView!
+    @IBOutlet weak var lblDescriptionTrip: UITextView!
+
+    @IBOutlet weak var lblNameAdmin: UILabel!
+    @IBOutlet weak var imgProfileAdm: UIImageView!
+    @IBOutlet weak var btnConfirm: UIButton!
+
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var scroll: UIScrollView!
+    var tripViewModel: TripViewModel!
+    @IBOutlet weak var constraintTop: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tapFavorite = UITapGestureRecognizer(target: self, action: #selector(setFavoriteTrip(tapGestureRecognizer:)))
+        imgFavoriteTrip.addGestureRecognizer(tapFavorite)
+        imgFavoriteTrip.isUserInteractionEnabled = true
+
+        lblTitleTrip.text = tripViewModel.nameTrip
+        lblTypeTrip.text = tripViewModel.typeTrip
+        lblLocalTrip.text = tripViewModel.localTrip
+        lblDayTrip.text = tripViewModel.getDayTrip()
+        lblMonthTrip.text = tripViewModel.getMothTrip()
+        lblDescriptionTrip.text = tripViewModel.descriptionTrip
+
+        lblNameAdmin.text = tripViewModel.admName
+//tratar imagem e inserir view model do user na trip
+        let urlImg = URL(string: tripViewModel.picAdm)
+        imgProfileAdm.kf.setImage(with: urlImg!)
+        print(tripViewModel.picAdm)
+
         // Do any additional setup after loading the view.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        btnConfirm.layer.cornerRadius = 6
+        if let nav = navigationController?.navigationBar.bounds.height {
+            constraintTop.constant -= nav
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func setFavoriteTrip(tapGestureRecognizer: UITapGestureRecognizer) {
+        if imgFavoriteTrip.isHighlighted {
+            imgFavoriteTrip.isHighlighted = false
+        } else {
+            imgFavoriteTrip.isHighlighted = true
+        }
     }
-    */
 
 }
