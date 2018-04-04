@@ -10,6 +10,7 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 
+
 class HomeVC: UIViewController {
 
     @IBOutlet weak var imageViewIcons: UIImageView!
@@ -26,7 +27,6 @@ class HomeVC: UIViewController {
         
         btnFriendTrip.layer.cornerRadius = btnFriendTrip.frame.height/5
 
-        print(user?.toJSONString())
     }
 
 
@@ -37,6 +37,12 @@ class HomeVC: UIViewController {
 
     @IBAction func backHere(){
 
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapVC = segue.destination as? MapListFriendTripVC {
+            mapVC
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
