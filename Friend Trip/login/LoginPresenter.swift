@@ -36,7 +36,7 @@ class LoginPresenter: NSObject, LoginButtonDelegate {
         print("logout")
     }
 
-    func makeLogin(accessToken: AccessToken){
+    func makeLogin(accessToken: AccessToken) {
         LoginFBRequest().getUserInfo(accessToken: accessToken){ result, error in
             if let result = result{
                 let userFace = UserFace(JSON: result)
@@ -45,7 +45,7 @@ class LoginPresenter: NSObject, LoginButtonDelegate {
         }
     }
 
-    func checkAlreadyLogin(){
+    func checkAlreadyLogin() {
         if let accessToken = AccessToken.current {
             makeLogin(accessToken: accessToken)
         }else{
@@ -53,4 +53,7 @@ class LoginPresenter: NSObject, LoginButtonDelegate {
         }
     }
 
+    func createUser() {
+
+    }
 }

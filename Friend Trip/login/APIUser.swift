@@ -7,7 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class APIUser: NSObject {
 
+    func getParameters() {
+
+    }
+    
+    func createNewUser(user: UserRequestModel) {
+
+    }
 }
