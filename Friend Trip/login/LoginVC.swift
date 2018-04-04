@@ -12,12 +12,12 @@ import FacebookLogin
 class LoginVC: UIViewController {
 
     @IBOutlet var loginFBbtn: LoginButton!
-    var loginVM: LoginVM?
+    var loginVM: LoginPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginVM = LoginVM(viewLogin: self)
+        loginVM = LoginPresenter(viewLogin: self)
         loginFBbtn = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
         loginFBbtn.delegate = loginVM
     }
@@ -27,10 +27,11 @@ class LoginVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let homeVC: HomeViewController = segue.destination as? HomeViewController{
+        if let homeVC: HomeVC = segue.destination as? HomeVC{
             homeVC.user = sender as? UserFace
         }
     }
+    
     func showAlert(title: String, msg: String){
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
