@@ -8,12 +8,11 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'ObjectMapper'
-pod 'ParallaxHeader'
-pod 'MXParallaxHeader'
 pod 'SnapKit'
 pod 'SDWebImage'
 pod 'Kingfisher'
 pod 'LTMorphingLabel'
+pod 'Alamofire'
 
   # Pods for Friend Trip
 
