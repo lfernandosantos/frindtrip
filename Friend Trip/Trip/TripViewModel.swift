@@ -14,11 +14,27 @@ class TripViewModel {
     let localTrip: String
     let dataTrip: String
     let typeTrip: String
+    let descriptionTrip: String
+    let admName: String
+    let picAdm: String
 
     init(trip: Trip) {
         self.nameTrip = trip.nome
         self.localTrip = trip.local
         self.dataTrip = trip.data
         self.typeTrip = trip.tipoEvento
+
+        self.admName = trip.userAdm.firstName ?? " Sem nome"
+        self.picAdm = trip.userAdm.picture?.data?.url ?? "placehoder"
+        
+        self.descriptionTrip = "hiuhobui wekmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wori nrwoin hui uuubibibiu niobibib"
+    }
+
+    func getMothTrip() -> String {
+        return "Maio"
+    }
+
+    func getDayTrip() -> String {
+        return "22"
     }
 }
