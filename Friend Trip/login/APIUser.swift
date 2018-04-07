@@ -9,13 +9,42 @@
 import UIKit
 import Alamofire
 
-class APIUser: NSObject {
+class APIUser {
+    let url = URL(string: "https://evening-taiga-94123.herokuapp.com/users/")!
+    let user: UserViewModel
+    func getParameters() -> Parameters {
 
-    func getParameters() {
+        let parameters: Parameters = [
+            "nome": user.name,
+            "email": user.email,
+            "foto": user.picUrl
+        ]
 
+        return parameters
     }
-    
-    func createNewUser(user: UserRequestModel) {
 
+    init(user: UserViewModel) {
+        self.user = user
+    }
+
+    func createNewUser(completion:@escaping (Bool, [String: Any]?, Error?) -> Void) {
+
+        let parameters = getParameters()
+
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate().responseJSON { response in
+
+            switch response.result {
+            case .success:
+                if let response = response.result.value as? [String: Any] {
+                    completion(true, response, nil)
+                } else {
+                    completion(false, nil, nil)
+                }
+                break
+            case.failure(let error):
+                completion(false, nil, error)
+                break
+            }
+        }
     }
 }
