@@ -16,15 +16,7 @@ class ProfileViewModel {
     let imageURL: String
 
     init(userFace: UserFace) {
-
-        var stringName = ""
-        if let first = userFace.firstName {
-            stringName += first
-        }
-        if let last = userFace.lastName {
-            stringName += " \(last)"
-        }
-        self.nameProfile = stringName
+        self.nameProfile = userFace.name ?? " "
         self.emailProfile = userFace.email ?? " "
         self.imageURL = userFace.picture?.data?.url ?? " "
     }

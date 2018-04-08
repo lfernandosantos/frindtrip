@@ -9,12 +9,19 @@
 import UIKit
 import ObjectMapper
 
-class UserRequestModel: NSObject, Mappable {
+class UserResponseModel: NSObject, Mappable {
 
     var id: String?
     var name: String?
     var email:String?
-    var picture: UserPicture?
+    var picture: String?
+
+
+    init?(user: UserFace){
+        self.name = user.name
+        self.email = user.email
+        self.picture = user.picture?.data?.url
+    }
 
     required init?(map: Map) {}
 
