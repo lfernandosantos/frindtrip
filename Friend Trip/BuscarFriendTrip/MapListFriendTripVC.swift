@@ -153,28 +153,26 @@ extension MapViewDelegate
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
 
-        let starbucksAnnotation = view.annotation as! StarbucksAnnotation
-        let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
-        let calloutView = views?[0] as! CustomCallOutClass
+        if let starbucksAnnotation = view.annotation as? StarbucksAnnotation {
+            let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
+            let calloutView = views?[0] as! CustomCallOutClass
 
-        calloutView.title.text = starbucksAnnotation.name
-        calloutView.subTitle.text = starbucksAnnotation.address
-        calloutView.tipeTrip.text = starbucksAnnotation.trip.tipoEvento
-        calloutView.data.text = starbucksAnnotation.trip.data
-        calloutView.img.image = starbucksAnnotation.image
-        calloutView.img.contentMode = .scaleAspectFit
+            calloutView.title.text = starbucksAnnotation.name
+            calloutView.subTitle.text = starbucksAnnotation.address
+            calloutView.tipeTrip.text = starbucksAnnotation.trip.tipoEvento
+            calloutView.data.text = starbucksAnnotation.trip.data
+            calloutView.img.image = starbucksAnnotation.image
+            calloutView.img.contentMode = .scaleAspectFit
 
-        let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
-        calloutView.addGestureRecognizer(gestureSwift2AndHigher)
+            let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+            calloutView.addGestureRecognizer(gestureSwift2AndHigher)
 
+            selectedTrip = starbucksAnnotation.trip
 
-        selectedTrip = starbucksAnnotation.trip
-
-        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
-        view.addSubview(calloutView)
-        mapView.setCenter((view.annotation?.coordinate)!, animated: true)
-
-
+            calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+            view.addSubview(calloutView)
+            mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+        }
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
