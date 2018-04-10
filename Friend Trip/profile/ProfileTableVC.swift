@@ -40,7 +40,6 @@ class ProfileTableVC: UITableViewController {
                             return
                         }
 
-                        
                         let userViewModel = ProfileViewModel(userFace: userFace)
                         let urlImage = URL(string: userViewModel.imageURL)
                         self.imageViewProfile.kf.setImage(with: urlImage)

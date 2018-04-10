@@ -8,12 +8,14 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
 
     var selectedTrip: Trip!
 
@@ -24,32 +26,39 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func setupViews() {
+        addTrip.layer.cornerRadius = addTrip.frame.width/2
+        addTrip.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        addTrip.layer.masksToBounds = false
+        addTrip.layer.shadowOpacity = 0.6
+        addTrip.layer.shadowColor = UIColor.black.cgColor
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
+
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+         
 //        navigationController?.navigationBar.isTranslucent = true
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationController?.navigationBar.shadowImage = UIImage()
 
         self.mapView.delegate = self
 
-        addTrip.layer.cornerRadius = addTrip.frame.width/2
-
-        addTrip.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        addTrip.layer.masksToBounds = false
-        addTrip.layer.shadowOpacity = 0.6
-        addTrip.layer.shadowColor = UIColor.black.cgColor
-
         let jsonUser: [String : Any] = ["picture":
                                 [ "data":
                                     [ "height": 200,
             "is_silhouette": 0,
-            "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1522876279&hash=AeQOe6O7qufeR2Rl",
+            "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
                                         "width": 200 ]
 
             ],
-                        "last_name": "Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650, "first_name": "Fernando"]
+                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
 
         tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
@@ -68,16 +77,15 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             point.phone = trip.data
 
             self.mapView.addAnnotation(point)
-
         }
+        
         let initialLocation = CLLocation(latitude: -22.767654, longitude: -43.426178)
 
-        centralizar(coordenadas: initialLocation.coordinate)
+        //centralizar(coordenadas: initialLocation.coordinate)
 
         mapView.bringSubview(toFront: addTrip)
 
     }
-
 
     func getRoundShadowButton(button: UIButton) -> CALayer {
         let layer = CALayer()
@@ -187,5 +195,21 @@ extension MapViewDelegate
         if let detailVC = segue.destination as? DetailTripVC {
             detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
         }
+    }
+}
+extension MapListFriendTripVC: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
+        mapView.showsUserLocation = true
+
+        if let coordenada = locations.first?.coordinate {
+            centralizar(coordenadas: coordenada)
+        }
+    }
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+
+        //fazer requisição mandando nova localização
+        print(mapView.centerCoordinate)
     }
 }

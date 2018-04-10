@@ -45,15 +45,6 @@ class DetailEventTableVC: UITableViewController {
         }
     }
 
-    override func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        print("ooo")
-
-    }
-
-    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        print("rrr")
-    }
-
     override func viewDidLayoutSubviews() {
         if let rect = self.navigationController?.navigationBar.frame {
             let statusHeight = UIApplication.shared.statusBarFrame.height
