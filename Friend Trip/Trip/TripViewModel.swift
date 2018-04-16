@@ -24,7 +24,7 @@ class TripViewModel {
         self.dataTrip = trip.data
         self.typeTrip = trip.tipoEvento
 
-        self.admName = trip.userAdm.name ?? " Sem nome"
+        self.admName = trip.userAdm.name ?? "Name"
         self.picAdm = trip.userAdm.picture?.data?.url ?? "placehoder"
         
         self.descriptionTrip = "hiuhobui wekmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wori nrwoin hui uuubibibiu niobibib"
