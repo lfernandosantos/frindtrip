@@ -56,9 +56,14 @@ class LoginVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         stopIndicator()
-        if let homeVC: HomeVC = segue.destination as? HomeVC{
-            homeVC.user = sender as? UserFace
+        if segue.identifier == "goHome" {
+            if let homeVC: HomeVC = segue.destination as? HomeVC{
+                homeVC.user = sender as? UserFace
+            } else {
+                print("Destination Home nulo.")
+            }
         }
+
     }
     
     func showAlert(title: String, msg: String){

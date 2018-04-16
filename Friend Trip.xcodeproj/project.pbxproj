@@ -18,6 +18,7 @@
 		BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA37B20771D5200951A73 /* UserViewModel.swift */; };
 		BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */; };
 		BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A8205EF1F1006086EF /* Trip.swift */; };
+		BE33C495207ABFB00058B87D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE33C494207ABFB00058B87D /* MapKit.framework */; };
 		BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */; };
 		BE33F9AC201D08BB00F45737 /* CustomAnnotationV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */; };
 		BE33F9AE201D09D200F45737 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */; };
@@ -61,6 +62,7 @@
 		BE2EA37B20771D5200951A73 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripVC.swift; sourceTree = "<group>"; };
 		BE2ED6A8205EF1F1006086EF /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		BE33C494207ABFB00058B87D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListFriendTripVC.swift; sourceTree = "<group>"; };
 		BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnnotationV.xib; sourceTree = "<group>"; };
 		BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE33C495207ABFB00058B87D /* MapKit.framework in Frameworks */,
 				436880E3945FB0D308674064 /* Pods_Friend_Trip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +112,7 @@
 		0B116AF033E9B5EB2D7B8EB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE33C494207ABFB00058B87D /* MapKit.framework */,
 				3DD685ECED0DD6CE1909E594 /* Pods_Friend_Trip.framework */,
 			);
 			name = Frameworks;
@@ -311,6 +315,14 @@
 					BE42D80D1FE7419C004FF9C1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

@@ -45,11 +45,12 @@
                     <connections>
                         <outlet property="loginFBbtn" destination="cA6-ez-DGq" id="aJL-KD-ncT"/>
                         <segue destination="MUd-9m-RfZ" kind="showDetail" identifier="goHome" id="dMy-Io-3Si"/>
+                        <segue destination="CDA-ee-FRt" kind="show" id="SAD-W9-k9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-574" y="136"/>
+            <point key="canvasLocation" x="-947" y="135"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="w4H-7W-d5R">
@@ -794,6 +795,24 @@
             </objects>
             <point key="canvasLocation" x="2368" y="930"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="3jy-nD-DRX">
+            <objects>
+                <viewController id="CDA-ee-FRt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RpH-em-gDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aO3-qU-9Pm"/>
+                    </view>
+                    <connections>
+                        <segue destination="MUd-9m-RfZ" kind="show" id="9T1-9z-nJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzT-tn-Ytk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-122" y="-661"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jcj-CG-glR">
             <objects>
@@ -845,4 +864,7 @@
         <image name="icons" width="1276" height="299"/>
         <image name="logo" width="3592" height="1917"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dMy-Io-3Si"/>
+    </inferredMetricsTieBreakers>
 </document>
