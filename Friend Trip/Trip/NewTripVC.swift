@@ -125,7 +125,7 @@ class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
                   "width": 200 ]
 
             ],
-                                        "last_name": "Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650, "first_name": "Fernando"]
+                                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
         let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento, descriptionTrip: description, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
     }
     
