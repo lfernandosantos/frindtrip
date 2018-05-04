@@ -21,6 +21,15 @@ class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let geCoder = CLGeocoder()
+        geCoder.geocodeAddressString("Rua nestor 40, Santo Elias, Mesquita, RJ") { placemarks, error in
+
+            let placeMarks = placemarks
+            let location = placemarks?.first?.location
+
+            print(location)
+            print(placemarks)
+        }
         // Do any additional setup after loading the view.
     }
 
