@@ -41,7 +41,7 @@ class HomeVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapListFriendTripVC {
-            mapVC
+            
         }
     }
 
