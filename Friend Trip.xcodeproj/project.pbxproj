@@ -46,6 +46,7 @@
 		BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B3741FF1349200A1AB1C /* DataPicture.swift */; };
 		BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B3771FF146AD00A1AB1C /* DefaultColors.swift */; };
 		BE48B37E1FF1BCCD00A1AB1C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */; };
+		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		BE48B3741FF1349200A1AB1C /* DataPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicture.swift; sourceTree = "<group>"; };
 		BE48B3771FF146AD00A1AB1C /* DefaultColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColors.swift; sourceTree = "<group>"; };
 		BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 		BE2EA3742074701700951A73 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */,
 				BE48B37D1FF1BCCD00A1AB1C /* HomeVC.swift */,
 			);
 			path = home;
@@ -186,13 +189,20 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		BE33F9A8201C25EA00F45737 /* BuscarFriendTrip */ = {
+		BE33F9A8201C25EA00F45737 /* map */ = {
 			isa = PBXGroup;
 			children = (
 				BE30682C20649446004C2893 /* view */,
 				BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */,
+				BE33F9BD2020089F00F45737 /* StarbucksAnnotation.swift */,
+				BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */,
+				BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */,
+				BE33F9AF201D688200F45737 /* CustomAnnotationView.swift */,
+				BE33F9B3201D752A00F45737 /* CustomCallOutClass.swift */,
+				BE33F9B5201D762400F45737 /* TripAnnotation.swift */,
+				BE33F9B7201D775D00F45737 /* AnnotationView.swift */,
 			);
-			path = BuscarFriendTrip;
+			path = map;
 			sourceTree = "<group>";
 		};
 		BE33F9D8202008FE00F45737 /* custom */ = {
@@ -201,13 +211,6 @@
 				BE33F9C92020089F00F45737 /* CustomCalloutView.swift */,
 			);
 			path = custom;
-			sourceTree = "<group>";
-		};
-		BE33F9D92027A4FD00F45737 /* event */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = event;
 			sourceTree = "<group>";
 		};
 		BE42D8051FE7419C004FF9C1 = {
@@ -235,10 +238,8 @@
 				BE2ED6A4205EE889006086EF /* Trip */,
 				BE1093622046439A007E9FA0 /* profile */,
 				BE10935D204500BF007E9FA0 /* login */,
-				BE33F9D92027A4FD00F45737 /* event */,
-				BE33F9BD2020089F00F45737 /* StarbucksAnnotation.swift */,
 				BE33F9D8202008FE00F45737 /* custom */,
-				BE33F9A8201C25EA00F45737 /* BuscarFriendTrip */,
+				BE33F9A8201C25EA00F45737 /* map */,
 				BE48B3761FF1469800A1AB1C /* utils */,
 				BE48B36D1FF12DFC00A1AB1C /* model */,
 				BE42D8111FE7419C004FF9C1 /* AppDelegate.swift */,
@@ -249,12 +250,6 @@
 				BE42D81D1FE7419C004FF9C1 /* LaunchScreen.storyboard */,
 				BE42D8201FE7419C004FF9C1 /* Info.plist */,
 				BE42D8181FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld */,
-				BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */,
-				BE33F9AD201D09D200F45737 /* CustomAnnotation.swift */,
-				BE33F9AF201D688200F45737 /* CustomAnnotationView.swift */,
-				BE33F9B3201D752A00F45737 /* CustomCallOutClass.swift */,
-				BE33F9B5201D762400F45737 /* TripAnnotation.swift */,
-				BE33F9B7201D775D00F45737 /* AnnotationView.swift */,
 				BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */,
 			);
 			path = "Friend Trip";
@@ -448,6 +443,7 @@
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
 				BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */,
+				BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */,
 				BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */,
 				BE10935F204500FB007E9FA0 /* LoginPresenter.swift in Sources */,
 				BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */,

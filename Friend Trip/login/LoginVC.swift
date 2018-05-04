@@ -57,8 +57,16 @@ class LoginVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         stopIndicator()
         if segue.identifier == "goHome" {
-            if let homeVC: HomeVC = segue.destination as? HomeVC{
-                homeVC.user = sender as? UserFace
+            print(segue.destination.debugDescription)
+            if let tabController = segue.destination as? UITabBarController {
+                print("tab")
+                if let navController = tabController.viewControllers?[0] as?
+                UINavigationController{
+                    print("nav")
+                    if let homeVC = navController.viewControllers[0] as? HomeVC{
+                        homeVC.user = sender as? UserFace
+                    }
+                }
             } else {
                 print("Destination Home nulo.")
             }
