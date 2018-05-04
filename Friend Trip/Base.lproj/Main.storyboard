@@ -45,7 +45,7 @@
                     <connections>
                         <outlet property="loginFBbtn" destination="cA6-ez-DGq" id="aJL-KD-ncT"/>
                         <segue destination="MUd-9m-RfZ" kind="showDetail" identifier="goHome" id="dMy-Io-3Si"/>
-                        <segue destination="CDA-ee-FRt" kind="show" id="SAD-W9-k9v"/>
+                        <segue destination="CDA-ee-FRt" kind="show" identifier="wellcome" id="SAD-W9-k9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -851,23 +851,106 @@
             </objects>
             <point key="canvasLocation" x="2691" y="976"/>
         </scene>
-        <!--View Controller-->
+        <!--WellcomeVC-->
         <scene sceneID="3jy-nD-DRX">
             <objects>
-                <viewController id="CDA-ee-FRt" sceneMemberID="viewController">
+                <viewController id="CDA-ee-FRt" customClass="WellcomeVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RpH-em-gDZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J17-8O-lur">
+                                <rect key="frame" x="85" y="53" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="HlC-I4-Q7B"/>
+                                    <constraint firstAttribute="width" secondItem="J17-8O-lur" secondAttribute="height" multiplier="1:1" id="dx0-ea-PfK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem Vindo (a)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhh-rn-vua">
+                                <rect key="frame" x="16" y="238" width="288" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhe interesses da sua viagem com outros FriendTrips." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH6-go-v33">
+                                <rect key="frame" x="50" y="269.5" width="220" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXj-WU-fGd">
+                                <rect key="frame" x="16" y="438.5" width="288" height="14.5"/>
+                                <string key="text">Ao continuar você concorda com os termos de uso e com a Política de Privacidade.
+Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse que o seu.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicione suas hashtags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDf-7q-Vbc">
+                                <rect key="frame" x="72" y="338.5" width="176" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#tags #geek" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7te-Zb-bHr">
+                                <rect key="frame" x="40" y="368.5" width="240" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="twitter" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.84894049657534243" green="0.84894049657534243" blue="0.84894049657534243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-XS-nae">
+                                <rect key="frame" x="16" y="458" width="288" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                <state key="normal" title="Concordo">
+                                    <color key="titleColor" red="0.23191827958300026" green="0.56439291029954342" blue="0.20344108039244055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MUd-9m-RfZ" kind="show" id="UEL-Ur-Qfh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="ColorOrangeGrandientTop"/>
+                        <constraints>
+                            <constraint firstItem="PXj-WU-fGd" firstAttribute="top" secondItem="7te-Zb-bHr" secondAttribute="bottom" constant="40" id="2vz-Ml-Qvl"/>
+                            <constraint firstItem="7te-Zb-bHr" firstAttribute="leading" secondItem="aO3-qU-9Pm" secondAttribute="leading" constant="40" id="9fo-tk-40Y"/>
+                            <constraint firstItem="aO3-qU-9Pm" firstAttribute="trailing" secondItem="7te-Zb-bHr" secondAttribute="trailing" constant="40" id="C4Y-4k-kcv"/>
+                            <constraint firstItem="aO3-qU-9Pm" firstAttribute="trailing" secondItem="zTL-XS-nae" secondAttribute="trailing" constant="16" id="Ecg-5x-XHR"/>
+                            <constraint firstItem="aO3-qU-9Pm" firstAttribute="trailing" secondItem="PXj-WU-fGd" secondAttribute="trailing" constant="16" id="G6h-4G-APi"/>
+                            <constraint firstItem="J17-8O-lur" firstAttribute="centerX" secondItem="RpH-em-gDZ" secondAttribute="centerX" id="Msy-iS-Qv2"/>
+                            <constraint firstItem="Jhh-rn-vua" firstAttribute="top" secondItem="J17-8O-lur" secondAttribute="bottom" constant="35" id="Pfg-hk-YcQ"/>
+                            <constraint firstItem="DDf-7q-Vbc" firstAttribute="top" secondItem="mH6-go-v33" secondAttribute="bottom" constant="40" id="RyM-bh-OD0"/>
+                            <constraint firstItem="mH6-go-v33" firstAttribute="centerY" secondItem="RpH-em-gDZ" secondAttribute="centerY" id="Vho-lv-RAI"/>
+                            <constraint firstItem="7te-Zb-bHr" firstAttribute="top" secondItem="DDf-7q-Vbc" secondAttribute="bottom" constant="10" id="WDX-vU-3AY"/>
+                            <constraint firstItem="PXj-WU-fGd" firstAttribute="leading" secondItem="aO3-qU-9Pm" secondAttribute="leading" constant="16" id="Y5w-8Y-SM7"/>
+                            <constraint firstItem="DDf-7q-Vbc" firstAttribute="centerX" secondItem="RpH-em-gDZ" secondAttribute="centerX" id="bK4-ey-dTF"/>
+                            <constraint firstItem="mH6-go-v33" firstAttribute="leading" secondItem="aO3-qU-9Pm" secondAttribute="leading" constant="50" id="eIm-CU-RL2"/>
+                            <constraint firstItem="aO3-qU-9Pm" firstAttribute="trailing" secondItem="Jhh-rn-vua" secondAttribute="trailing" constant="16" id="gAc-oA-ILU"/>
+                            <constraint firstItem="zTL-XS-nae" firstAttribute="top" secondItem="PXj-WU-fGd" secondAttribute="bottom" constant="5" id="i9d-i9-a5q"/>
+                            <constraint firstItem="mH6-go-v33" firstAttribute="top" secondItem="Jhh-rn-vua" secondAttribute="bottom" constant="5" id="qAX-eQ-Zbg"/>
+                            <constraint firstItem="aO3-qU-9Pm" firstAttribute="trailing" secondItem="mH6-go-v33" secondAttribute="trailing" constant="50" id="sQB-yJ-8os"/>
+                            <constraint firstItem="Jhh-rn-vua" firstAttribute="leading" secondItem="aO3-qU-9Pm" secondAttribute="leading" constant="16" id="sjg-X9-tJY"/>
+                            <constraint firstItem="zTL-XS-nae" firstAttribute="leading" secondItem="aO3-qU-9Pm" secondAttribute="leading" constant="16" id="vpV-eo-vbO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aO3-qU-9Pm"/>
                     </view>
                     <connections>
-                        <segue destination="MUd-9m-RfZ" kind="show" id="9T1-9z-nJr"/>
+                        <outlet property="confirmBtn" destination="zTL-XS-nae" id="mvj-3d-xaW"/>
+                        <outlet property="hastagsTXF" destination="7te-Zb-bHr" id="vIw-Yq-Wgm"/>
+                        <outlet property="profileImg" destination="J17-8O-lur" id="sEn-Xf-zI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzT-tn-Ytk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122" y="-661"/>
+            <point key="canvasLocation" x="-123.75" y="-661.26760563380287"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jcj-CG-glR">
@@ -920,8 +1003,11 @@
         <image name="ic_profile_tab" width="43" height="43"/>
         <image name="icons" width="1276" height="299"/>
         <image name="logo" width="3592" height="1917"/>
+        <namedColor name="ColorOrangeGrandientTop">
+            <color red="1" green="0.5350000262260437" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dMy-Io-3Si"/>
+        <segue reference="UEL-Ur-Qfh"/>
     </inferredMetricsTieBreakers>
 </document>
