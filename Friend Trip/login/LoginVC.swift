@@ -72,6 +72,13 @@ class LoginVC: UIViewController {
             }
         }
 
+        if segue.identifier == "wellcome" {
+            if let wellcome = segue.destination as? WellcomeVC {
+                wellcome.userFace = sender as? UserFace
+            }
+            print("wellcome")
+        }
+
     }
     
     func showAlert(title: String, msg: String){
