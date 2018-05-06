@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import MapKit
+
+protocol HandleMapSearch {
+    func dropZoomIn(coordinate: CLLocationCoordinate2D)
+}
