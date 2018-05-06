@@ -87,7 +87,14 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         tripsList.append(Trip(nome: "Viagem5", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append(Trip(nome: "Viagem6", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
 
-        for trip in tripsList{
+        loadTripsOnMap(tripsList)
+    }
+
+    func loadTripsOnMap(_ trips: [Trip]) {
+
+        mapView.removeAnnotations(mapView.annotations)
+
+        for trip in trips{
 
             let coordinate = CLLocation(latitude: trip.lat, longitude: trip.lon)
             let point = StarbucksAnnotation(coordinate: coordinate.coordinate, trip: trip)
