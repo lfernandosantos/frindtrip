@@ -12,15 +12,16 @@ import CoreLocation
 
 class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
-    @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var filterBtn: UIButton!
     let locationManager = CLLocationManager()
 
+    var searchBarController: UISearchController? = nil
+    var selectedSearchLocation: MKPlacemark? = nil
     var selectedTrip: Trip!
 
-    var tripsList = [Trip]()
+
 
     @IBAction func closeView(_ sender: Any) {
         print("Close")

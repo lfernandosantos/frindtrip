@@ -26,7 +26,6 @@ class HomeVC: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         btnFriendTrip.layer.cornerRadius = btnFriendTrip.frame.height/5
-
     }
 
 
