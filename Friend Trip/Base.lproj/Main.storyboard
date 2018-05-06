@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gq6-d1-2tB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="133"/>
+            <point key="canvasLocation" x="2582" y="957"/>
         </scene>
         <!--Map List Friend TripVC-->
         <scene sceneID="b9o-Lh-4JM">
@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wak-54-6N7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2760" y="-580.9859154929577"/>
+            <point key="canvasLocation" x="1763" y="957"/>
         </scene>
         <!--Search Bar TableVC-->
         <scene sceneID="nFU-V6-ass">
@@ -408,86 +408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kG-9Y-MuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3688.125" y="-575.70422535211264"/>
-        </scene>
-        <!-- -->
-        <scene sceneID="BSv-c8-mtA">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWS-lJ-VcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController hidesBottomBarWhenPushed="YES" id="lDi-AJ-VK2" customClass="MapListFriendTripVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YYa-Fj-zha">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxt-kh-sbe">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oW-Yf-0PU">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="lDi-AJ-VK2" id="PSU-Cm-NL9"/>
-                                        </connections>
-                                    </mapView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-N8-TXo">
-                                        <rect key="frame" x="237" y="25" width="58" height="58"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="58" id="3W6-a0-YEb"/>
-                                            <constraint firstAttribute="height" constant="58" id="ply-Iu-MkP"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="18" minY="18" maxX="18" maxY="18"/>
-                                        <size key="titleShadowOffset" width="5" height="5"/>
-                                        <state key="normal" image="ic_filter"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7oW-Yf-0PU" secondAttribute="trailing" id="77r-MM-8fG"/>
-                                    <constraint firstItem="7oW-Yf-0PU" firstAttribute="leading" secondItem="uxt-kh-sbe" secondAttribute="leading" id="7YF-5U-PO7"/>
-                                    <constraint firstItem="7oW-Yf-0PU" firstAttribute="top" secondItem="uxt-kh-sbe" secondAttribute="top" id="Qtj-xU-Esw"/>
-                                    <constraint firstItem="Obk-N8-TXo" firstAttribute="top" secondItem="uxt-kh-sbe" secondAttribute="top" constant="25" id="S0x-yM-pQ8"/>
-                                    <constraint firstAttribute="trailing" secondItem="Obk-N8-TXo" secondAttribute="trailing" constant="25" id="SpR-15-u19"/>
-                                    <constraint firstAttribute="bottom" secondItem="7oW-Yf-0PU" secondAttribute="bottom" id="a7l-E4-hlM"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8j-yx-Fx8">
-                                <rect key="frame" x="237" y="485" width="58" height="58"/>
-                                <color key="backgroundColor" red="0.66526898779999999" green="0.26099520920000002" blue="0.48631376030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="3Kl-Ef-k6M"/>
-                                    <constraint firstAttribute="height" constant="58" id="Io2-UU-awC"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="18" minY="18" maxX="18" maxY="18"/>
-                                <size key="titleShadowOffset" width="5" height="5"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <segue destination="TKD-BY-JPB" kind="show" id="wvX-kM-vfu"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9J8-vE-Sg0" firstAttribute="bottom" secondItem="e8j-yx-Fx8" secondAttribute="bottom" constant="25" id="EYE-Wu-xiW"/>
-                            <constraint firstItem="uxt-kh-sbe" firstAttribute="leading" secondItem="9J8-vE-Sg0" secondAttribute="leading" id="HzY-oj-1iL"/>
-                            <constraint firstItem="uxt-kh-sbe" firstAttribute="bottom" secondItem="9J8-vE-Sg0" secondAttribute="bottom" id="MR3-ky-B0O"/>
-                            <constraint firstItem="uxt-kh-sbe" firstAttribute="trailing" secondItem="9J8-vE-Sg0" secondAttribute="trailing" id="gbO-Vr-qKx"/>
-                            <constraint firstItem="uxt-kh-sbe" firstAttribute="top" secondItem="9J8-vE-Sg0" secondAttribute="top" id="sGZ-hh-Pz3"/>
-                            <constraint firstItem="9J8-vE-Sg0" firstAttribute="trailing" secondItem="e8j-yx-Fx8" secondAttribute="trailing" constant="25" id="zF3-jf-vtD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="9J8-vE-Sg0"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title=" " id="dsn-ke-YO9">
-                        <barButtonItem key="backBarButtonItem" title=" " id="VWc-gm-V76"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addTrip" destination="e8j-yx-Fx8" id="WSc-eJ-Pl4"/>
-                        <outlet property="filterBtn" destination="Obk-N8-TXo" id="spl-aG-ak9"/>
-                        <outlet property="mapView" destination="7oW-Yf-0PU" id="t58-zg-HaM"/>
-                        <segue destination="KBI-6i-akY" kind="show" identifier="clickcallout" id="b56-oH-jSp"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="4029" y="742"/>
+            <point key="canvasLocation" x="1001" y="956"/>
         </scene>
         <!--New Trip-->
         <scene sceneID="ToK-Md-pga">
@@ -676,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWL-w6-9Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="1073"/>
+            <point key="canvasLocation" x="1763" y="1814"/>
         </scene>
         <!--Detail TripVC-->
         <scene sceneID="rHh-Uo-9lF">
@@ -952,7 +873,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59t-CS-t2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2691" y="1004"/>
+            <point key="canvasLocation" x="1001" y="1744"/>
         </scene>
         <!--WellcomeVC-->
         <scene sceneID="3jy-nD-DRX">
@@ -1101,21 +1022,6 @@ Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse q
             </objects>
             <point key="canvasLocation" x="1001.25" y="135.21126760563379"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xzA-uC-kWo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0gn-1l-ZcJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XNs-iO-Rpk">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ey-tv-n8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1762.5" y="-580.9859154929577"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Image" width="35" height="35"/>
@@ -1134,7 +1040,5 @@ Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse q
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dMy-Io-3Si"/>
-        <segue reference="HDs-OJ-xr6"/>
-        <segue reference="tug-DH-vgE"/>
     </inferredMetricsTieBreakers>
 </document>
