@@ -15,6 +15,7 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var filterBtn: UIButton!
     let locationManager = CLLocationManager()
 
     var selectedTrip: Trip!
@@ -27,11 +28,18 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     }
 
     func setupViews() {
-        addTrip.layer.cornerRadius = addTrip.frame.width/2
-        addTrip.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        addTrip.layer.masksToBounds = false
-        addTrip.layer.shadowOpacity = 0.6
-        addTrip.layer.shadowColor = UIColor.black.cgColor
+
+        filterBtn.bringSubview(toFront: mapView)
+        setCircularButton(addTrip)
+
+    }
+
+    func setCircularButton(_ button: UIButton) {
+        button.layer.cornerRadius = button.frame.width/2
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.masksToBounds = false
+        button.layer.shadowOpacity = 0.6
+        button.layer.shadowColor = UIColor.black.cgColor
     }
 
     override func viewDidLoad() {
@@ -84,6 +92,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         //centralizar(coordenadas: initialLocation.coordinate)
 
         mapView.bringSubview(toFront: addTrip)
+        mapView.bringSubview(toFront: filterBtn)
+
 
     }
 
@@ -95,6 +105,11 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         layer.shadowOpacity = 0.6
         layer.shadowColor = UIColor.black.cgColor
         return layer
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        mapView.bringSubview(toFront: filterBtn)
+        setCircularButton(filterBtn)
     }
 
     func setGradientStatusBar(){
@@ -110,15 +125,15 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .default
     }
 
     override func viewDidLayoutSubviews() {
-        setGradientStatusBar()
-        statusView.bringSubview(toFront:mapView )
+        //setGradientStatusBar()
+        //statusView.bringSubview(toFront:mapView )
 
-        mapView.layer.masksToBounds = true
-        mapView.layer.cornerRadius = 5
+        //mapView.layer.masksToBounds = true
+        //mapView.layer.cornerRadius = 5
     }
     func centralizar(coordenadas: CLLocationCoordinate2D){
 
