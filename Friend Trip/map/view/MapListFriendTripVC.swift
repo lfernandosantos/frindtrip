@@ -198,13 +198,56 @@ extension MapListFriendTripVC: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         mapView.showsUserLocation = true
 
-        if let coordenada = locations.first?.coordinate {
-            centralizar(coordenadas: coordenada)
+        if let coordenadas = locations.first?.coordinate {
+            dropZoomIn(coordinate: coordenadas)
         }
     }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager.requestLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error: \(error)")
+    }
+
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 
         //fazer requisição mandando nova localização
         print(mapView.centerCoordinate)
+    }
+}
+
+extension MapListFriendTripVC: HandleMapSearch {
+
+    func dropZoomIn(coordinate: CLLocationCoordinate2D) {
+        let area = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+        let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, area)
+        mapView?.setRegion(regiao, animated: true)
+    }
+
+    func setSearchBar() {
+
+        let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
+        searchTableVC?.handleMapSearchDelegate = self
+        searchTableVC?.mapView = self.mapView
+
+        searchBarController = UISearchController(searchResultsController: searchTableVC)
+        searchBarController?.searchResultsUpdater = searchTableVC
+
+        let searchBar = searchBarController?.searchBar
+
+        searchBar?.sizeToFit()
+        searchBar?.placeholder = "Outro local?"
+        searchBar?.tintColor = UIColor.red
+        searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
+
+        navigationItem.titleView = searchBarController?.searchBar
+
+        searchBarController?.hidesNavigationBarDuringPresentation = false
+        searchBarController?.dimsBackgroundDuringPresentation = true
+
+        definesPresentationContext = true
+        
     }
 }
