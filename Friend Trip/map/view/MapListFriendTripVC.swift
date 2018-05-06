@@ -105,62 +105,25 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
             self.mapView.addAnnotation(point)
         }
-        
-        let initialLocation = CLLocation(latitude: -22.767654, longitude: -43.426178)
-
-        //centralizar(coordenadas: initialLocation.coordinate)
-
-        mapView.bringSubview(toFront: addTrip)
-        mapView.bringSubview(toFront: filterBtn)
-
-
     }
 
-    func getRoundShadowButton(button: UIButton) -> CALayer {
-        let layer = CALayer()
-        layer.cornerRadius = button.frame.width/2
-        layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.6
-        layer.shadowColor = UIColor.black.cgColor
-        return layer
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        mapView.bringSubview(toFront: filterBtn)
-        setCircularButton(filterBtn)
-    }
-
-    func setGradientStatusBar(){
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = statusView.bounds
-
-        let colorTop = UIColor(red: 255.0/255.0, green: 136.0/255.0, blue: 0/255.0, alpha: 1.0 )
-        let colorBottom = UIColor(red: 147.0/255.0, green: 54.0/255.0, blue: 237.0/255.0, alpha: 1.0)
-        gradientLayer.colors =  [colorTop, colorBottom].map{$0.cgColor}
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        statusView.layer.addSublayer(gradientLayer)
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .default
-    }
-
-    override func viewDidLayoutSubviews() {
-        //setGradientStatusBar()
-        //statusView.bringSubview(toFront:mapView )
-
-        //mapView.layer.masksToBounds = true
-        //mapView.layer.cornerRadius = 5
-    }
-    func centralizar(coordenadas: CLLocationCoordinate2D){
-
-        let area = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
-        let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordenadas, area)
-        mapView?.setRegion(regiao, animated: true)
-        print("Localização \(coordenadas)")
-    }
+//    func setGradientStatusBar(){
+//        let gradientLayer = CAGradientLayer()
+//
+//        gradientLayer.frame = (navigationController?.navigationBar.bounds)!
+//        let colorTop = UIColor(red: 255.0/255.0, green: 136.0/255.0, blue: 0/255.0, alpha: 1.0 )
+//        let colorBottom = UIColor(red: 147.0/255.0, green: 54.0/255.0, blue: 237.0/255.0, alpha: 1.0)
+//        gradientLayer.colors =  [colorTop, colorBottom].map{$0.cgColor}
+//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+//        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+//
+//        let viewBack = UIView()
+//        viewBack.frame = (navigationController?.navigationBar.bounds)!
+//        viewBack.bounds.size.height = (navigationItem.titleView?.frame.height)!
+//        viewBack.layer.addSublayer(gradientLayer)
+//        view.addSubview(viewBack)
+//        loadViewIfNeeded()
+//    }
 }
 
 typealias MapViewDelegate = MapListFriendTripVC
