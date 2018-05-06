@@ -30,8 +30,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
     func setupViews() {
 
-        filterBtn.bringSubview(toFront: mapView)
         setCircularButton(addTrip)
+        setCircularButton(filterBtn)
 
     }
 
@@ -51,23 +51,34 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
         locationManager.startUpdatingLocation()
-         
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
+
+        setSearchBar()
+
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
 
         self.mapView.delegate = self
 
+        fetchData()
+
+    }
+
+    func fetchData() {
+
         let jsonUser: [String : Any] = ["picture":
-                                [ "data":
-                                    [ "height": 200,
-            "is_silhouette": 0,
-            "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
-                                        "width": 200 ]
+            [ "data":
+                [ "height": 200,
+                  "is_silhouette": 0,
+                  "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
+                  "width": 200 ]
 
             ],
-                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
+                                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
+
+        var tripsList = [Trip]()
 
         tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
