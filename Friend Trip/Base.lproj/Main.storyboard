@@ -266,14 +266,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-T8-xff">
-                                <rect key="frame" x="16" y="173" width="75" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-T8-xff">
+                                <rect key="frame" x="16" y="74" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jlm-Di-3Oo">
-                                <rect key="frame" x="0.0" y="196" width="320" height="216"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlm-Di-3Oo">
+                                <rect key="frame" x="0.0" y="97" width="320" height="216"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -284,10 +284,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jlm-Di-3Oo" firstAttribute="trailing" secondItem="jc5-dg-Pp5" secondAttribute="trailing" id="Cys-JM-pem"/>
                             <constraint firstItem="Jlm-Di-3Oo" firstAttribute="leading" secondItem="jc5-dg-Pp5" secondAttribute="leading" id="LjY-Ib-B4v"/>
+                            <constraint firstItem="jc5-dg-Pp5" firstAttribute="trailing" secondItem="ecA-T8-xff" secondAttribute="trailing" constant="16" id="Rp1-Yu-2qo"/>
+                            <constraint firstItem="Jlm-Di-3Oo" firstAttribute="top" secondItem="ecA-T8-xff" secondAttribute="bottom" constant="2" id="Sth-R9-Vx0"/>
                             <constraint firstItem="Jlm-Di-3Oo" firstAttribute="trailing" secondItem="jc5-dg-Pp5" secondAttribute="trailing" id="VbT-rj-m7s"/>
-                            <constraint firstItem="Jlm-Di-3Oo" firstAttribute="top" secondItem="ecA-T8-xff" secondAttribute="bottom" constant="2" id="dH2-oV-CEC"/>
-                            <constraint firstItem="ecA-T8-xff" firstAttribute="leading" secondItem="jc5-dg-Pp5" secondAttribute="leading" constant="16" id="jsO-FW-A0s"/>
+                            <constraint firstItem="ecA-T8-xff" firstAttribute="top" secondItem="jc5-dg-Pp5" secondAttribute="top" constant="10" id="WIn-Ui-ERs"/>
+                            <constraint firstItem="ecA-T8-xff" firstAttribute="leading" secondItem="jc5-dg-Pp5" secondAttribute="leading" constant="16" id="nUh-qH-2ur"/>
+                            <constraint firstItem="Jlm-Di-3Oo" firstAttribute="leading" secondItem="jc5-dg-Pp5" secondAttribute="leading" id="qWi-8v-oHH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jc5-dg-Pp5"/>
                     </view>
@@ -1030,7 +1034,7 @@ Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse q
         <image name="ic_chat" width="128" height="128"/>
         <image name="ic_favorito" width="128" height="128"/>
         <image name="ic_favorito_selected" width="96" height="96"/>
-        <image name="ic_filter" width="29" height="29"/>
+        <image name="ic_filter" width="42" height="44"/>
         <image name="ic_profile_tab" width="43" height="43"/>
         <image name="icons" width="1276" height="299"/>
         <image name="logo" width="3592" height="1917"/>

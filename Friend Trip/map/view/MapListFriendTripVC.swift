@@ -21,8 +21,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     var selectedSearchLocation: MKPlacemark? = nil
     var selectedTrip: Trip!
 
-
-
     @IBAction func closeView(_ sender: Any) {
         print("Close")
         self.dismiss(animated: true, completion: nil)
