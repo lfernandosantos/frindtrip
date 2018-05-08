@@ -191,7 +191,6 @@
 		BE30682C20649446004C2893 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */,
 				BE33F9B7201D775D00F45737 /* AnnotationView.swift */,
 				BE33F9BD2020089F00F45737 /* StarbucksAnnotation.swift */,
 				BE33F9AF201D688200F45737 /* CustomAnnotationView.swift */,
@@ -208,6 +207,7 @@
 		BE33F9A8201C25EA00F45737 /* map */ = {
 			isa = PBXGroup;
 			children = (
+				BE4A1323209FCE44003DC380 /* filter */,
 				BE30682C20649446004C2893 /* view */,
 				BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */,
 				BE33F9B5201D762400F45737 /* TripAnnotation.swift */,
@@ -300,6 +300,14 @@
 				BE4A1321209F804F003DC380 /* HandleMapSearch.swift */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		BE4A1323209FCE44003DC380 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */,
+			);
+			path = filter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
