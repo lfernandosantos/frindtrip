@@ -51,6 +51,7 @@
 		BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */; };
 		BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1321209F804F003DC380 /* HandleMapSearch.swift */; };
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
+		BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B420A79BAE00801596 /* MapProtocol.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableVC.swift; sourceTree = "<group>"; };
 		BE4A1321209F804F003DC380 /* HandleMapSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMapSearch.swift; sourceTree = "<group>"; };
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
+		BECE11B420A79BAE00801596 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,6 +300,7 @@
 			children = (
 				BE4A12F82097D5C5003DC380 /* ProtocolView.swift */,
 				BE4A1321209F804F003DC380 /* HandleMapSearch.swift */,
+				BECE11B420A79BAE00801596 /* MapProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */,
 				BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */,
 				BE4A12F52097A75E003DC380 /* WellcomeVC.swift in Sources */,
+				BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */,
 				BE2EA3782074754300951A73 /* UserResponseModel.swift in Sources */,
 				BE1093612045013E007E9FA0 /* LoginFBRequest.swift in Sources */,
 				BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */,
