@@ -12,12 +12,16 @@ import MapKit
 class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var pickerView: UIPickerView!
+    var categoria: String?
+    var navColor: UIColor?
+    var mapDelegate: MapProtocol?
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
     let tiposTripList = ["Beer", "Night", "Party", "Beach"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,31 +33,43 @@ class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
 
             print(location)
             print(placemarks)
+
+            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.setFilter))
+            self.navigationItem.setRightBarButton(barButton, animated: true)
+            self.navColor = self.navigationController?.navigationBar.backgroundColor
+
         }
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "ColorTransparent")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+         self.navigationController?.navigationBar.backgroundColor = .clear
+    }
+
+    @IBAction func setFilter() {
+        if let selectedItem = categoria{
+            mapDelegate?.setCategory(category: selectedItem)
+        } else {
+            
+        }
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return tiposTripList.count
     }
 
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoria = tiposTripList[row]
+    }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return tiposTripList[row]
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
