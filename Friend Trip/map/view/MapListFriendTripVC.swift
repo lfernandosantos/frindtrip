@@ -12,14 +12,22 @@ import CoreLocation
 
 class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
-    @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var addTrip: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var filterBtn: UIButton!
     let locationManager = CLLocationManager()
 
+    var searchBarController: UISearchController? = nil
+    var selectedSearchLocation: MKPlacemark? = nil
     var selectedTrip: Trip!
+    var selectedCategory: String?
 
-    var tripsList = [Trip]()
+    override func viewWillAppear(_ animated: Bool) {
+        if let category = selectedCategory {
+            fetchPinsWithFilter()
+        }
+    }
+
 
     @IBAction func closeView(_ sender: Any) {
         print("Close")
@@ -27,11 +35,18 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     }
 
     func setupViews() {
-        addTrip.layer.cornerRadius = addTrip.frame.width/2
-        addTrip.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        addTrip.layer.masksToBounds = false
-        addTrip.layer.shadowOpacity = 0.6
-        addTrip.layer.shadowColor = UIColor.black.cgColor
+
+        setCircularButton(addTrip)
+        setCircularButton(filterBtn)
+
+    }
+
+    func setCircularButton(_ button: UIButton) {
+        button.layer.cornerRadius = button.frame.width/2
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.masksToBounds = false
+        button.layer.shadowOpacity = 0.6
+        button.layer.shadowColor = UIColor.black.cgColor
     }
 
     override func viewDidLoad() {
@@ -42,23 +57,34 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
         locationManager.startUpdatingLocation()
-         
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
+
+        setSearchBar()
+
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
 
         self.mapView.delegate = self
 
+        fetchData()
+
+    }
+
+    func fetchData() {
+
         let jsonUser: [String : Any] = ["picture":
-                                [ "data":
-                                    [ "height": 200,
-            "is_silhouette": 0,
-            "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
-                                        "width": 200 ]
+            [ "data":
+                [ "height": 200,
+                  "is_silhouette": 0,
+                  "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
+                  "width": 200 ]
 
             ],
-                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
+                                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
+
+        var tripsList = [Trip]()
 
         tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
@@ -67,7 +93,14 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         tripsList.append(Trip(nome: "Viagem5", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append(Trip(nome: "Viagem6", local: "Local", data: "Data", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
 
-        for trip in tripsList{
+        loadTripsOnMap(tripsList)
+    }
+
+    func loadTripsOnMap(_ trips: [Trip]) {
+
+        mapView.removeAnnotations(mapView.annotations)
+
+        for trip in trips{
 
             let coordinate = CLLocation(latitude: trip.lat, longitude: trip.lon)
             let point = StarbucksAnnotation(coordinate: coordinate.coordinate, trip: trip)
@@ -78,55 +111,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
 
             self.mapView.addAnnotation(point)
         }
-        
-        let initialLocation = CLLocation(latitude: -22.767654, longitude: -43.426178)
-
-        //centralizar(coordenadas: initialLocation.coordinate)
-
-        mapView.bringSubview(toFront: addTrip)
-
     }
 
-    func getRoundShadowButton(button: UIButton) -> CALayer {
-        let layer = CALayer()
-        layer.cornerRadius = button.frame.width/2
-        layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.6
-        layer.shadowColor = UIColor.black.cgColor
-        return layer
-    }
-
-    func setGradientStatusBar(){
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = statusView.bounds
-
-        let colorTop = UIColor(red: 255.0/255.0, green: 136.0/255.0, blue: 0/255.0, alpha: 1.0 )
-        let colorBottom = UIColor(red: 147.0/255.0, green: 54.0/255.0, blue: 237.0/255.0, alpha: 1.0)
-        gradientLayer.colors =  [colorTop, colorBottom].map{$0.cgColor}
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        statusView.layer.addSublayer(gradientLayer)
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
-
-    override func viewDidLayoutSubviews() {
-        setGradientStatusBar()
-        statusView.bringSubview(toFront:mapView )
-
-        mapView.layer.masksToBounds = true
-        mapView.layer.cornerRadius = 5
-    }
-    func centralizar(coordenadas: CLLocationCoordinate2D){
-
-        let area = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
-        let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordenadas, area)
-        mapView?.setRegion(regiao, animated: true)
-        print("Localização \(coordenadas)")
-    }
 }
 
 typealias MapViewDelegate = MapListFriendTripVC
@@ -193,6 +179,9 @@ extension MapViewDelegate
         if let detailVC = segue.destination as? DetailTripVC {
             detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
         }
+        if let filterVC = segue.destination as? FilterHomeVC {
+            filterVC.mapDelegate = self
+        }
     }
 }
 extension MapListFriendTripVC: CLLocationManagerDelegate {
@@ -201,13 +190,67 @@ extension MapListFriendTripVC: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         mapView.showsUserLocation = true
 
-        if let coordenada = locations.first?.coordinate {
-            centralizar(coordenadas: coordenada)
+        if let coordenadas = locations.first?.coordinate {
+            dropZoomIn(coordinate: coordenadas)
         }
     }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager.requestLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error: \(error)")
+    }
+
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 
         //fazer requisição mandando nova localização
         print(mapView.centerCoordinate)
+    }
+}
+
+extension MapListFriendTripVC: HandleMapSearch {
+
+    func dropZoomIn(coordinate: CLLocationCoordinate2D) {
+        let area = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+        let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, area)
+        mapView?.setRegion(regiao, animated: true)
+    }
+
+    func setSearchBar() {
+
+        let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
+        searchTableVC?.handleMapSearchDelegate = self
+        searchTableVC?.mapView = self.mapView
+
+        searchBarController = UISearchController(searchResultsController: searchTableVC)
+        searchBarController?.searchResultsUpdater = searchTableVC
+
+        let searchBar = searchBarController?.searchBar
+
+        searchBar?.sizeToFit()
+        searchBar?.placeholder = "Outro local?"
+        searchBar?.tintColor = UIColor.red
+        searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
+
+        navigationItem.titleView = searchBarController?.searchBar
+
+        searchBarController?.hidesNavigationBarDuringPresentation = false
+        searchBarController?.dimsBackgroundDuringPresentation = true
+
+        definesPresentationContext = true
+        
+    }
+}
+
+extension MapListFriendTripVC: MapProtocol {
+    func setCategory(category: String) {
+        selectedCategory = category
+    }
+
+    func fetchPinsWithFilter() {
+        print("----")
+        print(selectedCategory)
     }
 }

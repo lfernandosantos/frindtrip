@@ -60,7 +60,7 @@ class LoginPresenter: NSObject, LoginButtonDelegate {
         let userRequest = UserViewModel(userFace: user)
         APIUser(user: userRequest).createNewUser { success, response, error in
             if success {
-                self.viewLogin.performSegue(withIdentifier: "goHome", sender: user)
+                self.viewLogin.performSegue(withIdentifier: "wellcome", sender: user)
             } else {
                 self.viewLogin.showAlert(title: "Ops", msg: "Problemas ao conectar com o servidor!\nVerifique sua conexão e tente novamente!")
             }
