@@ -26,6 +26,9 @@ class HomeVC: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         btnFriendTrip.layer.cornerRadius = btnFriendTrip.frame.height/5
+
+
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: "ColorTransparent")
     }
 
 
@@ -45,7 +48,17 @@ class HomeVC: UIViewController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
 
+}
+
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        if responds(to: Selector("statusBar")) {
+            return value(forKey: "statusBar") as? UIView
+        }
+        return nil
+    }
 }
