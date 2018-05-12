@@ -16,6 +16,7 @@ class ProfileTableVC: UITableViewController {
     @IBOutlet weak var labelProfile: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var viewBackGround: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
