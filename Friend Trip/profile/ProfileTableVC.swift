@@ -44,6 +44,8 @@ class ProfileTableVC: UITableViewController {
                         let userViewModel = ProfileViewModel(userFace: userFace)
                         let urlImage = URL(string: userViewModel.imageURL)
                         self.imageViewProfile.kf.setImage(with: urlImage)
+                        self.imageViewProfile.clipsToBounds = true
+                        self.imageViewProfile.layer.cornerRadius = self.imageViewProfile.bounds.height/2
                         self.labelProfile.text = userViewModel.nameProfile
                         self.labelEmail.text = userViewModel.emailProfile
                     }
@@ -51,11 +53,6 @@ class ProfileTableVC: UITableViewController {
                 }
             }
         })
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func logout(_ sender: Any) {
@@ -67,7 +64,6 @@ class ProfileTableVC: UITableViewController {
         alertSheet.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
 
         present(alertSheet, animated: true, completion: nil)
-
     }
 
     func setupViews() {
