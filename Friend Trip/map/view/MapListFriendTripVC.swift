@@ -20,6 +20,14 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
     var selectedTrip: Trip!
+    var selectedCategory: String?
+
+    override func viewWillAppear(_ animated: Bool) {
+        if let category = selectedCategory {
+            fetchPinsWithFilter()
+        }
+    }
+
 
     @IBAction func closeView(_ sender: Any) {
         print("Close")
@@ -105,23 +113,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         }
     }
 
-//    func setGradientStatusBar(){
-//        let gradientLayer = CAGradientLayer()
-//
-//        gradientLayer.frame = (navigationController?.navigationBar.bounds)!
-//        let colorTop = UIColor(red: 255.0/255.0, green: 136.0/255.0, blue: 0/255.0, alpha: 1.0 )
-//        let colorBottom = UIColor(red: 147.0/255.0, green: 54.0/255.0, blue: 237.0/255.0, alpha: 1.0)
-//        gradientLayer.colors =  [colorTop, colorBottom].map{$0.cgColor}
-//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-//        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-//
-//        let viewBack = UIView()
-//        viewBack.frame = (navigationController?.navigationBar.bounds)!
-//        viewBack.bounds.size.height = (navigationItem.titleView?.frame.height)!
-//        viewBack.layer.addSublayer(gradientLayer)
-//        view.addSubview(viewBack)
-//        loadViewIfNeeded()
-//    }
 }
 
 typealias MapViewDelegate = MapListFriendTripVC
@@ -188,6 +179,9 @@ extension MapViewDelegate
         if let detailVC = segue.destination as? DetailTripVC {
             detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
         }
+        if let filterVC = segue.destination as? FilterHomeVC {
+            filterVC.mapDelegate = self
+        }
     }
 }
 extension MapListFriendTripVC: CLLocationManagerDelegate {
@@ -247,5 +241,16 @@ extension MapListFriendTripVC: HandleMapSearch {
 
         definesPresentationContext = true
         
+    }
+}
+
+extension MapListFriendTripVC: MapProtocol {
+    func setCategory(category: String) {
+        selectedCategory = category
+    }
+
+    func fetchPinsWithFilter() {
+        print("----")
+        print(selectedCategory)
     }
 }
