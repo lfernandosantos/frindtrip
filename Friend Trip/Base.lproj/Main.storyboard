@@ -418,7 +418,7 @@
         <!--Filtro-->
         <scene sceneID="nLA-0G-0Dc">
             <objects>
-                <viewController title="Filtro" hidesBottomBarWhenPushed="YES" id="NsB-z2-dRB" customClass="FilterHomeVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="filterVC" title="Filtro" hidesBottomBarWhenPushed="YES" id="NsB-z2-dRB" customClass="FilterHomeVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iuv-jm-AGN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,20 +426,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-T8-xff">
                                 <rect key="frame" x="16" y="74" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlm-Di-3Oo">
                                 <rect key="frame" x="0.0" y="97" width="320" height="216"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="ColorOrangeGrandientTop"/>
                                 <connections>
                                     <outlet property="dataSource" destination="NsB-z2-dRB" id="fxs-jI-eiz"/>
                                     <outlet property="delegate" destination="NsB-z2-dRB" id="uZ5-ex-4TX"/>
                                 </connections>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Jlm-Di-3Oo" firstAttribute="trailing" secondItem="jc5-dg-Pp5" secondAttribute="trailing" id="Cys-JM-pem"/>
                             <constraint firstItem="Jlm-Di-3Oo" firstAttribute="leading" secondItem="jc5-dg-Pp5" secondAttribute="leading" id="LjY-Ib-B4v"/>
@@ -1202,6 +1201,9 @@ Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse q
         <image name="icons" width="1276" height="299"/>
         <image name="logo" width="3592" height="1917"/>
         <image name="logout" width="75" height="100"/>
+        <namedColor name="ColorOrangeGrandientTop">
+            <color red="1" green="0.5350000262260437" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ColorOrangeGrandientTop">
             <color red="1" green="0.5350000262260437" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
