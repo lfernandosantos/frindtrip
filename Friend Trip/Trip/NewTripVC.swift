@@ -8,38 +8,93 @@
 
 import UIKit
 
-class NewTripVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
-    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var nameTrip: UITextField!
     @IBOutlet weak var localTrip: UITextField!
-    @IBOutlet weak var dataTrip: UIDatePicker!
-    @IBOutlet weak var tipoTrip: UIPickerView!
-    @IBOutlet weak var btnSalvarTrip: UIButton!
-    @IBOutlet weak var txfDescription: UITextField!
-    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var dataTextField: UITextField!
+    @IBOutlet weak var categoria: UITextField!
 
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    let categoriaPickerView = UIPickerView()
+    var viewOriginY: CGFloat?
     var evento: String?
     let tiposTripList = ["Beer", "Night", "Party", "Beach"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hiddenKeyboard))
-        dataTrip.addGestureRecognizer(tap)
+        setupView()
+    }
+
+    func setupView() {
+
+        configKeyboardObserver()
+
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "ColorTransparent")
+        self.navigationItem.backBarButtonItem?.title = " "
+
+        //set picker view ao invés do keyboard
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .dateAndTime
+        dataTextField.inputView = datePickerView
+
+        categoria.inputView = categoriaPickerView
+
+        datePickerView.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        datePickerView.addTarget(self, action: #selector(setFirstValueOnTextData), for: .editingDidBegin)
+
+        categoria.addTarget(self, action: #selector(setFirstValueOnTextCategoria), for: .editingDidBegin)
+    }
+
+    func configKeyboardObserver() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
         view.addGestureRecognizer(tap)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:.UIKeyboardWillShow , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
 
         nameTrip.delegate = self
         localTrip.delegate = self
+        dataTextField.delegate = self
+        categoria.delegate = self
+        categoriaPickerView.delegate = self
+        descriptionTextView.delegate = self
+    }
 
-        dataTrip.setValue(UIColor.orange, forKey: "textColor")
-        tipoTrip.setValue(UIColor.orange, forKey: "textColor")
+    @IBAction func dismissKeyboard() {
+        view.endEditing(true)
+        nameTrip.endEditing(true)
+        localTrip.endEditing(true)
+        dataTextField.resignFirstResponder()
+        categoria.resignFirstResponder()
+        descriptionTextView.resignFirstResponder()
+    }
 
+    func showAlert(title: String, msg: String) {
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+
+
+    @IBAction func handleDatePicker(sender: UIDatePicker) {
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MMM/yyyy hh:mm"
+        dataTextField.text = dateFormatter.string(from: sender.date)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = .clear
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:.UIKeyboardWillShow , object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
+
+        viewOriginY = self.view.frame.origin.y
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
