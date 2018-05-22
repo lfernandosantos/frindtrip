@@ -103,13 +103,12 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     @objc func keyboardWillShow(notification:NSNotification){
-
         var userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 30
+        contentInset.bottom = keyboardFrame.size.height
         scrollView.contentInset = contentInset
     }
 
@@ -119,19 +118,18 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hiddenKeyboard()
+        dismissKeyboard()
         return false
     }
 
-    @objc func hiddenKeyboard(){
-        self.view.endEditing(true)
-        nameTrip.endEditing(true)
-        localTrip.endEditing(true)
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.endEditing(true)
+            return false
+        }
+        return true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -142,34 +140,25 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        evento = tiposTripList[row]
-        print(tiposTripList[row])
+        categoria.text = tiposTripList[row]
+
     }
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return tiposTripList.count
     }
 
-    
     @IBAction func salvarTrip(_ sender: Any) {
 
-        guard let nome = nameTrip.text else {
-            print("nome em branco")
-            return
-        }
-        guard let local = localTrip.text else {
-            print("local em branco")
-            return
-        }
-        let data = dataTrip.debugDescription
-
-        guard let tipoEvento = evento else {
-            print("evento em branco")
+        guard let nome = nameTrip.text, let local = localTrip.text, let data = dataTextField.text, let tipoEvento = categoria.text, let textDescription = descriptionTextView.text else {
+            print("Algum dado do formulário em branco")
+            showAlert(title: "", msg: "Preencha todos os campos da Trip! \n=]")
             return
         }
 
-        guard let description = txfDescription.text else {
-            print("descrição em branco")
-            return
+
+        if nome.isEmpty || local.isEmpty || data.isEmpty || tipoEvento.isEmpty || textDescription.isEmpty {
+            showAlert(title: "", msg: "Preencha todos os campos da Trip! \n=]")
         }
 
         let jsonUser: [String : Any] = ["picture":
