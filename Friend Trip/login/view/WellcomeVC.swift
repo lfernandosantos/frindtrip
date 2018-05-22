@@ -65,6 +65,9 @@ class WellcomeVC: UIViewController, ProtocolView {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
+    func showAlert(title: String, msg: String) {
+
+    }
 
     func setGradientBackGround(){
         let gradientLayer = CAGradientLayer()
