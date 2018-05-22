@@ -84,7 +84,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
     @IBAction func handleDatePicker(sender: UIDatePicker) {
         var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MMM/yyyy hh:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         dataTextField.text = dateFormatter.string(from: sender.date)
     }
 
@@ -170,8 +170,25 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
-        let trip = Trip(nome: nome, local: local, data: " ", tipoEvento: tipoEvento, descriptionTrip: description, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
+        let trip = Trip(nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
+
     }
-    
+
+
+    @IBAction func setFirstValueOnTextData() {
+
+        if dataTextField.text == "" || dataTextField.text == nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            dataTextField.text = dateFormatter.string(from: Date())
+        }
+
+    }
+
+    @IBAction func setFirstValueOnTextCategoria() {
+        if categoria.text == "" || categoria.text == nil {
+            categoria.text = tiposTripList[0]
+        }
+    }
 
 }
