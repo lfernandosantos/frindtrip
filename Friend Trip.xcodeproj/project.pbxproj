@@ -54,6 +54,7 @@
 		BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B420A79BAE00801596 /* MapProtocol.swift */; };
 		BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B620B1D66000801596 /* FloatLabelTextField.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
+		ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		BECE11B420A79BAE00801596 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		BECE11B620B1D66000801596 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSetLocalVC.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 				BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */,
 				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
 				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
+				ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				BE33F9B8201D775D00F45737 /* AnnotationView.swift in Sources */,
 				BE48B37E1FF1BCCD00A1AB1C /* HomeVC.swift in Sources */,
 				BE33F9B4201D752A00F45737 /* CustomCallOutClass.swift in Sources */,
+				ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */,
 				BE33F9DD2027AD0100F45737 /* UIVIew+Blur.swift in Sources */,
 				BE349E9A20687B540081422A /* TripViewModel.swift in Sources */,
 				BE4A12F92097D5C5003DC380 /* ProtocolView.swift in Sources */,
