@@ -598,8 +598,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pA-AF-CPi" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="74" width="292" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pA-AF-CPi" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="74" width="244" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -644,6 +644,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vh-Df-VXe">
+                                                <rect key="frame" x="266" y="74" width="30" height="30"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6vh-Df-VXe" secondAttribute="height" multiplier="1:1" id="XVS-nY-TA4"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="WHa-g1-Gfz" kind="show" id="T05-Sd-ieP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -653,19 +663,22 @@
                                             <constraint firstAttribute="trailing" secondItem="hd7-80-FHu" secondAttribute="trailing" constant="12" id="Hx7-Lx-dwq"/>
                                             <constraint firstItem="waX-TS-zSr" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="8" id="IvZ-9t-YfO"/>
                                             <constraint firstItem="7pA-AF-CPi" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="12" id="Lyq-FP-ndl"/>
+                                            <constraint firstItem="6vh-Df-VXe" firstAttribute="top" secondItem="hd7-80-FHu" secondAttribute="bottom" constant="24" id="Mnc-x0-AMY"/>
                                             <constraint firstItem="waX-TS-zSr" firstAttribute="top" secondItem="5gm-VK-pUK" secondAttribute="bottom" constant="10" id="Ndn-Jx-HhK"/>
                                             <constraint firstItem="0P9-Qs-p0e" firstAttribute="top" secondItem="V2O-8g-8d5" secondAttribute="bottom" constant="24" id="PLW-ty-Lhv"/>
                                             <constraint firstItem="0P9-Qs-p0e" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="12" id="TqX-AT-og1"/>
+                                            <constraint firstItem="6vh-Df-VXe" firstAttribute="leading" secondItem="7pA-AF-CPi" secondAttribute="trailing" constant="10" id="TzL-YN-3k1"/>
                                             <constraint firstItem="V2O-8g-8d5" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="12" id="V3d-Pw-Y6e"/>
                                             <constraint firstItem="hd7-80-FHu" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="12" id="cAF-hw-re2"/>
                                             <constraint firstItem="hd7-80-FHu" firstAttribute="top" secondItem="8Lf-CG-1ha" secondAttribute="top" constant="20" id="cDI-pd-h2B"/>
                                             <constraint firstAttribute="bottom" secondItem="waX-TS-zSr" secondAttribute="bottom" constant="72" id="dch-mL-wYS"/>
                                             <constraint firstAttribute="trailing" secondItem="5gm-VK-pUK" secondAttribute="trailing" constant="8" id="e9S-9O-VfP"/>
+                                            <constraint firstAttribute="trailing" secondItem="6vh-Df-VXe" secondAttribute="trailing" constant="20" id="fEL-lp-xCV"/>
                                             <constraint firstAttribute="trailing" secondItem="0P9-Qs-p0e" secondAttribute="trailing" constant="12" id="gVQ-TC-5Ru"/>
                                             <constraint firstAttribute="trailing" secondItem="waX-TS-zSr" secondAttribute="trailing" constant="8" id="m59-bX-bwf"/>
+                                            <constraint firstItem="V2O-8g-8d5" firstAttribute="top" secondItem="6vh-Df-VXe" secondAttribute="bottom" constant="24" id="s1z-eQ-uCQ"/>
                                             <constraint firstItem="V2O-8g-8d5" firstAttribute="top" secondItem="7pA-AF-CPi" secondAttribute="bottom" constant="24" id="vM3-1i-tbe"/>
                                             <constraint firstItem="5gm-VK-pUK" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="8" id="wi4-ic-ruq"/>
-                                            <constraint firstAttribute="trailing" secondItem="7pA-AF-CPi" secondAttribute="trailing" constant="12" id="yQK-hf-Xw3"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -707,6 +720,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GrN-qP-f41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1762.5" y="1841.1971830985915"/>
+        </scene>
+        <!--Map View Set LocalVC-->
+        <scene sceneID="9sm-eb-2jq">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="WHa-g1-Gfz" customClass="MapViewSetLocalVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y6e-Da-Mx7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWf-vq-0Ry">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WHa-g1-Gfz" id="Wcf-oN-BI4"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZnI-Hy-sGS" firstAttribute="bottom" secondItem="JWf-vq-0Ry" secondAttribute="bottom" id="98v-ge-eUo"/>
+                            <constraint firstItem="JWf-vq-0Ry" firstAttribute="top" secondItem="ZnI-Hy-sGS" secondAttribute="top" id="LnU-UB-hpb"/>
+                            <constraint firstItem="JWf-vq-0Ry" firstAttribute="leading" secondItem="ZnI-Hy-sGS" secondAttribute="leading" id="cBC-Nz-ROC"/>
+                            <constraint firstItem="ZnI-Hy-sGS" firstAttribute="trailing" secondItem="JWf-vq-0Ry" secondAttribute="trailing" id="s6H-a3-Bo3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZnI-Hy-sGS"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="JWf-vq-0Ry" id="NJJ-Zw-uDB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipu-NE-XJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2692.5" y="1841.1971830985915"/>
         </scene>
         <!--Detail TripVC-->
         <scene sceneID="rHh-Uo-9lF">

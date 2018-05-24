@@ -28,7 +28,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         }
     }
 
-
     @IBAction func closeView(_ sender: Any) {
         print("Close")
         self.dismiss(animated: true, completion: nil)
