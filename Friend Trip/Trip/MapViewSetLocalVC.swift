@@ -21,6 +21,9 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
 
         setSearchBar()
+        self.mapView.delegate = self
+        
+        configLocationManager()
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +33,15 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
 
 
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
+    
+    func configLocationManager() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         
@@ -69,6 +81,8 @@ extension MapViewSetLocalVC: HandleMapSearch {
         searchBar?.sizeToFit()
         searchBar?.placeholder = "Outro local?"
         searchBar?.tintColor = UIColor.red
+        searchBar?.isUserInteractionEnabled = true
+        
         searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
         
         navigationItem.titleView = searchBarController?.searchBar
@@ -77,6 +91,10 @@ extension MapViewSetLocalVC: HandleMapSearch {
         searchBarController?.dimsBackgroundDuringPresentation = true
         
         definesPresentationContext = true
+        
+        let button1 = UIBarButtonItem(image: nil, style: .done, target: self, action: nil) // action:#selector(Class.MethodName) for swift 3
+
+        navigationItem.rightBarButtonItem = button1
         
     }
 }
