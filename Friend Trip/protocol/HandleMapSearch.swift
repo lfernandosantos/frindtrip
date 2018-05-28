@@ -11,4 +11,5 @@ import MapKit
 
 protocol HandleMapSearch {
     func dropZoomIn(coordinate: CLLocationCoordinate2D)
+    func setMKPlacemark(mkPlacemark: MKPlacemark)
 }
