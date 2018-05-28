@@ -651,7 +651,7 @@
                                                     <constraint firstAttribute="width" secondItem="6vh-Df-VXe" secondAttribute="height" multiplier="1:1" id="XVS-nY-TA4"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="WHa-g1-Gfz" kind="show" id="T05-Sd-ieP"/>
+                                                    <segue destination="WHa-g1-Gfz" kind="show" id="Vux-78-LEG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -724,7 +724,7 @@
         <!--Map View Set LocalVC-->
         <scene sceneID="9sm-eb-2jq">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="WHa-g1-Gfz" customClass="MapViewSetLocalVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WHa-g1-Gfz" customClass="MapViewSetLocalVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6e-Da-Mx7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -745,6 +745,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZnI-Hy-sGS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jBa-bk-V3c">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Hbo-AJ-mfK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="AQm-QV-51k"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="JWf-vq-0Ry" id="NJJ-Zw-uDB"/>
@@ -752,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipu-NE-XJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2692.5" y="1841.1971830985915"/>
+            <point key="canvasLocation" x="2582" y="1841"/>
         </scene>
         <!--Detail TripVC-->
         <scene sceneID="rHh-Uo-9lF">
