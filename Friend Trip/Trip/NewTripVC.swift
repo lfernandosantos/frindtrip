@@ -37,6 +37,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "ColorTransparent")
         self.navigationItem.backBarButtonItem?.title = " "
 
+
         //set picker view ao invés do keyboard
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .dateAndTime

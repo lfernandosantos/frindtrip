@@ -217,6 +217,10 @@ extension MapListFriendTripVC: HandleMapSearch {
         mapView?.setRegion(regiao, animated: true)
     }
 
+    func setMKPlacemark(mkPlacemark: MKPlacemark) {
+        
+    }
+
     func setSearchBar() {
 
         let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
