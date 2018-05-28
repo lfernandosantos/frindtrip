@@ -53,6 +53,7 @@
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
 		BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B420A79BAE00801596 /* MapProtocol.swift */; };
 		BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B620B1D66000801596 /* FloatLabelTextField.swift */; };
+		BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
 		ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
 		BECE11B420A79BAE00801596 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		BECE11B620B1D66000801596 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplay.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSetLocalVC.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
 				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
 				ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */,
+				BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			files = (
 				BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */,
 				BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */,
+				BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */,
 				BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */,
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
