@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     
@@ -17,6 +16,7 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     var selectedSearchLocation: MKPlacemark? = nil
 
     @IBOutlet weak var mapView: MKMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,13 +24,11 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         
         configLocationManager()
-        // Do any additional setup after loading the view.
+
+        navigationController?.navigationItem.backBarButtonItem?.title = " "
     }
 
-
-
 }
-
 
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
     
@@ -66,7 +64,12 @@ extension MapViewSetLocalVC: HandleMapSearch {
         let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, area)
         mapView?.setRegion(regiao, animated: true)
     }
-    
+
+    func setMKPlacemark(mkPlacemark: MKPlacemark) {
+        print(mkPlacemark.thoroughfare)
+        print(mkPlacemark.administrativeArea)
+        print(mkPlacemark)
+    }
     func setSearchBar() {
         
         let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
@@ -79,22 +82,19 @@ extension MapViewSetLocalVC: HandleMapSearch {
         let searchBar = searchBarController?.searchBar
         
         searchBar?.sizeToFit()
-        searchBar?.placeholder = "Outro local?"
+        searchBar?.placeholder = "Digite local"
         searchBar?.tintColor = UIColor.red
-        searchBar?.isUserInteractionEnabled = true
-        
-        searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
-        
-        navigationItem.titleView = searchBarController?.searchBar
-        
+        searchBar!.isUserInteractionEnabled = true
+
+        //searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
+
+        navigationItem.searchController = searchBarController
+
+        searchBarController!.searchBar.isUserInteractionEnabled = true
         searchBarController?.hidesNavigationBarDuringPresentation = false
         searchBarController?.dimsBackgroundDuringPresentation = true
         
         definesPresentationContext = true
-        
-        let button1 = UIBarButtonItem(image: nil, style: .done, target: self, action: nil) // action:#selector(Class.MethodName) for swift 3
 
-        navigationItem.rightBarButtonItem = button1
-        
     }
 }
