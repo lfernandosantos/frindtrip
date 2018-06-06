@@ -22,6 +22,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     var selectedTrip: Trip!
     var selectedCategory: String?
 
+    var tripsList = [Trip]()
+
     override func viewWillAppear(_ animated: Bool) {
         if let category = selectedCategory {
             fetchPinsWithFilter()
@@ -83,7 +85,7 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
 
-        var tripsList = [Trip]()
+
 
         tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
@@ -111,7 +113,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             self.mapView.addAnnotation(point)
         }
     }
-
 }
 
 typealias MapViewDelegate = MapListFriendTripVC
@@ -243,7 +244,6 @@ extension MapListFriendTripVC: HandleMapSearch {
         searchBarController?.dimsBackgroundDuringPresentation = true
 
         definesPresentationContext = true
-        
     }
 }
 
