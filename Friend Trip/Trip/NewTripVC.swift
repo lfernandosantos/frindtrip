@@ -206,5 +206,28 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             categoria.text = tiposTripList[0]
         }
     }
+}
 
+extension NewTripVC: TripProtocol {
+    func setLocation(mkPlacemark: MKPlacemark) {
+
+        location = LocationModel(nome: mkPlacemark.name, rua: mkPlacemark.thoroughfare, n: mkPlacemark.subThoroughfare, bairro: mkPlacemark.subLocality, cidade: mkPlacemark.locality, estado: mkPlacemark.administrativeArea, lat: mkPlacemark.coordinate.latitude, lon: mkPlacemark.coordinate.longitude)
+
+        if let local = location{
+            var address = ""
+            if let rua = local.rua {
+                address += rua
+
+                if let numero = local.numero {
+                    address +=  ", " + numero
+                    if let bairro = local.bairro {
+                        address += ", " + bairro
+                    }
+                }
+            }
+
+            localTrip.text = local.nome ?? "" + address
+            localTrip.numberOfLines = 3
+        }
+    }
 }
