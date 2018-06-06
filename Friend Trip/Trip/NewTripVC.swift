@@ -38,7 +38,6 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "ColorTransparent")
         self.navigationItem.backBarButtonItem?.title = " "
 
-
         //set picker view ao invés do keyboard
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .dateAndTime
@@ -50,6 +49,19 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         datePickerView.addTarget(self, action: #selector(setFirstValueOnTextData), for: .editingDidBegin)
 
         categoria.addTarget(self, action: #selector(setFirstValueOnTextCategoria), for: .editingDidBegin)
+
+        descriptionTextView.layer.borderWidth = 0.8
+        descriptionTextView.layer.borderColor = UIColor.blue.cgColor
+        descriptionTextView.layer.cornerRadius = 3
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapView" {
+            print("new")
+            if let mapLocationVC = segue.destination as? MapViewSetLocalVC {
+                mapLocationVC.locationDelegate = self
+            }
+        }
     }
 
     func configKeyboardObserver() {
@@ -61,7 +73,6 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
 
         nameTrip.delegate = self
-        localTrip.delegate = self
         dataTextField.delegate = self
         categoria.delegate = self
         categoriaPickerView.delegate = self
