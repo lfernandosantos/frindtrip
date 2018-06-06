@@ -14,6 +14,7 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
+    var locationDelegate: TripProtocol?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -28,6 +29,10 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
         navigationController?.navigationItem.backBarButtonItem?.title = " "
     }
 
+    @IBAction func chosePlace(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
