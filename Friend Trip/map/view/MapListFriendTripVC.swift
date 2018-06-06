@@ -261,4 +261,9 @@ extension MapListFriendTripVC: MapProtocol {
         print("----")
         print(selectedCategory)
     }
+
+    func addNewTrip(_ trip: Trip) {
+        tripsList.append(trip)
+        loadTripsOnMap(tripsList)
+    }
 }
