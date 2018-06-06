@@ -104,6 +104,17 @@ extension MapViewSetLocalVC: HandleMapSearch {
         searchBarController?.dimsBackgroundDuringPresentation = true
         
         definesPresentationContext = true
+    }
 
+    func parseAddress(selectedItem: MKPlacemark) -> String {
+        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil ) ? " " : " "
+        let coma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil ) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? "," : " "
+
+        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " ": " "
+        let addressLine = String(format: "%@%@%@%@%@%@%@", selectedItem.subThoroughfare ?? "", firstSpace, selectedItem.thoroughfare ?? "",
+                                 coma, selectedItem.locality ?? "", secondSpace, selectedItem.administrativeArea ?? "")
+        return addressLine
     }
 }
+
+
