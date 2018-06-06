@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
 class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
-
     @IBOutlet weak var nameTrip: UITextField!
-    @IBOutlet weak var localTrip: UITextField!
+    @IBOutlet weak var localTrip: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var dataTextField: UITextField!
     @IBOutlet weak var categoria: UITextField!
-
     @IBOutlet weak var scrollView: UIScrollView!
 
+    var location: LocationModel?
+    var mapDelegate: MapProtocol?
     let categoriaPickerView = UIPickerView()
     var viewOriginY: CGFloat?
     var evento: String?
