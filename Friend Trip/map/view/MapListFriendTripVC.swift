@@ -178,9 +178,14 @@ extension MapViewDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? DetailTripVC {
             detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
+
         }
         if let filterVC = segue.destination as? FilterHomeVC {
             filterVC.mapDelegate = self
+        }
+
+        if let newTripVC = segue.destination as? NewTripVC {
+            newTripVC.mapDelegate = self
         }
     }
 }
