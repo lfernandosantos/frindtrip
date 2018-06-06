@@ -96,7 +96,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
 
     @IBAction func handleDatePicker(sender: UIDatePicker) {
-        var dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         dataTextField.text = dateFormatter.string(from: sender.date)
     }
@@ -106,11 +106,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     override func viewWillAppear(_ animated: Bool) {
-
         viewOriginY = self.view.frame.origin.y
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -142,7 +141,6 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         }
         return true
     }
-
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -183,19 +181,24 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
-        let trip = Trip(nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
+        if let location = location {
+            let trip = Trip(nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!)
 
+            mapDelegate?.addNewTrip(trip)
+        } else {
+            print("erro no lcation")
+        }
+
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
-
     @IBAction func setFirstValueOnTextData() {
-
         if dataTextField.text == "" || dataTextField.text == nil {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
             dataTextField.text = dateFormatter.string(from: Date())
         }
-
     }
 
     @IBAction func setFirstValueOnTextCategoria() {
