@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import MapKit
+
+protocol TripProtocol {
+    func setLocation(mkPlacemark: MKPlacemark)
+}
+protocol TripMapLocation {
+    var locationDelegate: TripProtocol {get}
+}
