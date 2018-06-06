@@ -71,10 +71,14 @@ extension MapViewSetLocalVC: HandleMapSearch {
     }
 
     func setMKPlacemark(mkPlacemark: MKPlacemark) {
-        print(mkPlacemark.thoroughfare)
-        print(mkPlacemark.administrativeArea)
-        print(mkPlacemark)
+        locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = mkPlacemark.coordinate
+        //annotation.title = mkPlacemark.title
+        //annotation.subtitle = mkPlacemark.subtitle
+        mapView.addAnnotation(annotation)
     }
+    
     func setSearchBar() {
         
         let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
