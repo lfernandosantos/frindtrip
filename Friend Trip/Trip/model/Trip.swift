@@ -32,6 +32,6 @@ class Trip: NSObject {
     }
 
     override var description: String {
-        return "\(nome), \(local), \(data), \(tipoEvento), \(lat), \(lon)"
+        return " \(descriptionTrip) \n\n \(local)"
     }
 }
