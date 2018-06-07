@@ -53,6 +53,9 @@
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
 		BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B420A79BAE00801596 /* MapProtocol.swift */; };
 		BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B620B1D66000801596 /* FloatLabelTextField.swift */; };
+		BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */; };
+		BEED6E3820C0A58300BCD991 /* TripProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3720C0A58300BCD991 /* TripProtocol.swift */; };
+		BEED6E3A20C0DC2900BCD991 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3920C0DC2900BCD991 /* LocationModel.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
 		ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +110,9 @@
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
 		BECE11B420A79BAE00801596 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		BECE11B620B1D66000801596 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplay.swift; sourceTree = "<group>"; };
+		BEED6E3720C0A58300BCD991 /* TripProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripProtocol.swift; sourceTree = "<group>"; };
+		BEED6E3920C0DC2900BCD991 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSetLocalVC.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
 				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
 				ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */,
+				BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				BE48B3721FF1341000A1AB1C /* UserFace.swift */,
 				BE48B3701FF133A500A1AB1C /* UserPicture.swift */,
 				BE48B3741FF1349200A1AB1C /* DataPicture.swift */,
+				BEED6E3920C0DC2900BCD991 /* LocationModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				BE4A12F82097D5C5003DC380 /* ProtocolView.swift */,
 				BE4A1321209F804F003DC380 /* HandleMapSearch.swift */,
 				BECE11B420A79BAE00801596 /* MapProtocol.swift */,
+				BEED6E3720C0A58300BCD991 /* TripProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -486,10 +495,12 @@
 			files = (
 				BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */,
 				BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */,
+				BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */,
 				BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */,
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
 				BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */,
+				BEED6E3820C0A58300BCD991 /* TripProtocol.swift in Sources */,
 				BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */,
 				BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */,
 				BE10935F204500FB007E9FA0 /* LoginPresenter.swift in Sources */,
@@ -522,6 +533,7 @@
 				BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */,
 				BE33F9AE201D09D200F45737 /* CustomAnnotation.swift in Sources */,
 				BE48B3711FF133A500A1AB1C /* UserPicture.swift in Sources */,
+				BEED6E3A20C0DC2900BCD991 /* LocationModel.swift in Sources */,
 				BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

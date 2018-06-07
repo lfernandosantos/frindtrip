@@ -34,6 +34,7 @@ class SearchBarTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = machingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropZoomIn(coordinate: selectedItem.coordinate)
+        handleMapSearchDelegate?.setMKPlacemark(mkPlacemark: selectedItem)
         dismiss(animated: true, completion: nil)
     }
 }

@@ -22,6 +22,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     var selectedTrip: Trip!
     var selectedCategory: String?
 
+    var tripsList = [Trip]()
+
     override func viewWillAppear(_ animated: Bool) {
         if let category = selectedCategory {
             fetchPinsWithFilter()
@@ -83,7 +85,7 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
 
-        var tripsList = [Trip]()
+
 
         tripsList.append(Trip(nome: "Baladinha tipo são Jorge", local: "1140", data: "66 - jamais - 6666", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!))
         tripsList.append( Trip(nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23 - Abril - 2018", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!))
@@ -111,7 +113,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             self.mapView.addAnnotation(point)
         }
     }
-
 }
 
 typealias MapViewDelegate = MapListFriendTripVC
@@ -177,9 +178,14 @@ extension MapViewDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? DetailTripVC {
             detailVC.tripViewModel = TripViewModel(trip: selectedTrip)
+
         }
         if let filterVC = segue.destination as? FilterHomeVC {
             filterVC.mapDelegate = self
+        }
+
+        if let newTripVC = segue.destination as? NewTripVC {
+            newTripVC.mapDelegate = self
         }
     }
 }
@@ -217,6 +223,10 @@ extension MapListFriendTripVC: HandleMapSearch {
         mapView?.setRegion(regiao, animated: true)
     }
 
+    func setMKPlacemark(mkPlacemark: MKPlacemark) {
+        
+    }
+
     func setSearchBar() {
 
         let searchTableVC = storyboard?.instantiateViewController(withIdentifier: "SearchBarTableVC") as? SearchBarTableVC
@@ -239,7 +249,6 @@ extension MapListFriendTripVC: HandleMapSearch {
         searchBarController?.dimsBackgroundDuringPresentation = true
 
         definesPresentationContext = true
-        
     }
 }
 
@@ -251,5 +260,10 @@ extension MapListFriendTripVC: MapProtocol {
     func fetchPinsWithFilter() {
         print("----")
         print(selectedCategory)
+    }
+
+    func addNewTrip(_ trip: Trip) {
+        tripsList.append(trip)
+        loadTripsOnMap(tripsList)
     }
 }

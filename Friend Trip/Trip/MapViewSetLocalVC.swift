@@ -8,28 +8,43 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
+    var locationDelegate: TripProtocol?
 
     @IBOutlet weak var mapView: MKMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setSearchBar()
-        // Do any additional setup after loading the view.
+        self.mapView.delegate = self
+        
+        configLocationManager()
+
+        navigationController?.navigationItem.backBarButtonItem?.title = " "
     }
 
-
-
+    @IBAction func chosePlace(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
+    
+    func configLocationManager() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         
@@ -54,6 +69,15 @@ extension MapViewSetLocalVC: HandleMapSearch {
         let regiao:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, area)
         mapView?.setRegion(regiao, animated: true)
     }
+
+    func setMKPlacemark(mkPlacemark: MKPlacemark) {
+        locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = mkPlacemark.coordinate
+        //annotation.title = mkPlacemark.title
+        //annotation.subtitle = mkPlacemark.subtitle
+        mapView.addAnnotation(annotation)
+    }
     
     func setSearchBar() {
         
@@ -67,16 +91,30 @@ extension MapViewSetLocalVC: HandleMapSearch {
         let searchBar = searchBarController?.searchBar
         
         searchBar?.sizeToFit()
-        searchBar?.placeholder = "Outro local?"
+        searchBar?.placeholder = "Digite local"
         searchBar?.tintColor = UIColor.red
-        searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
-        
-        navigationItem.titleView = searchBarController?.searchBar
-        
+        searchBar!.isUserInteractionEnabled = true
+
+        //searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
+
+        navigationItem.searchController = searchBarController
+
+        searchBarController!.searchBar.isUserInteractionEnabled = true
         searchBarController?.hidesNavigationBarDuringPresentation = false
         searchBarController?.dimsBackgroundDuringPresentation = true
         
         definesPresentationContext = true
-        
+    }
+
+    func parseAddress(selectedItem: MKPlacemark) -> String {
+        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil ) ? " " : " "
+        let coma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil ) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? "," : " "
+
+        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " ": " "
+        let addressLine = String(format: "%@%@%@%@%@%@%@", selectedItem.subThoroughfare ?? "", firstSpace, selectedItem.thoroughfare ?? "",
+                                 coma, selectedItem.locality ?? "", secondSpace, selectedItem.administrativeArea ?? "")
+        return addressLine
     }
 }
+
+

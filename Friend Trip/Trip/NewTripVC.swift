@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
 class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
-
     @IBOutlet weak var nameTrip: UITextField!
-    @IBOutlet weak var localTrip: UITextField!
+    @IBOutlet weak var localTrip: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var dataTextField: UITextField!
     @IBOutlet weak var categoria: UITextField!
-
     @IBOutlet weak var scrollView: UIScrollView!
 
+    var location: LocationModel?
+    var mapDelegate: MapProtocol?
     let categoriaPickerView = UIPickerView()
     var viewOriginY: CGFloat?
     var evento: String?
@@ -48,6 +49,19 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         datePickerView.addTarget(self, action: #selector(setFirstValueOnTextData), for: .editingDidBegin)
 
         categoria.addTarget(self, action: #selector(setFirstValueOnTextCategoria), for: .editingDidBegin)
+
+        descriptionTextView.layer.borderWidth = 0.8
+        descriptionTextView.layer.borderColor = UIColor.blue.cgColor
+        descriptionTextView.layer.cornerRadius = 3
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapView" {
+            print("new")
+            if let mapLocationVC = segue.destination as? MapViewSetLocalVC {
+                mapLocationVC.locationDelegate = self
+            }
+        }
     }
 
     func configKeyboardObserver() {
@@ -59,7 +73,6 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
 
         nameTrip.delegate = self
-        localTrip.delegate = self
         dataTextField.delegate = self
         categoria.delegate = self
         categoriaPickerView.delegate = self
@@ -83,7 +96,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
 
     @IBAction func handleDatePicker(sender: UIDatePicker) {
-        var dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         dataTextField.text = dateFormatter.string(from: sender.date)
     }
@@ -93,11 +106,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     override func viewWillAppear(_ animated: Bool) {
-
         viewOriginY = self.view.frame.origin.y
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -129,7 +141,6 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         }
         return true
     }
-
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -170,19 +181,24 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
-        let trip = Trip(nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!)
+        if let location = location {
+            let trip = Trip(nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!)
 
+            mapDelegate?.addNewTrip(trip)
+        } else {
+            print("erro no lcation")
+        }
+
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
-
     @IBAction func setFirstValueOnTextData() {
-
         if dataTextField.text == "" || dataTextField.text == nil {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
             dataTextField.text = dateFormatter.string(from: Date())
         }
-
     }
 
     @IBAction func setFirstValueOnTextCategoria() {
@@ -190,5 +206,28 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             categoria.text = tiposTripList[0]
         }
     }
+}
 
+extension NewTripVC: TripProtocol {
+    func setLocation(mkPlacemark: MKPlacemark) {
+
+        location = LocationModel(nome: mkPlacemark.name, rua: mkPlacemark.thoroughfare, n: mkPlacemark.subThoroughfare, bairro: mkPlacemark.subLocality, cidade: mkPlacemark.locality, estado: mkPlacemark.administrativeArea, lat: mkPlacemark.coordinate.latitude, lon: mkPlacemark.coordinate.longitude)
+
+        if let local = location{
+            var address = ""
+            if let rua = local.rua {
+                address += rua
+
+                if let numero = local.numero {
+                    address +=  ", " + numero
+                    if let bairro = local.bairro {
+                        address += ", " + bairro
+                    }
+                }
+            }
+
+            localTrip.text = local.nome ?? "" + address
+            localTrip.numberOfLines = 3
+        }
+    }
 }
