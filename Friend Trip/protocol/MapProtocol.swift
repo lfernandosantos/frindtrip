@@ -10,4 +10,5 @@ import Foundation
 
 protocol MapProtocol {
     func setCategory(category: String)
+    func addNewTrip(_ trip: Trip)
 }

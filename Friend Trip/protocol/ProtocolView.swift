@@ -13,4 +13,5 @@ protocol ProtocolView {
     func keyboardWillShow(notification: NSNotification)
     func keyboardWillHide(notification: NSNotification)
     func dismissKeyboard()
+    func showAlert(title: String, msg: String)
 }
