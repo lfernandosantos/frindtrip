@@ -23,18 +23,34 @@ class TripViewModel {
         self.localTrip = trip.local
         self.dataTrip = trip.data
         self.typeTrip = trip.tipoEvento
-
         self.admName = trip.userAdm.name ?? "Name"
         self.picAdm = trip.userAdm.picture?.data?.url ?? "placehoder"
-        
-        self.descriptionTrip = "hiuhobui wekmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wokmrgoier mgioperm rpgoeri wmpogemr opbmwro bmoirenwbp iorw pwwrporow  oirwmboip neon wori nrwoin hui uuubibibiu niobibib"
+        self.descriptionTrip = trip.description
     }
 
     func getMothTrip() -> String {
-        return "Maio"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+
+        guard let date = dateFormatter.date(from: dataTrip) else {
+            return "0"
+        }
+
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.string(from: date)
     }
 
     func getDayTrip() -> String {
-        return "22"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+
+        guard let date = dateFormatter.date(from: dataTrip) else {
+            return "0"
+        }
+
+        let calendar = Calendar(identifier: .gregorian)
+        let day = calendar.component(.day, from: date)
+
+        return String(day)
     }
 }
