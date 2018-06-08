@@ -50,18 +50,11 @@ class DetailTripVC: UIViewController {
         imgProfileAdm.kf.setImage(with: urlImg!)
         print(tripViewModel.picAdm)
 
+         btnConfirm.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        btnConfirm.layer.cornerRadius = 6
         if let nav = navigationController?.navigationBar.bounds.height {
             constraintTop.constant -= nav
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,4 +70,7 @@ class DetailTripVC: UIViewController {
         }
     }
 
+    @IBAction func confirmTrip(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
