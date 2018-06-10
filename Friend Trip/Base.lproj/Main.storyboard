@@ -1025,9 +1025,9 @@
                         <outlet property="lblLocalTrip" destination="Yxw-xK-Yhk" id="d66-wh-9Wt"/>
                         <outlet property="lblMonthTrip" destination="eYO-qX-KXJ" id="GaZ-Fz-4wP"/>
                         <outlet property="lblNameAdmin" destination="WLN-mN-LUq" id="hIr-DF-7fi"/>
+                        <outlet property="lblParticipantes" destination="rcQ-kf-5by" id="vvL-e4-B5C"/>
                         <outlet property="lblTitleTrip" destination="YOn-kb-fe9" id="pfc-1l-G58"/>
                         <outlet property="lblTypeTrip" destination="BSP-tk-N7n" id="iQF-YQ-DE7"/>
-                        <outlet property="lvlTotalConfirm" destination="iR9-nv-IUj" id="RFv-8U-opr"/>
                         <outlet property="scroll" destination="U05-c3-OlM" id="kju-dI-XJJ"/>
                         <outlet property="subView" destination="7dS-Tv-BAw" id="KkF-4Q-7pe"/>
                     </connections>
