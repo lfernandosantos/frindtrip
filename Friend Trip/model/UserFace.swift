@@ -11,7 +11,7 @@ import ObjectMapper
 
 class UserFace: NSObject, Mappable {
 
-    var id: String?
+    var id: Int?
     var name: String?
     var email:String?
     var picture: UserPicture?
@@ -24,5 +24,13 @@ class UserFace: NSObject, Mappable {
         email <- map["email"]
         picture <- map["picture"]
     }
-   
+
+    func getProfilePic() -> String {
+        guard let id = id else {
+            return ""
+        }
+        let urlPic: String = "\(FaceConstants.urlGraph)\(id)\(FaceConstants.endPointPicLarge)"
+        return urlPic
+    }
+
 }
