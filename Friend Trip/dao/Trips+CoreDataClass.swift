@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 @objc(Trips)
-public class Trips: NSManagedObject {
+public class TripsDAO: NSManagedObject {
 
 }

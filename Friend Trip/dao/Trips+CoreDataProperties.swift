@@ -11,16 +11,16 @@ import Foundation
 import CoreData
 
 
-extension Trips {
+extension TripsDAO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Trips> {
-        return NSFetchRequest<Trips>(entityName: "Trips")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TripsDAO> {
+        return NSFetchRequest<TripsDAO>(entityName: "Trips")
     }
 
     @NSManaged public var data: String?
     @NSManaged public var id: Int32
     @NSManaged public var nome: String?
-    @NSManaged public var numParticipantes: Int16
+    @NSManaged public var participantes: Int16
     @NSManaged public var tipoEvento: String?
 
 }
