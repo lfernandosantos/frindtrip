@@ -11,6 +11,7 @@ import MapKit
 
 class Trip: NSObject {
 
+    let id: Int
     let nome: String
     let local: String
     let data: String
@@ -19,8 +20,10 @@ class Trip: NSObject {
     let lat: CLLocationDegrees
     let lon: CLLocationDegrees
     let userAdm: UserFace
+    let numParticipantes: Int
 
-    init(nome: String, local: String, data: String, tipoEvento: String, descriptionTrip: String, lat: CLLocationDegrees, lon: CLLocationDegrees, userAdm: UserFace) {
+    init(id: Int, nome: String, local: String, data: String, tipoEvento: String, descriptionTrip: String, lat: CLLocationDegrees, lon: CLLocationDegrees, userAdm: UserFace, numParticipantes: Int) {
+        self.id = id
         self.nome = nome
         self.local = local
         self.data = data
@@ -29,9 +32,10 @@ class Trip: NSObject {
         self.lat = lat
         self.lon = lon
         self.userAdm = userAdm
+        self.numParticipantes = numParticipantes
     }
 
     override var description: String {
-        return " \(descriptionTrip) \n\n \(local)"
+        return " \(descriptionTrip) \n \(numParticipantes) \n\n \(local)"
     }
 }
