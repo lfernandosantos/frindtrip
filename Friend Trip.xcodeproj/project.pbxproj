@@ -54,6 +54,7 @@
 		BE6CA4DF20CC8F5700978B48 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */; };
 		BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */; };
 		BE6CA4F320CCA4C100978B48 /* Trips+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */; };
+		BE6CA4F520CD83ED00978B48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F420CD83ED00978B48 /* Constants.swift */; };
 		BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B420A79BAE00801596 /* MapProtocol.swift */; };
 		BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE11B620B1D66000801596 /* FloatLabelTextField.swift */; };
 		BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */; };
@@ -114,6 +115,7 @@
 		BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BE6CA4F420CD83ED00978B48 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BECE11B420A79BAE00801596 /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		BECE11B620B1D66000801596 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplay.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				BE42D8201FE7419C004FF9C1 /* Info.plist */,
 				BE42D8181FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld */,
 				BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */,
+				BE6CA4F420CD83ED00978B48 /* Constants.swift */,
 			);
 			path = "Friend Trip";
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				BE33F9B6201D762400F45737 /* TripAnnotation.swift in Sources */,
 				BE39E3D2202BE09C0055B411 /* HeaderDetailsClass.swift in Sources */,
 				BE42D8121FE7419C004FF9C1 /* AppDelegate.swift in Sources */,
+				BE6CA4F520CD83ED00978B48 /* Constants.swift in Sources */,
 				BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */,
 				BE33F9B0201D688200F45737 /* CustomAnnotationView.swift in Sources */,
 				BE42D81A1FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld in Sources */,
