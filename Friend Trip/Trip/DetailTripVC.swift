@@ -17,10 +17,9 @@ class DetailTripVC: UIViewController {
     @IBOutlet weak var lblTypeTrip: UILabel!
     @IBOutlet weak var lblMonthTrip: UILabel!
     @IBOutlet weak var lblDayTrip: UILabel!
-    @IBOutlet weak var lvlTotalConfirm: UIView!
     @IBOutlet weak var imgFavoriteTrip: UIImageView!
     @IBOutlet weak var lblDescriptionTrip: UITextView!
-
+    @IBOutlet weak var lblParticipantes: UILabel!
     @IBOutlet weak var lblNameAdmin: UILabel!
     @IBOutlet weak var imgProfileAdm: UIImageView!
     @IBOutlet weak var btnConfirm: UIButton!
@@ -43,12 +42,16 @@ class DetailTripVC: UIViewController {
         lblDayTrip.text = tripViewModel.getDayTrip()
         lblMonthTrip.text = tripViewModel.getMothTrip()
         lblDescriptionTrip.text = tripViewModel.descriptionTrip
-
+        lblParticipantes.text = tripViewModel.getParticipantes()
         lblNameAdmin.text = tripViewModel.admName
 //tratar imagem e inserir view model do user na trip
         let urlImg = URL(string: tripViewModel.picAdm)
         imgProfileAdm.kf.setImage(with: urlImg!)
         print(tripViewModel.picAdm)
+
+        if tripViewModel.isSaved() {
+            imgFavoriteTrip.isHighlighted = true
+        }
 
          btnConfirm.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
@@ -65,12 +68,18 @@ class DetailTripVC: UIViewController {
     @IBAction func setFavoriteTrip(tapGestureRecognizer: UITapGestureRecognizer) {
         if imgFavoriteTrip.isHighlighted {
             imgFavoriteTrip.isHighlighted = false
+
+            tripViewModel.removeTrip()
         } else {
             imgFavoriteTrip.isHighlighted = true
+
+            tripViewModel.saveTrip()
+
         }
     }
 
     @IBAction func confirmTrip(_ sender: Any) {
+        
         navigationController?.popViewController(animated: true)
     }
 }

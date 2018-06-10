@@ -39,7 +39,7 @@ class DetailEventTableVC: UITableViewController {
     @objc func saveEvent(tapGestureRecognizer: UITapGestureRecognizer){
         if imgSaveEvent.isHighlighted {
             imgSaveEvent.isHighlighted = false
-
+            
         } else {
             imgSaveEvent.isHighlighted = true
         }
