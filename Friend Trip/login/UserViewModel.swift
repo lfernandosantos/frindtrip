@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UserViewModel: NSObject {
 
@@ -27,6 +28,17 @@ class UserViewModel: NSObject {
         self.name = userAPIResponse.name ?? " "
         self.email = userAPIResponse.email ?? " "
         self.picUrl = userAPIResponse.picture ?? " "
+    }
+
+    static func savedTrips() -> [TripsDAO] {
+        let request: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
+
+        do {
+            let trip = try PersistenceService.context.fetch(request)
+            return trip
+        } catch {
+            return [TripsDAO]()
+        }
     }
 
 }
