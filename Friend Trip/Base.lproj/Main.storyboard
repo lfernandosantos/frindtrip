@@ -134,16 +134,16 @@
             </objects>
             <point key="canvasLocation" x="1763" y="136"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="pW8-FH-iSV">
             <objects>
-                <tableViewController id="fMQ-g9-D70" sceneMemberID="viewController">
+                <tableViewController title="Title" id="fMQ-g9-D70" customClass="ListTripsTVC" customModule="Friend_Trip" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tVC-VI-uld">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cvO-5v-fKB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="cvO-5v-fKB">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cvO-5v-fKB" id="HGr-CI-1ab">
@@ -157,10 +157,11 @@
                             <outlet property="delegate" destination="fMQ-g9-D70" id="sBt-HN-U9f"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ECL-HX-pFy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CD9-WN-FxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251" y="1743"/>
+            <point key="canvasLocation" x="253" y="1801"/>
         </scene>
         <!--Profile-->
         <scene sceneID="M6P-fR-Mmt">
@@ -318,7 +319,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="fMQ-g9-D70" kind="show" identifier="eventosSalvos" id="v4k-zI-d05"/>
+                                            <segue destination="fMQ-g9-D70" kind="show" id="W4M-gf-grE"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BTT-3s-Oz2">
@@ -352,9 +353,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="fMQ-g9-D70" kind="show" identifier="eventosCriados" id="brd-pc-foT"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tUB-VG-Kqn">
                                         <rect key="frame" x="0.0" y="484" width="320" height="44"/>
@@ -388,9 +386,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="fMQ-g9-D70" kind="show" identifier="eventosConfirmados" id="YAs-KZ-SCf"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -710,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GrN-qP-f41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762.5" y="1742.9577464788733"/>
+            <point key="canvasLocation" x="2738" y="1743"/>
         </scene>
         <!--Map View Set LocalVC-->
         <scene sceneID="9sm-eb-2jq">
@@ -751,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipu-NE-XJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2582" y="1743"/>
+            <point key="canvasLocation" x="3579.375" y="1742.9577464788733"/>
         </scene>
         <!--Detail TripVC-->
         <scene sceneID="rHh-Uo-9lF">
@@ -1034,7 +1029,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59t-CS-t2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999.375" y="1742.9577464788733"/>
+            <point key="canvasLocation" x="1637" y="1743"/>
         </scene>
         <!--WellcomeVC-->
         <scene sceneID="3jy-nD-DRX">
@@ -1208,6 +1203,5 @@ Crie eventos para ajudar seus amigos a encontrarem trips com o mesmo interesse q
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dMy-Io-3Si"/>
-        <segue reference="brd-pc-foT"/>
     </inferredMetricsTieBreakers>
 </document>
