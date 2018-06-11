@@ -104,7 +104,7 @@ class TripViewModel {
         }
     }
 
-    func savedTrips() -> [TripsDAO] {
+    static func savedTrips() -> [TripsDAO] {
         let request: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
 
         do {
