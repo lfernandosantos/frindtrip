@@ -51,6 +51,7 @@
 		BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */; };
 		BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1321209F804F003DC380 /* HandleMapSearch.swift */; };
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
+		BE6C9C6F20CE125B002B1A94 /* FaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */; };
 		BE6CA4DF20CC8F5700978B48 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */; };
 		BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */; };
 		BE6CA4F320CCA4C100978B48 /* Trips+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */; };
@@ -111,6 +112,7 @@
 		BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableVC.swift; sourceTree = "<group>"; };
 		BE4A1321209F804F003DC380 /* HandleMapSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMapSearch.swift; sourceTree = "<group>"; };
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
+		BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceConstants.swift; sourceTree = "<group>"; };
 		BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				BE42D8201FE7419C004FF9C1 /* Info.plist */,
 				BE42D8181FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld */,
 				BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */,
+				BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */,
 			);
 			path = "Friend Trip";
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */,
 				BE33F9B0201D688200F45737 /* CustomAnnotationView.swift in Sources */,
 				BE42D81A1FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld in Sources */,
+				BE6C9C6F20CE125B002B1A94 /* FaceConstants.swift in Sources */,
 				BE2EA3762074752500951A73 /* APIUser.swift in Sources */,
 				BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */,
 				BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */,
