@@ -52,6 +52,7 @@
 		BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1321209F804F003DC380 /* HandleMapSearch.swift */; };
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
 		BE6C9C6F20CE125B002B1A94 /* FaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */; };
+		BE6C9C7120CE172B002B1A94 /* ListTripsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */; };
 		BE6CA4DF20CC8F5700978B48 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */; };
 		BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */; };
 		BE6CA4F320CCA4C100978B48 /* Trips+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */; };
@@ -113,6 +114,7 @@
 		BE4A1321209F804F003DC380 /* HandleMapSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMapSearch.swift; sourceTree = "<group>"; };
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
 		BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceConstants.swift; sourceTree = "<group>"; };
+		BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTripsTVC.swift; sourceTree = "<group>"; };
 		BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
 				ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */,
 				BEED6E3520B9E70C00BCD991 /* SearchDisplay.swift */,
+				BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6C9C7120CE172B002B1A94 /* ListTripsTVC.swift in Sources */,
 				BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */,
 				BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */,
 				BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */,
