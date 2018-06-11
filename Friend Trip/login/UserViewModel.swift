@@ -16,7 +16,7 @@ class UserViewModel: NSObject {
     let picUrl: String
 
     init(userFace: UserFace) {
-        self.idFacebook = userFace.id!
+        self.idFacebook = String(userFace.id ?? 0)
         self.name = userFace.name!
         self.email = userFace.email ?? " "
         self.picUrl = userFace.picture?.data?.url ?? " "

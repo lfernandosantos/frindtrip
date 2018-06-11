@@ -29,7 +29,7 @@ class TripViewModel {
         self.dataTrip = trip.data
         self.typeTrip = trip.tipoEvento
         self.admName = trip.userAdm.name ?? "Name"
-        self.picAdm = trip.userAdm.picture?.data?.url ?? "placehoder"
+        self.picAdm = trip.userAdm.getProfilePic()
         self.descriptionTrip = trip.description
         self.participantes = trip.numParticipantes
     }
