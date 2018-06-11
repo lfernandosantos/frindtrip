@@ -44,7 +44,8 @@ class DetailTripVC: UIViewController {
         lblDescriptionTrip.text = tripViewModel.descriptionTrip
         lblParticipantes.text = tripViewModel.getParticipantes()
         lblNameAdmin.text = tripViewModel.admName
-//tratar imagem e inserir view model do user na trip
+
+        //tratar imagem e inserir view model do user na trip
         let urlImg = URL(string: tripViewModel.picAdm)
         imgProfileAdm.kf.setImage(with: urlImg!)
         print(tripViewModel.picAdm)
