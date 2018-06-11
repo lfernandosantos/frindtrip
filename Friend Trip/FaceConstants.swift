@@ -7,3 +7,7 @@
 //
 
 import Foundation
+struct FaceConstants {
+    static let urlGraph: String = "https://graph.facebook.com/"
+    static let endPointPicLarge: String = "/picture?type=large"
+}
