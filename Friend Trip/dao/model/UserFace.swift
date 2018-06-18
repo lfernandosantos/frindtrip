@@ -11,7 +11,7 @@ import ObjectMapper
 
 class UserFace: NSObject, Mappable {
 
-    var id: Int?
+    var id: String?
     var name: String?
     var email:String?
     var picture: UserPicture?
@@ -29,6 +29,7 @@ class UserFace: NSObject, Mappable {
         guard let id = id else {
           return ""
         }
+        print(id)
         let urlPic: String = "\(FaceConstants.urlGraph)\(id)\(FaceConstants.endPointPicLarge)"
         return urlPic
     }
