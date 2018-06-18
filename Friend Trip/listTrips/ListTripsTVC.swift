@@ -42,9 +42,7 @@ class ListTripsTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! CustomSavedTVCell
         cell.lblNomeTrip.text = tripList[indexPath.row].nome
         cell.lblDataTrip.text = tripList[indexPath.row].data
-        cell.btnConfirmar.layer.cornerRadius = 20
-        cell.btnConfirmar.layer.borderWidth = 2
-        cell.btnConfirmar.layer.borderColor = UIColor.orange.cgColor
+        
         if let category = tripList[indexPath.row].tipoEvento {
             cell.imgCategoria.image = UIImageCategory.getImgCategory(category) 
         }
