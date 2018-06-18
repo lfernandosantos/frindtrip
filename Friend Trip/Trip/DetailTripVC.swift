@@ -32,10 +32,27 @@ class DetailTripVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
+        if let nav = navigationController?.navigationBar.bounds.height {
+            constraintTop.constant -= nav
+        }
+
+        setUp()
+    }
+
+    func setUp() {
         let tapFavorite = UITapGestureRecognizer(target: self, action: #selector(setFavoriteTrip(tapGestureRecognizer:)))
         imgFavoriteTrip.addGestureRecognizer(tapFavorite)
         imgFavoriteTrip.isUserInteractionEnabled = true
 
+        if tripViewModel.isSaved() {
+            imgFavoriteTrip.isHighlighted = true
+        }
+
+        setViews()
+    }
+
+    func setViews() {
         lblTitleTrip.text = tripViewModel.nameTrip
         lblTypeTrip.text = tripViewModel.typeTrip
         lblLocalTrip.text = tripViewModel.localTrip
@@ -43,24 +60,17 @@ class DetailTripVC: UIViewController {
         lblMonthTrip.text = tripViewModel.getMothTrip()
         lblDescriptionTrip.text = tripViewModel.descriptionTrip
         lblParticipantes.text = tripViewModel.getParticipantes()
-        lblNameAdmin.text = tripViewModel.admName
+        lblNameAdmin.text = tripViewModel.adm.name
+        imgTrip.image = tripViewModel.getImgTrip()
 
         //tratar imagem e inserir view model do user na trip
         let urlImg = URL(string: tripViewModel.picAdm)
         imgProfileAdm.kf.setImage(with: urlImg!)
-        print(tripViewModel.picAdm)
 
-        if tripViewModel.isSaved() {
-            imgFavoriteTrip.isHighlighted = true
-        }
+        btnConfirm.layer.cornerRadius = 6
 
-         btnConfirm.layer.cornerRadius = 6
-        // Do any additional setup after loading the view.
-        if let nav = navigationController?.navigationBar.bounds.height {
-            constraintTop.constant -= nav
-        }
+        statusButton ()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,8 +89,20 @@ class DetailTripVC: UIViewController {
         }
     }
 
+    func statusButton () {
+        if tripViewModel.isConfirmed() {
+        btnConfirm.backgroundColor = UIColor.red
+        btnConfirm.setTitle("Remover", for: .normal)
+        }
+    }
     @IBAction func confirmTrip(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
+        if tripViewModel.isConfirmed() {
+            tripViewModel.setStatus(" ")
+            navigationController?.popViewController(animated: true)
+        } else {
+            tripViewModel.setStatus("confirmed")
+            navigationController?.popViewController(animated: true)
+        }
+
     }
 }
