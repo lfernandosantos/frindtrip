@@ -10,11 +10,15 @@ import UIKit
 
 class CustomSavedTVCell: UITableViewCell {
 
+    @IBOutlet weak var imgCategoria: UIImageView!
+    @IBOutlet weak var lblNomeTrip: UILabel!
+    @IBOutlet weak var lblDataTrip: UILabel!
+    @IBOutlet weak var btnConfirmar: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
