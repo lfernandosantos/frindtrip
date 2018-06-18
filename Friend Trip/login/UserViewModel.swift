@@ -17,7 +17,7 @@ class UserViewModel: NSObject {
     let picUrl: String
 
     init(userFace: UserFace) {
-        self.idFacebook = String(userFace.id ?? 0)
+        self.idFacebook = userFace.id ?? ""
         self.name = userFace.name!
         self.email = userFace.email ?? " "
         self.picUrl = userFace.picture?.data?.url ?? " "
@@ -35,6 +35,28 @@ class UserViewModel: NSObject {
 
         do {
             let trip = try PersistenceService.context.fetch(request)
+            return trip
+        } catch {
+            return [TripsDAO]()
+        }
+    }
+
+    static func confirmedTrips() -> [TripsDAO] {
+        let request: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
+        request.predicate = NSPredicate(format: "status=%@", "confirmed")
+        do {
+            let trip = try PersistenceService.context.fetch(request)
+            return trip
+        } catch {
+            return [TripsDAO]()
+        }
+    }
+    func myTrips() -> [TripsDAO] {
+        let request: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
+            request.predicate = NSPredicate(format: "idUser=%@", idFacebook)
+        do {
+            let trip = try PersistenceService.context.fetch(request)
+
             return trip
         } catch {
             return [TripsDAO]()

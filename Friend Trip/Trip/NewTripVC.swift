@@ -183,7 +183,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
         if let location = location {
-            let trip = Trip(id: 33, nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 1)
+            let trip = Trip(id: 33, nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!, status: "confirmed", numParticipantes: 1)
 
             mapDelegate?.addNewTrip(trip)
         } else {

@@ -18,8 +18,9 @@ class TripViewModel {
     let dataTrip: String
     let typeTrip: String
     let descriptionTrip: String
-    let admName: String
+    let adm: UserFace
     let picAdm: String
+    let status: String
     var participantes: Int
 
     init(trip: Trip) {
@@ -28,9 +29,10 @@ class TripViewModel {
         self.localTrip = trip.local
         self.dataTrip = trip.data
         self.typeTrip = trip.tipoEvento
-        self.admName = trip.userAdm.name ?? "Name"
+        self.adm = trip.userAdm
         self.picAdm = trip.userAdm.getProfilePic()
         self.descriptionTrip = trip.description
+        self.status = trip.status
         self.participantes = trip.numParticipantes
     }
 
@@ -60,6 +62,15 @@ class TripViewModel {
         return String(day)
     }
 
+    func setStatus(_ status: String) {
+        updateStatus(status)
+
+    }
+    
+    func getImgTrip() -> UIImage? {
+        return UIImageCategory.getImgCategory(typeTrip)
+    }
+
     func getParticipantes() -> String {
         return "\(participantes) participantes"
     }
@@ -72,10 +83,12 @@ class TripViewModel {
     func saveTrip() {
         let dao = TripsDAO(context: PersistenceService.context)
         dao.id = Int32(id)
+        dao.idUser = adm.id ?? ""
         dao.nome = nameTrip
         dao.tipoEvento = typeTrip
         dao.data = dataTrip
         dao.participantes = Int16(id)
+        dao.status = status
         PersistenceService.saveContext()
     }
 
@@ -91,6 +104,35 @@ class TripViewModel {
         } else {
             return false
         }
+    }
+
+    func isConfirmed() -> Bool {
+        let fetchRequest: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id=%@", "\(id)")
+        if let result = try? PersistenceService.context.fetch(fetchRequest) {
+
+            if result[0].status == "confirmed" {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    func updateStatus(_ status: String) {
+        let fetchRequest: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id=%@", "\(id)")
+        if let result = try? PersistenceService.context.fetch(fetchRequest) {
+
+            for r in result {
+                r.status = status
+            }
+
+            PersistenceService.saveContext()
+        }
+
     }
 
     func removeTrip() {
