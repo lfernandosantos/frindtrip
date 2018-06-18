@@ -46,7 +46,7 @@ class ListTripsTVC: UITableViewController {
         cell.btnConfirmar.layer.borderWidth = 2
         cell.btnConfirmar.layer.borderColor = UIColor.orange.cgColor
         if let category = tripList[indexPath.row].tipoEvento {
-            cell.imgCategoria.image = getImgCategory(category)
+            cell.imgCategoria.image = UIImageCategory.getImgCategory(category) 
         }
 
         return cell
