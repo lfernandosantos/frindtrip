@@ -36,10 +36,8 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     }
 
     func setupViews() {
-
         setCircularButton(addTrip)
         setCircularButton(filterBtn)
-
     }
 
     func setCircularButton(_ button: UIButton) {
@@ -83,14 +81,24 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
                   "width": 200 ]
 
             ],
-                                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
+                                        "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": "1571861286232650"]
 
-        tripsList.append(Trip(id: 1, nome: "Baladinha tipo são Jorge", local: "1140", data: "10-06-2018 22:17", tipoEvento: "Morrer", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 5))
-        tripsList.append( Trip(id: 2, nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23-04-2018 22:17", tipoEvento: "Night", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 3))
-        tripsList.append(Trip(id: 3, nome: "Niver do Fernando", local: "Arraial", data: "10-06-2018 22:17", tipoEvento: "Beach", descriptionTrip: "eerarareresedes",lat: -22.764696, lon: -43.424816, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 10))
-        tripsList.append(Trip(id: 4, nome: "Caminhada no bosque", local: "Matinho da esquina, Floresta da Tijuca", data: "10-06-2018 22:17", tipoEvento: "Matagal", descriptionTrip: "eerararer g gfgofd gfdo gofdi fod gfdoi gfdoi gfdo gfdoi gfdoi gfdio gfdi g/ n/ /n /n/n/n/n/ /nrtn/r/tn/nn//dfsfsdf  fsd fds f ds fds f dsf ds fds  fsd f ds fds\n\n\nmdvfdm gofd mp omop mn//n/esedes", lat: -22.767000, lon: -42.426178, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 23))
-        tripsList.append(Trip(id: 5, nome: "Viagem5", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 22))
-        tripsList.append(Trip(id: 6, nome: "Viagem6", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 1))
+        let jsonUse2: [String : Any] = ["picture":
+            [ "data":
+                [ "height": 200,
+                  "is_silhouette": 0,
+                  "url": "https://lookaside.facebook.com/platform/profilepic/?asid=1571861286232650&height=200&width=200&ext=1523583752&hash=AeQydwWTSzPh8O8K",
+                  "width": 200 ]
+
+            ],
+                                        "name": "Fernando Santos 2", "email": "fernandin222@hotmail.com", "id": "1571861286232690"]
+
+        tripsList.append(Trip(id: 1, nome: "Baladinha tipo são Jorge", local: "1140", data: "10-06-2018 22:17", tipoEvento: "Party", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!, status: "", numParticipantes: 5))
+        tripsList.append( Trip(id: 2, nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23-04-2018 22:17", tipoEvento: "Party", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 3))
+        tripsList.append(Trip(id: 3, nome: "Niver do Fernando", local: "Arraial", data: "10-06-2018 22:17", tipoEvento: "Beach", descriptionTrip: "eerarareresedes",lat: -22.764696, lon: -43.424816, userAdm: UserFace(JSON: jsonUser)!,status: "confirmed", numParticipantes: 10))
+        tripsList.append(Trip(id: 4, nome: "Caminhada no bosque", local: "Matinho da esquina, Floresta da Tijuca", data: "10-06-2018 22:17", tipoEvento: "Adventure", descriptionTrip: "eerararer g gfgofd gfdo gofdi fod gfdoi gfdoi gfdo gfdoi gfdoi gfdio gfdi g/ n/ /n /n/n/n/n/ /nrtn/r/tn/nn//dfsfsdf  fsd fds f ds fds f dsf ds fds  fsd f ds fds\n\n\nmdvfdm gofd mp omop mn//n/esedes", lat: -22.767000, lon: -42.426178, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 23))
+        tripsList.append(Trip(id: 5, nome: "Viagem5", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 22))
+        tripsList.append(Trip(id: 6, nome: "Viagem6", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 1))
 
         loadTripsOnMap(tripsList)
     }
@@ -145,7 +153,7 @@ extension MapViewDelegate
             calloutView.subTitle.text = starbucksAnnotation.address
             calloutView.tipeTrip.text = starbucksAnnotation.trip.tipoEvento
             calloutView.data.text = starbucksAnnotation.trip.data
-            calloutView.img.image = starbucksAnnotation.image
+            calloutView.img.image = UIImageCategory.getIconCategory(starbucksAnnotation.trip.tipoEvento)
             calloutView.img.contentMode = .scaleAspectFit
             calloutView.layer.cornerRadius = 8
 
