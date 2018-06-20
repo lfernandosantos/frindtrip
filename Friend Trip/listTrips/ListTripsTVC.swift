@@ -13,11 +13,10 @@ class ListTripsTVC: UITableViewController {
     var tripList = [TripsDAO] ()
     var typeList: GlobalConstants.SegueIdentifier.TypeTripsList = .SAVED
     @IBOutlet var userVM: UserViewModel!
-    var tripVM: TripViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,19 +50,28 @@ class ListTripsTVC: UITableViewController {
         let trip = Trip(tripDao: tripList[indexPath.row])
         let tripVM = TripViewModel(trip: trip)
 
-        self.tripVM = tripVM
-
         cell.lblNomeTrip.text = tripVM.nameTrip
         cell.lblDataTrip.text = tripVM.getHourTrip()
         cell.lblDayTrip.text = tripVM.getDayTrip()
         cell.lblMonthTrip.text = tripVM.getMothTrip()
+        cell.cellDelegate = self
+        cell.tag = indexPath.row
         cell.btnConfirmar.tag = indexPath.row
-        cell.btnConfirmar.addTarget(self, action: "didTapButtonCell", for: .touchUpInside)
+        cell.btnSaveTrip.tag = indexPath.row
 
         if let category = tripList[indexPath.row].tipoEvento {
             cell.imgCategoria.image = UIImageCategory.getImgCategory(category) 
         }
 
+        if tripVM.isConfirmed() {
+            cell.btnConfirmar.isEnabled = false
+            cell.btnConfirmar.setTitle("Confirmado", for: .normal)
+        }
+
+        if tripVM.isSaved() {
+            cell.btnSaveTrip.isEnabled = false
+            cell.btnSaveTrip.setTitle("Salvo", for: .normal)
+        }
         return cell
     }
 
@@ -84,8 +92,18 @@ class ListTripsTVC: UITableViewController {
 }
 
 extension ListTripsTVC: CellButtonProtocol {
-    func didTapButtonCell(_ sender: UIButton) {
-        print(sender.tag)
+    func didTapButtonCell(_ tag: Int) {
+        let trip = Trip(tripDao: tripList[tag])
+        let tripVM = TripViewModel(trip: trip)
+        tripVM.setStatus("confirmed")
+        tableView.reloadData()
+    }
+
+    func didTapSavedButtonCell(_ tag: Int) {
+        let trip = Trip(tripDao: tripList[tag])
+        let tripVM = TripViewModel(trip: trip)
+        tripVM.saveTrip()
+        tableView.reloadData()
     }
 }
 
