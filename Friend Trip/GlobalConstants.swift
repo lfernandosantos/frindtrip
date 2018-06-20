@@ -10,6 +10,12 @@ import Foundation
 
 struct GlobalConstants {
 
+    struct Categories {
+        static let BEER = "Beer"
+        static let ADVENTURE = "Adventure"
+        static let CLUB = "Club"
+        static let PARTY = "Party" 
+    }
 
     struct SegueIdentifier {
         static let CONFIRMED_TRIPS = "confirmedTrips"
