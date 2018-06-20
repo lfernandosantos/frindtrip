@@ -11,16 +11,16 @@ import UIKit
 class UIImageCategory {
     static func getIconCategory(_ category: String) -> UIImage? {
 
-        if category == "Beer" {
+        if category == GlobalConstants.Categories.BEER {
             return UIImage(named: ConstantsNamedImages.categoryBeer)
         }
-        if category == "Adventure" {
+        if category == GlobalConstants.Categories.ADVENTURE {
             return UIImage(named: ConstantsNamedImages.categoryAdventure)
         }
-        if category == "Beach" {
-            return UIImage(named: ConstantsNamedImages.categoryBeach)
+        if category == GlobalConstants.Categories.CLUB {
+            return UIImage(named: ConstantsNamedImages.categoryClub)
         }
-        if category == "Party" {
+        if category == GlobalConstants.Categories.PARTY {
             return UIImage(named: ConstantsNamedImages.categoryParty)
         } else {
             return UIImage(named: ConstantsNamedImages.categoryAdventure)
@@ -29,16 +29,16 @@ class UIImageCategory {
 
     static func getImgCategory(_ category: String) -> UIImage? {
 
-        if category == "Beer" {
+        if category == GlobalConstants.Categories.BEER {
             return UIImage(named: ConstantsNamedImages.imgCategoryBeer)
         }
-        if category == "Adventure" {
+        if category == GlobalConstants.Categories.ADVENTURE {
             return UIImage(named: ConstantsNamedImages.imgCategoryAdventure)
         }
-        if category == "Beach" {
-            return UIImage(named: ConstantsNamedImages.imgCategoryBeach)
+        if category == GlobalConstants.Categories.CLUB {
+            return UIImage(named: ConstantsNamedImages.imgCategoryClub)
         }
-        if category == "Party" {
+        if category == GlobalConstants.Categories.PARTY {
             return UIImage(named: ConstantsNamedImages.imgCategoryParty)
         } else {
             return UIImage(named: ConstantsNamedImages.imgCategoryAdventure)
