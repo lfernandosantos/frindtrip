@@ -20,7 +20,7 @@ class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         return 1
     }
 
-    let tiposTripList = ["Beer", "Night", "Party", "Beach"]
+    let tiposTripList = [" ", GlobalConstants.Categories.BEER, GlobalConstants.Categories.ADVENTURE, GlobalConstants.Categories.PARTY, GlobalConstants.Categories.CLUB]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,11 @@ class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "ColorTransparent")
+        if let selectedItem = categoria{
+            mapDelegate?.setCategory(category: selectedItem)
+        } else {
+            mapDelegate?.setCategory(category: " ")
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
