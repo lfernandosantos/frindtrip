@@ -14,7 +14,10 @@ class CustomSavedTVCell: UITableViewCell {
     @IBOutlet weak var lblNomeTrip: UILabel!
     @IBOutlet weak var lblDataTrip: UILabel!
     @IBOutlet weak var btnConfirmar: UIButton!
-    
+    @IBOutlet weak var lblDayTrip: UILabel!
+    @IBOutlet weak var lblMonthTrip: UILabel!
+    @IBOutlet weak var btnShareTrip: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

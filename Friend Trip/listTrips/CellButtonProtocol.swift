@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol CellButtonProtocol {
+    func didTapButtonCell(_ sender: UIButton)
+}

@@ -13,20 +13,28 @@ class ListTripsTVC: UITableViewController {
     var tripList = [TripsDAO] ()
     var typeList: GlobalConstants.SegueIdentifier.TypeTripsList = .SAVED
     @IBOutlet var userVM: UserViewModel!
+    var tripVM: TripViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
         switch typeList {
         case .SAVED:
+            navigationItem.title = "Trips Salvas"
             tripList = UserViewModel.savedTrips()
+            self.tableView.reloadData()
         case .MYTRIP:
+            navigationItem.title = "Minhas Trips"
             self.tripList = userVM.myTrips()
             self.tableView.reloadData()
         case .CONFIRMED:
+            navigationItem.title = "Trips Confirmadas"
             self.tripList = UserViewModel.confirmedTrips()
+            self.tableView.reloadData()
         }
-        
     }
 
     // MARK: - Table view data source
@@ -40,9 +48,18 @@ class ListTripsTVC: UITableViewController {
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! CustomSavedTVCell
-        cell.lblNomeTrip.text = tripList[indexPath.row].nome
-        cell.lblDataTrip.text = tripList[indexPath.row].data
-        
+        let trip = Trip(tripDao: tripList[indexPath.row])
+        let tripVM = TripViewModel(trip: trip)
+
+        self.tripVM = tripVM
+
+        cell.lblNomeTrip.text = tripVM.nameTrip
+        cell.lblDataTrip.text = tripVM.getHourTrip()
+        cell.lblDayTrip.text = tripVM.getDayTrip()
+        cell.lblMonthTrip.text = tripVM.getMothTrip()
+        cell.btnConfirmar.tag = indexPath.row
+        cell.btnConfirmar.addTarget(self, action: "didTapButtonCell", for: .touchUpInside)
+
         if let category = tripList[indexPath.row].tipoEvento {
             cell.imgCategoria.image = UIImageCategory.getImgCategory(category) 
         }
@@ -64,21 +81,16 @@ class ListTripsTVC: UITableViewController {
 
         }
     }
-    func getImgCategory(_ category: String) -> UIImage? {
+}
 
-        if category == "Beer" {
-            return UIImage(named: ConstantsNamedImages.categoryBeer)
-        }
-        if category == "Adventure" {
-            return UIImage(named: ConstantsNamedImages.categoryAdventure)
-        }
-        if category == "Beach" {
-            return UIImage(named: ConstantsNamedImages.categoryBeach)
-        }
-        if category == "Party" {
-            return UIImage(named: ConstantsNamedImages.categoryParty)
-        } else {
-            return UIImage(named: ConstantsNamedImages.categoryAdventure)
-        }
+extension ListTripsTVC: CellButtonProtocol {
+    func didTapButtonCell(_ sender: UIButton) {
+        print(sender.tag)
     }
 }
+
+
+
+
+
+

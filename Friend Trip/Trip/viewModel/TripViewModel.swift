@@ -62,6 +62,21 @@ class TripViewModel {
         return String(day)
     }
 
+    func getHourTrip() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+
+        guard let date = dateFormatter.date(from: dataTrip) else {
+            return "0"
+        }
+
+        let calendar = Calendar(identifier: .gregorian)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+
+        return "\(hour):\(minute)"
+    }
+
     func setStatus(_ status: String) {
         updateStatus(status)
 

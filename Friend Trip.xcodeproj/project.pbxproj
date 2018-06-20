@@ -18,6 +18,7 @@
 		BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA37B20771D5200951A73 /* UserViewModel.swift */; };
 		BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */; };
 		BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A8205EF1F1006086EF /* Trip.swift */; };
+		BE30C4F320D9E7020074C7E6 /* CellButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */; };
 		BE33C495207ABFB00058B87D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE33C494207ABFB00058B87D /* MapKit.framework */; };
 		BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */; };
 		BE33F9AC201D08BB00F45737 /* CustomAnnotationV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */; };
@@ -82,6 +83,7 @@
 		BE2EA37B20771D5200951A73 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripVC.swift; sourceTree = "<group>"; };
 		BE2ED6A8205EF1F1006086EF /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButtonProtocol.swift; sourceTree = "<group>"; };
 		BE33C494207ABFB00058B87D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListFriendTripVC.swift; sourceTree = "<group>"; };
 		BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnnotationV.xib; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				BE6C9C7320CF6D65002B1A94 /* savedList */,
 				BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */,
+				BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */,
 			);
 			path = listTrips;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */,
 				BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */,
 				BE2EA3782074754300951A73 /* UserResponseModel.swift in Sources */,
+				BE30C4F320D9E7020074C7E6 /* CellButtonProtocol.swift in Sources */,
 				BE1093612045013E007E9FA0 /* LoginFBRequest.swift in Sources */,
 				BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */,
 				BE33F9AE201D09D200F45737 /* CustomAnnotation.swift in Sources */,
@@ -740,12 +744,15 @@
 			baseConfigurationReference = EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ52M4QL3U;
 				INFOPLIST_FILE = "Friend Trip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.lf.Friend-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -756,12 +763,15 @@
 			baseConfigurationReference = 4DA5AA56C91D331A0916FA1E /* Pods-Friend Trip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ52M4QL3U;
 				INFOPLIST_FILE = "Friend Trip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.lf.Friend-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
