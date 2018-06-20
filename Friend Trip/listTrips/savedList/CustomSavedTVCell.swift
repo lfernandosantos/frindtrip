@@ -16,8 +16,17 @@ class CustomSavedTVCell: UITableViewCell {
     @IBOutlet weak var btnConfirmar: UIButton!
     @IBOutlet weak var lblDayTrip: UILabel!
     @IBOutlet weak var lblMonthTrip: UILabel!
-    @IBOutlet weak var btnShareTrip: UIButton!
+    @IBOutlet weak var btnSaveTrip: UIButton!
 
+    weak var cellDelegate: CellButtonProtocol?
+
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        cellDelegate?.didTapButtonCell(sender.tag)
+    }
+
+    @IBAction func buttonSavedPressed(_ sender: UIButton) {
+        cellDelegate?.didTapSavedButtonCell(sender.tag)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
