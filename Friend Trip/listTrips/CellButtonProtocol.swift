@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
-protocol CellButtonProtocol {
-    func didTapButtonCell(_ sender: UIButton)
+protocol CellButtonProtocol: class {
+    func didTapButtonCell(_ tag: Int)
+    func didTapSavedButtonCell(_ tag: Int)
 }

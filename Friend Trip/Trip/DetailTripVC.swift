@@ -69,7 +69,7 @@ class DetailTripVC: UIViewController {
 
         btnConfirm.layer.cornerRadius = 6
 
-        statusButton ()
+        statusButton()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,13 +79,10 @@ class DetailTripVC: UIViewController {
     @IBAction func setFavoriteTrip(tapGestureRecognizer: UITapGestureRecognizer) {
         if imgFavoriteTrip.isHighlighted {
             imgFavoriteTrip.isHighlighted = false
-
             tripViewModel.removeTrip()
         } else {
             imgFavoriteTrip.isHighlighted = true
-
             tripViewModel.saveTrip()
-
         }
     }
 
