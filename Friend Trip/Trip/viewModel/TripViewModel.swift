@@ -125,12 +125,14 @@ class TripViewModel {
         let fetchRequest: NSFetchRequest<TripsDAO> = TripsDAO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id=%@", "\(id)")
         if let result = try? PersistenceService.context.fetch(fetchRequest) {
-
-            if result[0].status == "confirmed" {
-                return true
-            } else {
-                return false
+            if result.count > 0 {
+                if result[0].status == "confirmed" {
+                    return true
+                } else {
+                    return false
+                }
             }
+            return false
         } else {
             return false
         }
