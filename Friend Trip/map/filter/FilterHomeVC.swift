@@ -62,7 +62,6 @@ class FilterHomeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         }
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

@@ -40,7 +40,11 @@ class UIImageCategory {
         }
         if category == GlobalConstants.Categories.PARTY {
             return UIImage(named: ConstantsNamedImages.imgCategoryParty)
-        } else {
+        }
+        if category == GlobalConstants.Categories.CULT {
+            return UIImage(named: ConstantsNamedImages.imgCategoryCult)
+        }
+        else {
             return UIImage(named: ConstantsNamedImages.imgCategoryAdventure)
         }
     }

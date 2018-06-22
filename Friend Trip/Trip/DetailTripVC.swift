@@ -28,7 +28,9 @@ class DetailTripVC: UIViewController {
     @IBOutlet weak var scroll: UIScrollView!
     var tripViewModel: TripViewModel!
     @IBOutlet weak var constraintTop: NSLayoutConstraint!
-    
+
+    @IBOutlet weak var chatView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +40,14 @@ class DetailTripVC: UIViewController {
         }
 
         setUp()
+
+        chatView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openChat)))
+    }
+
+    @objc func openChat() {
+
+        let chatTrip = ChatTripCollectionVC(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(chatTrip, animated: true)
     }
 
     func setUp() {
@@ -67,6 +77,8 @@ class DetailTripVC: UIViewController {
         if let urlImg = URL(string: tripViewModel.picAdm) {
             imgProfileAdm.kf.setImage(with: urlImg)
         }
+        imgProfileAdm.layer.cornerRadius = imgProfileAdm.bounds.height/2
+        imgProfileAdm.layer.masksToBounds = true
 
         btnConfirm.layer.cornerRadius = 6
 
@@ -103,4 +115,6 @@ class DetailTripVC: UIViewController {
         }
 
     }
+
+
 }

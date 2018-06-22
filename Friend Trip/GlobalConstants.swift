@@ -14,7 +14,8 @@ struct GlobalConstants {
         static let BEER = "Beer"
         static let ADVENTURE = "Adventure"
         static let CLUB = "Club"
-        static let PARTY = "Party" 
+        static let PARTY = "Party"
+        static let CULT = "Cult"
     }
 
     struct SegueIdentifier {

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class MessageModel: NSObject {
+    var user: UserFace?
+    var message: String?
+}

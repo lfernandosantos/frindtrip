@@ -19,5 +19,6 @@ struct ConstantsNamedImages {
     static let imgCategoryParty = "img_party"
     static let imgCategoryBeer = "img_beer"
     static let imgCategoryAdventure = "img_adventure"
+    static let imgCategoryCult = "img_cult"
 }
 
