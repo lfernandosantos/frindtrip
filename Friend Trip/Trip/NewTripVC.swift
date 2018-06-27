@@ -12,7 +12,7 @@ import MapKit
 class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var nameTrip: UITextField!
-    @IBOutlet weak var localTrip: UILabel!
+    @IBOutlet weak var localTrip: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var dataTextField: UITextField!
     @IBOutlet weak var categoria: UITextField!
@@ -51,13 +51,12 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         categoria.addTarget(self, action: #selector(setFirstValueOnTextCategoria), for: .editingDidBegin)
 
         descriptionTextView.layer.borderWidth = 0.8
-        descriptionTextView.layer.borderColor = UIColor.blue.cgColor
+        descriptionTextView.layer.borderColor = UIColor.white.cgColor
         descriptionTextView.layer.cornerRadius = 3
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapView" {
-            print("new")
             if let mapLocationVC = segue.destination as? MapViewSetLocalVC {
                 mapLocationVC.locationDelegate = self
             }
@@ -68,6 +67,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
 
         view.addGestureRecognizer(tap)
+        
+        let tapLocation: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openScreenLocation))
+        
+        localTrip.addGestureRecognizer(tapLocation)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:.UIKeyboardWillShow , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
@@ -75,6 +78,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         nameTrip.delegate = self
         dataTextField.delegate = self
         categoria.delegate = self
+        localTrip.delegate = self
         categoriaPickerView.delegate = self
         descriptionTextView.delegate = self
     }
@@ -207,6 +211,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             categoria.text = tiposTripList[0]
         }
     }
+    
+    @IBAction func openScreenLocation() {
+        performSegue(withIdentifier: "mapView", sender: nil)
+    }
 }
 
 extension NewTripVC: TripProtocol {
@@ -226,9 +234,12 @@ extension NewTripVC: TripProtocol {
                     }
                 }
             }
-
             localTrip.text = local.nome ?? "" + address
-            localTrip.numberOfLines = 3
+            
+            localTrip.endEditing(true)
+            
+            dismissKeyboard()
+           
         }
     }
 }
