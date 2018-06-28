@@ -15,6 +15,7 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
     var locationDelegate: TripProtocol?
+    var textSearchbar: String?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -30,9 +31,13 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func chosePlace(_ sender: Any) {
+        if let mkPlacemark = selectedSearchLocation {
+            locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        }
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
+
 }
 
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
@@ -71,11 +76,16 @@ extension MapViewSetLocalVC: HandleMapSearch {
     }
 
     func setMKPlacemark(mkPlacemark: MKPlacemark) {
-        locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        self.selectedSearchLocation = mkPlacemark
         let annotation = MKPointAnnotation()
         annotation.coordinate = mkPlacemark.coordinate
-        //annotation.title = mkPlacemark.title
-        //annotation.subtitle = mkPlacemark.subtitle
+
+        if let name = mkPlacemark.name {
+            searchBarController?.searchBar.text = "\(name), \(parseAddress(selectedItem: mkPlacemark))"
+        } else {
+            searchBarController?.searchBar.text = parseAddress(selectedItem: mkPlacemark)
+        }
+
         mapView.addAnnotation(annotation)
     }
     
@@ -95,6 +105,9 @@ extension MapViewSetLocalVC: HandleMapSearch {
         searchBar?.tintColor = UIColor.red
         searchBar!.isUserInteractionEnabled = true
 
+        if textSearchbar != "" {
+            searchBar?.text = textSearchbar
+        }
         //searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
 
         navigationItem.searchController = searchBarController
