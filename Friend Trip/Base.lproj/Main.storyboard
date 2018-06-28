@@ -688,8 +688,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lf-CG-1ha">
                                         <rect key="frame" x="2" y="10" width="316" height="484"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-80-FHu" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="157" width="284" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-80-FHu" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="113" width="284" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -710,20 +710,20 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="waX-TS-zSr">
-                                                <rect key="frame" x="8" y="383" width="300" height="84"/>
+                                                <rect key="frame" x="8" y="339" width="300" height="63"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gm-VK-pUK">
-                                                <rect key="frame" x="16" y="365" width="284" height="16"/>
+                                                <rect key="frame" x="16" y="321" width="284" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-8g-8d5" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="265" width="284" height="30"/>
+                                                <rect key="frame" x="16" y="221" width="284" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -741,7 +741,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categoria" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0P9-Qs-p0e" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="319" width="284" height="30"/>
+                                                <rect key="frame" x="16" y="275" width="284" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -760,7 +760,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gXe-fh-R19">
-                                                <rect key="frame" x="16" y="211" width="284" height="30"/>
+                                                <rect key="frame" x="16" y="167" width="284" height="30"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDL-2S-fHu" customClass="FloatLabelTextField" customModule="Friend_Trip" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
@@ -794,28 +794,30 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...estamos quase lá!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flY-tU-Tk0">
-                                                <rect key="frame" x="14" y="24" width="288" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie Viagens" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEZ-nz-rH5">
-                                                <rect key="frame" x="16" y="66" width="284" height="33.5"/>
+                                                <rect key="frame" x="16" y="22" width="284" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAE-cY-GH0">
-                                                <rect key="frame" x="16" y="101.5" width="284" height="31.5"/>
+                                                <rect key="frame" x="16" y="57.5" width="284" height="31.5"/>
                                                 <string key="text">de acordo com seu interesse 
 e compartilhe com outros Friends Trip!</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-hc-nNQ">
+                                                <rect key="frame" x="101" y="418" width="115" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="contentEdgeInsets" minX="36" minY="16" maxX="36" maxY="16"/>
+                                                <state key="normal" title="Salvar">
+                                                    <color key="titleColor" red="0.2319182796" green="0.56439291030000005" blue="0.2034410804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="ColorOrangeGrandientTop"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="LAE-cY-GH0" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="2M7-mW-kIo"/>
                                             <constraint firstItem="CEZ-nz-rH5" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="3Gb-An-Jc8"/>
@@ -823,27 +825,26 @@ e compartilhe com outros Friends Trip!</string>
                                             <constraint firstItem="hd7-80-FHu" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="6ku-St-1CI"/>
                                             <constraint firstItem="LAE-cY-GH0" firstAttribute="top" secondItem="CEZ-nz-rH5" secondAttribute="bottom" constant="2" id="8p7-tS-8XO"/>
                                             <constraint firstAttribute="trailing" secondItem="LAE-cY-GH0" secondAttribute="trailing" constant="16" id="BzR-A5-Gbt"/>
+                                            <constraint firstItem="0pC-hc-nNQ" firstAttribute="centerX" secondItem="8Lf-CG-1ha" secondAttribute="centerX" id="FZy-fv-k1t"/>
                                             <constraint firstAttribute="trailing" secondItem="gXe-fh-R19" secondAttribute="trailing" constant="16" id="G9e-tS-5RT"/>
                                             <constraint firstItem="V2O-8g-8d5" firstAttribute="top" secondItem="gXe-fh-R19" secondAttribute="bottom" constant="24" id="I8A-Ou-mNh"/>
                                             <constraint firstItem="waX-TS-zSr" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="8" id="IvZ-9t-YfO"/>
                                             <constraint firstAttribute="trailing" secondItem="hd7-80-FHu" secondAttribute="trailing" constant="16" id="MwH-Dx-f3g"/>
-                                            <constraint firstItem="flY-tU-Tk0" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="14" id="QN5-6d-xxd"/>
+                                            <constraint firstAttribute="bottom" secondItem="0pC-hc-nNQ" secondAttribute="bottom" constant="16" id="O7W-SQ-yzO"/>
                                             <constraint firstAttribute="trailing" secondItem="V2O-8g-8d5" secondAttribute="trailing" constant="16" id="VMP-QI-Nrg"/>
                                             <constraint firstItem="0P9-Qs-p0e" firstAttribute="top" secondItem="V2O-8g-8d5" secondAttribute="bottom" constant="24" id="Waz-7A-EnQ"/>
                                             <constraint firstItem="gXe-fh-R19" firstAttribute="top" secondItem="hd7-80-FHu" secondAttribute="bottom" constant="24" id="aLY-4w-493"/>
+                                            <constraint firstItem="CEZ-nz-rH5" firstAttribute="top" secondItem="8Lf-CG-1ha" secondAttribute="top" constant="22" id="bGE-3o-dFn"/>
                                             <constraint firstItem="V2O-8g-8d5" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="cIm-YB-CM9"/>
-                                            <constraint firstAttribute="bottom" secondItem="waX-TS-zSr" secondAttribute="bottom" constant="17" id="dch-mL-wYS"/>
                                             <constraint firstItem="hd7-80-FHu" firstAttribute="top" secondItem="LAE-cY-GH0" secondAttribute="bottom" constant="24" id="f2j-yq-Ogf"/>
                                             <constraint firstItem="gXe-fh-R19" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="fHX-mj-PwQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="flY-tU-Tk0" secondAttribute="trailing" constant="14" id="gqF-vD-9ta"/>
                                             <constraint firstItem="5gm-VK-pUK" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="kB4-TK-bP6"/>
                                             <constraint firstItem="waX-TS-zSr" firstAttribute="top" secondItem="5gm-VK-pUK" secondAttribute="bottom" constant="2" id="kT3-iw-hEm"/>
                                             <constraint firstAttribute="trailing" secondItem="waX-TS-zSr" secondAttribute="trailing" constant="8" id="m59-bX-bwf"/>
+                                            <constraint firstItem="0pC-hc-nNQ" firstAttribute="top" secondItem="waX-TS-zSr" secondAttribute="bottom" constant="16" id="nS6-ag-P90"/>
                                             <constraint firstItem="5gm-VK-pUK" firstAttribute="top" secondItem="0P9-Qs-p0e" secondAttribute="bottom" constant="16" id="nqu-Tm-g1j"/>
                                             <constraint firstItem="0P9-Qs-p0e" firstAttribute="leading" secondItem="8Lf-CG-1ha" secondAttribute="leading" constant="16" id="ozi-ff-kpS"/>
-                                            <constraint firstItem="CEZ-nz-rH5" firstAttribute="top" secondItem="flY-tU-Tk0" secondAttribute="bottom" constant="24" id="tbH-AV-sHe"/>
                                             <constraint firstAttribute="trailing" secondItem="0P9-Qs-p0e" secondAttribute="trailing" constant="16" id="uEO-Sc-ify"/>
-                                            <constraint firstItem="flY-tU-Tk0" firstAttribute="top" secondItem="8Lf-CG-1ha" secondAttribute="top" constant="24" id="wR4-G9-AR9"/>
                                             <constraint firstAttribute="trailing" secondItem="5gm-VK-pUK" secondAttribute="trailing" constant="16" id="zCh-xP-5m9"/>
                                         </constraints>
                                     </view>
@@ -876,6 +877,7 @@ e compartilhe com outros Friends Trip!</string>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnSave" destination="0pC-hc-nNQ" id="q2M-QN-r2g"/>
                         <outlet property="categoria" destination="0P9-Qs-p0e" id="JZJ-Jh-1jz"/>
                         <outlet property="dataTextField" destination="V2O-8g-8d5" id="4FO-YX-l0L"/>
                         <outlet property="descriptionTextView" destination="waX-TS-zSr" id="Wou-jm-zWF"/>
@@ -2032,7 +2034,7 @@ kVqRXZFqkW+Rd5F6kX+Rh5GKkZyRn5GkAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAkaY
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dMy-Io-3Si"/>
+        <segue reference="UEL-Ur-Qfh"/>
         <segue reference="4GF-WU-Zrl"/>
         <segue reference="l6a-EE-WLW"/>
     </inferredMetricsTieBreakers>
