@@ -64,8 +64,9 @@ class DetailTripVC: UIViewController {
         imgTrip.image = tripViewModel.getImgTrip()
 
         //tratar imagem e inserir view model do user na trip
-        let urlImg = URL(string: tripViewModel.picAdm)
-        imgProfileAdm.kf.setImage(with: urlImg!)
+        if let urlImg = URL(string: tripViewModel.picAdm) {
+            imgProfileAdm.kf.setImage(with: urlImg)
+        }
 
         btnConfirm.layer.cornerRadius = 6
 
