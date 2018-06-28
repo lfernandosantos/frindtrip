@@ -17,6 +17,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var dataTextField: UITextField!
     @IBOutlet weak var categoria: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var btnSave: UIButton!
 
     var location: LocationModel?
     var mapDelegate: MapProtocol?
@@ -29,7 +30,11 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
 
         setupView()
+
+        setGradientBackGround()
+        btnSave.layer.cornerRadius = btnSave.bounds.height / 2
     }
+
 
     func setupView() {
 
@@ -59,6 +64,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         if segue.identifier == "mapView" {
             if let mapLocationVC = segue.destination as? MapViewSetLocalVC {
                 mapLocationVC.locationDelegate = self
+                mapLocationVC.textSearchbar = localTrip.text
             }
         }
     }
@@ -106,11 +112,14 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.backgroundColor = .clear
+        removeGradientNavBar()
+        //self.navigationController?.navigationBar.backgroundColor = .clear
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         viewOriginY = self.view.frame.origin.y
+        setGradientBackgroundNavigationbar()
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
@@ -214,6 +223,49 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     
     @IBAction func openScreenLocation() {
         performSegue(withIdentifier: "mapView", sender: nil)
+
+    }
+
+    func setGradientBackGround(){
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+
+        let colorTop = UIColor(named: "ColorPinkGradientBottom")
+        let colorBottom = UIColor(named: "ColorOrangeGrandientTop")
+
+        gradientLayer.colors =  [colorTop, colorBottom].map{$0?.cgColor}
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.7)
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        loadViewIfNeeded()
+
+    }
+
+    func setGradientBackgroundNavigationbar(){
+        let gradientLayer = CAGradientLayer()
+        if let navbar = self.navigationController {
+            gradientLayer.frame = navbar.toolbar.bounds
+
+            let colorTop = UIColor(named: "ColorOrangeGrandientTop")
+            let colorBottom = UIColor(named: "ColorPinkGradientBottom")
+
+            gradientLayer.colors =  [colorTop, colorBottom].map{$0?.cgColor}
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.7, y: 0.0)
+
+            navbar.navigationBar.layer.insertSublayer(gradientLayer, at: 0)
+            navbar.navigationBar.tintColor = UIColor.white
+            navbar.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            loadViewIfNeeded()
+        }
+    }
+
+    func removeGradientNavBar() {
+        if let navbar = self.navigationController {
+            navbar.navigationBar.layer.sublayers?.remove(at: 0)
+            
+        }
     }
 }
 
