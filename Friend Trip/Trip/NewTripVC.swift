@@ -118,6 +118,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         viewOriginY = self.view.frame.origin.y
         setGradientBackgroundNavigationbar()
     }
@@ -184,6 +188,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
         if nome.isEmpty || local.isEmpty || data.isEmpty || tipoEvento.isEmpty || textDescription.isEmpty {
             showAlert(title: "", msg: "Preencha todos os campos da Trip! \n=]")
+            return
         }
 
         let jsonUser: [String : Any] = ["picture":
