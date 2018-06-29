@@ -102,14 +102,23 @@ extension MapViewSetLocalVC: HandleMapSearch {
         
         searchBar?.sizeToFit()
         searchBar?.placeholder = "Digite local"
-        searchBar?.tintColor = UIColor.red
+        searchBar?.tintColor = UIColor.purple
         searchBar!.isUserInteractionEnabled = true
+        searchBar?.backgroundColor = UIColor.white
+        
+        
 
         if textSearchbar != "" {
             searchBar?.text = textSearchbar
         }
-        //searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
-
+        
+        if let navbar = self.navigationController {
+            navbar.navigationBar.backgroundColor = UIColor.white
+            navbar.navigationBar.tintColor = UIColor.purple
+            navbar.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.purple]
+            
+        }
+        
         navigationItem.searchController = searchBarController
 
         searchBarController!.searchBar.isUserInteractionEnabled = true

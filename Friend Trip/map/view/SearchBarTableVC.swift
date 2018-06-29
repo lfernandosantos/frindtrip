@@ -64,6 +64,7 @@ extension SearchBarTableVC: UISearchResultsUpdating {
         request.region = mapView.region
 
         let search = MKLocalSearch(request: request)
+        
         search.start(completionHandler: {response, error in
             guard let response = response else {
                 print("erro response: \(error)")
