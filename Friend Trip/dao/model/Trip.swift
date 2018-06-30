@@ -63,6 +63,6 @@ class Trip: NSObject {
     }
 
     override var description: String {
-        return " \(descriptionTrip) \n \(numParticipantes) \n\n \(local)"
+        return descriptionTrip
     }
 }

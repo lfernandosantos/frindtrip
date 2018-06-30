@@ -50,7 +50,6 @@ class HomeVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-
 }
 
 

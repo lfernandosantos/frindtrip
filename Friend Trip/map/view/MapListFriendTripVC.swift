@@ -20,13 +20,18 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
     var selectedTrip: Trip!
-    var selectedCategory: String?
+    var selectedCategory: String? = nil
 
     var tripsList = [Trip]()
 
     override func viewWillAppear(_ animated: Bool) {
-        if let category = selectedCategory {
-            fetchPinsWithFilter()
+        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
+
+        if let category = selectedCategory, !category.isEmpty, category != " " {
+            fetchPinsWithFilter(category)
+        } else {
+            loadTripsOnMap(tripsList)
         }
     }
 
@@ -56,8 +61,6 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
-        locationManager.startUpdatingLocation()
 
         setSearchBar()
 
@@ -93,12 +96,12 @@ class MapListFriendTripVC: UIViewController, MKMapViewDelegate {
             ],
                                         "name": "Fernando Santos 2", "email": "fernandin222@hotmail.com", "id": "1571861286232690"]
 
-        tripsList.append(Trip(id: 1, nome: "Baladinha tipo são Jorge", local: "1140", data: "10-06-2018 22:17", tipoEvento: "Party", descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!, status: "", numParticipantes: 5))
-        tripsList.append( Trip(id: 2, nome: "Carol ta LOCONA VIADO", local: "UP Trun, Barra da Tijuca", data: "23-04-2018 22:17", tipoEvento: "Party", descriptionTrip: "eerarareresedes",lat: -22.767654, lon: -43.426000, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 3))
-        tripsList.append(Trip(id: 3, nome: "Niver do Fernando", local: "Arraial", data: "10-06-2018 22:17", tipoEvento: "Beach", descriptionTrip: "eerarareresedes",lat: -22.764696, lon: -43.424816, userAdm: UserFace(JSON: jsonUser)!,status: "confirmed", numParticipantes: 10))
-        tripsList.append(Trip(id: 4, nome: "Caminhada no bosque", local: "Matinho da esquina, Floresta da Tijuca", data: "10-06-2018 22:17", tipoEvento: "Adventure", descriptionTrip: "eerararer g gfgofd gfdo gofdi fod gfdoi gfdoi gfdo gfdoi gfdoi gfdio gfdi g/ n/ /n /n/n/n/n/ /nrtn/r/tn/nn//dfsfsdf  fsd fds f ds fds f dsf ds fds  fsd f ds fds\n\n\nmdvfdm gofd mp omop mn//n/esedes", lat: -22.767000, lon: -42.426178, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 23))
-        tripsList.append(Trip(id: 5, nome: "Viagem5", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.767644, lon: -43.423743, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 22))
-        tripsList.append(Trip(id: 6, nome: "Viagem6", local: "Local", data: "10-06-2018 22:17", tipoEvento: "Beer", descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 1))
+        tripsList.append(Trip(id: 1, nome: "Baladinha", local: "Barra Music", data: "10-06-2018 22:17", tipoEvento: GlobalConstants.Categories.PARTY, descriptionTrip: "eerarareresedes", lat: -22.767654, lon: -43.426178, userAdm: UserFace(JSON: jsonUser)!, status: "", numParticipantes: 5))
+        tripsList.append( Trip(id: 2, nome: "HappyHour", local: "Bar da Devassa", data: "29-07-2018 19:00", tipoEvento: GlobalConstants.Categories.BEER, descriptionTrip: "Happyhour geek. \nVoltado para galera de geek, ques gosta de jogos, tecnologia e bebeerrrr.",lat:-22.902425, lon: -43.177246, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 14))
+        tripsList.append(Trip(id: 3, nome: "Trilha Floresta da Tijuca", local: "Parque Nacional da Tijuca", data: "10-09-2018 07:10", tipoEvento: GlobalConstants.Categories.ADVENTURE, descriptionTrip: "Pra quem curte uma vibe mais aventureira. \nEstamos com um guia e planejamos fazer as trilhas: Pico da Tijuca e Cachoeira das Almas.\nVenha preparado para tirar muitas fotos porque a galera é #bemBlogueira haha.",lat: -22.949411, lon: -43.287397, userAdm: UserFace(JSON: jsonUser)!,status: "confirmed", numParticipantes: 10))
+        tripsList.append(Trip(id: 4, nome: "Volei em Copa", local: "Posto 5, Copacabana", data: "10-06-2018 20:15", tipoEvento: GlobalConstants.Categories.CLUB, descriptionTrip: "Vai rolar um volei na praia de copa, todos estão convidados.\nTemos rede e bola!!", lat: -22.977596, lon: -43.188895, userAdm: UserFace(JSON: jsonUser)!,status: "", numParticipantes: 23))
+        tripsList.append(Trip(id: 5, nome: "Passeio no Louvre", local: "Museu do Louvre, Paris", data: "05-07-2018 09:30", tipoEvento: GlobalConstants.Categories.CULT, descriptionTrip: "Estou viajando sozinho por paris e gostaria de cia para me acompanhar durante o passeio. Alguém que goste de arte e de conversar sobre. E uma ajuda para tirar fotos também sempre é bem vinda.",lat: 48.86065, lon: 2.337569, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 22))
+        tripsList.append(Trip(id: 6, nome: "Viagem", local: "Arraial", data: "10-06-2018 22:17", tipoEvento: GlobalConstants.Categories.BEER, descriptionTrip: "eerarareresedes",lat: -22.766546, lon: -43.426178, userAdm: UserFace(JSON: jsonUse2)!,status: "", numParticipantes: 1))
 
         loadTripsOnMap(tripsList)
     }
@@ -264,9 +267,14 @@ extension MapListFriendTripVC: MapProtocol {
         selectedCategory = category
     }
 
-    func fetchPinsWithFilter() {
-        print("----")
-        print(selectedCategory)
+    func fetchPinsWithFilter(_ category: String) {
+        var tripWithCategory = [Trip]()
+        for t in tripsList {
+            if t.tipoEvento == category {
+                tripWithCategory.append(t)
+            }
+        }
+        loadTripsOnMap(tripWithCategory)
     }
 
     func addNewTrip(_ trip: Trip) {

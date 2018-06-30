@@ -19,6 +19,9 @@
 		BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */; };
 		BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A8205EF1F1006086EF /* Trip.swift */; };
 		BE30C4F320D9E7020074C7E6 /* CellButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */; };
+		BE33665920DB3A1F00121E5E /* ChatTripCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33665820DB3A1F00121E5E /* ChatTripCollectionVC.swift */; };
+		BE33665C20DB5F2600121E5E /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33665B20DB5F2600121E5E /* ChatCollectionViewCell.swift */; };
+		BE33665E20DC213B00121E5E /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33665D20DC213B00121E5E /* MessageModel.swift */; };
 		BE33C495207ABFB00058B87D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE33C494207ABFB00058B87D /* MapKit.framework */; };
 		BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */; };
 		BE33F9AC201D08BB00F45737 /* CustomAnnotationV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */; };
@@ -84,6 +87,9 @@
 		BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripVC.swift; sourceTree = "<group>"; };
 		BE2ED6A8205EF1F1006086EF /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButtonProtocol.swift; sourceTree = "<group>"; };
+		BE33665820DB3A1F00121E5E /* ChatTripCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTripCollectionVC.swift; sourceTree = "<group>"; };
+		BE33665B20DB5F2600121E5E /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE33665D20DC213B00121E5E /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		BE33C494207ABFB00058B87D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListFriendTripVC.swift; sourceTree = "<group>"; };
 		BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnnotationV.xib; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 		BE2ED6A4205EE889006086EF /* Trip */ = {
 			isa = PBXGroup;
 			children = (
+				BE33665A20DB3A2900121E5E /* Chat */,
 				BE6CA4DC20CC2D9C00978B48 /* viewModel */,
 				BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */,
 				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
@@ -246,6 +253,16 @@
 				BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		BE33665A20DB3A2900121E5E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BE33665820DB3A1F00121E5E /* ChatTripCollectionVC.swift */,
+				BE33665B20DB5F2600121E5E /* ChatCollectionViewCell.swift */,
+				BE33665D20DC213B00121E5E /* MessageModel.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		BE33F9A8201C25EA00F45737 /* map */ = {
@@ -574,10 +591,12 @@
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
 				BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */,
+				BE33665920DB3A1F00121E5E /* ChatTripCollectionVC.swift in Sources */,
 				BEED6E3820C0A58300BCD991 /* TripProtocol.swift in Sources */,
 				BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */,
 				BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */,
 				BE10935F204500FB007E9FA0 /* LoginPresenter.swift in Sources */,
+				BE33665C20DB5F2600121E5E /* ChatCollectionViewCell.swift in Sources */,
 				BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */,
 				BE1093662046440F007E9FA0 /* DataManager.swift in Sources */,
 				BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */,
@@ -591,6 +610,7 @@
 				BE349E9A20687B540081422A /* TripViewModel.swift in Sources */,
 				BE4A12F92097D5C5003DC380 /* ProtocolView.swift in Sources */,
 				BE6CA4F320CCA4C100978B48 /* Trips+CoreDataProperties.swift in Sources */,
+				BE33665E20DC213B00121E5E /* MessageModel.swift in Sources */,
 				BE33F9D7202008A000F45737 /* CustomCalloutView.swift in Sources */,
 				BE6CA4DF20CC8F5700978B48 /* PersistenceService.swift in Sources */,
 				BE33F9B6201D762400F45737 /* TripAnnotation.swift in Sources */,

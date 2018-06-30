@@ -124,14 +124,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnFriendTrip" destination="DVh-3Y-J1r" id="e3d-Tj-qV6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vX-d8-vLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1763" y="136"/>
+            <point key="canvasLocation" x="1762.5" y="135.21126760563379"/>
         </scene>
         <!--Title-->
         <scene sceneID="pW8-FH-iSV">
@@ -264,7 +263,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CD9-WN-FxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="1694.3661971830986"/>
+            <point key="canvasLocation" x="390" y="1743"/>
         </scene>
         <!--Profile TableVC-->
         <scene sceneID="M6P-fR-Mmt">
@@ -1388,6 +1387,7 @@ e compartilhe com outros Friends Trip!</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnConfirm" destination="e8S-ZS-204" id="fxS-K7-yKl"/>
+                        <outlet property="chatView" destination="DVo-4D-eB6" id="2vj-4a-MJP"/>
                         <outlet property="constraintTop" destination="ucv-uf-nxp" id="Mtc-R4-EEO"/>
                         <outlet property="imgFavoriteTrip" destination="txc-Tk-BbG" id="lLE-z1-0Lc"/>
                         <outlet property="imgProfileAdm" destination="Oow-9O-oKg" id="Gna-IM-IEx"/>
@@ -1406,7 +1406,7 @@ e compartilhe com outros Friends Trip!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59t-CS-t2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="1743"/>
+            <point key="canvasLocation" x="1556" y="1743"/>
         </scene>
         <!--WellcomeVC-->
         <scene sceneID="3jy-nD-DRX">
