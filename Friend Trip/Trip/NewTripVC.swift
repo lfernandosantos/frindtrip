@@ -12,11 +12,12 @@ import MapKit
 class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var nameTrip: UITextField!
-    @IBOutlet weak var localTrip: UILabel!
+    @IBOutlet weak var localTrip: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var dataTextField: UITextField!
     @IBOutlet weak var categoria: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var btnSave: UIButton!
 
     var location: LocationModel?
     var mapDelegate: MapProtocol?
@@ -29,7 +30,11 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
 
         setupView()
+
+        setGradientBackGround()
+        btnSave.layer.cornerRadius = btnSave.bounds.height / 2
     }
+
 
     func setupView() {
 
@@ -51,15 +56,15 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         categoria.addTarget(self, action: #selector(setFirstValueOnTextCategoria), for: .editingDidBegin)
 
         descriptionTextView.layer.borderWidth = 0.8
-        descriptionTextView.layer.borderColor = UIColor.blue.cgColor
+        descriptionTextView.layer.borderColor = UIColor.white.cgColor
         descriptionTextView.layer.cornerRadius = 3
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapView" {
-            print("new")
             if let mapLocationVC = segue.destination as? MapViewSetLocalVC {
                 mapLocationVC.locationDelegate = self
+                mapLocationVC.textSearchbar = localTrip.text
             }
         }
     }
@@ -68,6 +73,10 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
 
         view.addGestureRecognizer(tap)
+        
+        let tapLocation: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openScreenLocation))
+        
+        localTrip.addGestureRecognizer(tapLocation)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:.UIKeyboardWillShow , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:.UIKeyboardWillHide , object: nil)
@@ -75,6 +84,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
         nameTrip.delegate = self
         dataTextField.delegate = self
         categoria.delegate = self
+        localTrip.delegate = self
         categoriaPickerView.delegate = self
         descriptionTextView.delegate = self
     }
@@ -102,11 +112,18 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.backgroundColor = .clear
+        removeGradientNavBar()
+        //self.navigationController?.navigationBar.backgroundColor = .clear
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         viewOriginY = self.view.frame.origin.y
+        setGradientBackgroundNavigationbar()
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
@@ -171,6 +188,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
 
         if nome.isEmpty || local.isEmpty || data.isEmpty || tipoEvento.isEmpty || textDescription.isEmpty {
             showAlert(title: "", msg: "Preencha todos os campos da Trip! \n=]")
+            return
         }
 
         let jsonUser: [String : Any] = ["picture":
@@ -183,7 +201,7 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             ],
                                         "name": "Fernando Santos", "email": "fernandin222@hotmail.com", "id": 1571861286232650]
         if let location = location {
-            let trip = Trip(id: 33, nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!, numParticipantes: 1)
+            let trip = Trip(id: 33, nome: nome, local: local, data: data, tipoEvento: tipoEvento, descriptionTrip: textDescription, lat: location.latitude, lon: location.longitude, userAdm: UserFace(JSON: jsonUser)!, status: "confirmed", numParticipantes: 1)
 
             mapDelegate?.addNewTrip(trip)
         } else {
@@ -207,6 +225,53 @@ class NewTripVC: UIViewController, ProtocolView, UIPickerViewDelegate, UIPickerV
             categoria.text = tiposTripList[0]
         }
     }
+    
+    @IBAction func openScreenLocation() {
+        performSegue(withIdentifier: "mapView", sender: nil)
+
+    }
+
+    func setGradientBackGround(){
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+
+        let colorTop = UIColor(named: "ColorPinkGradientBottom")
+        let colorBottom = UIColor(named: "ColorOrangeGrandientTop")
+
+        gradientLayer.colors =  [colorTop, colorBottom].map{$0?.cgColor}
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.7)
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        loadViewIfNeeded()
+
+    }
+
+    func setGradientBackgroundNavigationbar(){
+        let gradientLayer = CAGradientLayer()
+        if let navbar = self.navigationController {
+            gradientLayer.frame = navbar.toolbar.bounds
+
+            let colorTop = UIColor(named: "ColorOrangeGrandientTop")
+            let colorBottom = UIColor(named: "ColorPinkGradientBottom")
+
+            gradientLayer.colors =  [colorTop, colorBottom].map{$0?.cgColor}
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.7, y: 0.0)
+
+            navbar.navigationBar.layer.insertSublayer(gradientLayer, at: 0)
+            navbar.navigationBar.tintColor = UIColor.white
+            navbar.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            loadViewIfNeeded()
+        }
+    }
+
+    func removeGradientNavBar() {
+        if let navbar = self.navigationController {
+            navbar.navigationBar.layer.sublayers?.remove(at: 0)
+            
+        }
+    }
 }
 
 extension NewTripVC: TripProtocol {
@@ -226,9 +291,14 @@ extension NewTripVC: TripProtocol {
                     }
                 }
             }
-
             localTrip.text = local.nome ?? "" + address
-            localTrip.numberOfLines = 3
+            
+            localTrip.endEditing(true)
+            
+            dismissKeyboard()
+           
         }
     }
 }
+
+

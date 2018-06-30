@@ -15,6 +15,7 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     var searchBarController: UISearchController? = nil
     var selectedSearchLocation: MKPlacemark? = nil
     var locationDelegate: TripProtocol?
+    var textSearchbar: String?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -30,9 +31,13 @@ class MapViewSetLocalVC: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func chosePlace(_ sender: Any) {
+        if let mkPlacemark = selectedSearchLocation {
+            locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        }
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
+
 }
 
 extension MapViewSetLocalVC: CLLocationManagerDelegate {
@@ -71,11 +76,16 @@ extension MapViewSetLocalVC: HandleMapSearch {
     }
 
     func setMKPlacemark(mkPlacemark: MKPlacemark) {
-        locationDelegate?.setLocation(mkPlacemark: mkPlacemark)
+        self.selectedSearchLocation = mkPlacemark
         let annotation = MKPointAnnotation()
         annotation.coordinate = mkPlacemark.coordinate
-        //annotation.title = mkPlacemark.title
-        //annotation.subtitle = mkPlacemark.subtitle
+
+        if let name = mkPlacemark.name {
+            searchBarController?.searchBar.text = "\(name), \(parseAddress(selectedItem: mkPlacemark))"
+        } else {
+            searchBarController?.searchBar.text = parseAddress(selectedItem: mkPlacemark)
+        }
+
         mapView.addAnnotation(annotation)
     }
     
@@ -92,11 +102,23 @@ extension MapViewSetLocalVC: HandleMapSearch {
         
         searchBar?.sizeToFit()
         searchBar?.placeholder = "Digite local"
-        searchBar?.tintColor = UIColor.red
+        searchBar?.tintColor = UIColor.purple
         searchBar!.isUserInteractionEnabled = true
+        searchBar?.backgroundColor = UIColor.white
+        
+        
 
-        //searchBar?.backgroundColor = UIColor(named: "ColorTransparent")
-
+        if textSearchbar != "" {
+            searchBar?.text = textSearchbar
+        }
+        
+        if let navbar = self.navigationController {
+            navbar.navigationBar.backgroundColor = UIColor.white
+            navbar.navigationBar.tintColor = UIColor.purple
+            navbar.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.purple]
+            
+        }
+        
         navigationItem.searchController = searchBarController
 
         searchBarController!.searchBar.isUserInteractionEnabled = true

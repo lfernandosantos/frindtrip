@@ -18,6 +18,7 @@
 		BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2EA37B20771D5200951A73 /* UserViewModel.swift */; };
 		BE2ED6A6205EE8ED006086EF /* NewTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */; };
 		BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2ED6A8205EF1F1006086EF /* Trip.swift */; };
+		BE30C4F320D9E7020074C7E6 /* CellButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */; };
 		BE33C495207ABFB00058B87D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE33C494207ABFB00058B87D /* MapKit.framework */; };
 		BE33F9AA201C273F00F45737 /* MapListFriendTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */; };
 		BE33F9AC201D08BB00F45737 /* CustomAnnotationV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */; };
@@ -33,8 +34,11 @@
 		BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */; };
 		BE33F9DD2027AD0100F45737 /* UIVIew+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */; };
 		BE349E9A20687B540081422A /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE349E9920687B540081422A /* TripViewModel.swift */; };
+		BE37ECEF20D6E34600D237DC /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE37ECEE20D6E34600D237DC /* GlobalConstants.swift */; };
 		BE39E3D0202BDE340055B411 /* HeaderDetailV.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE39E3CF202BDE340055B411 /* HeaderDetailV.xib */; };
 		BE39E3D2202BE09C0055B411 /* HeaderDetailsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE39E3D1202BE09C0055B411 /* HeaderDetailsClass.swift */; };
+		BE3D9C6420D5B6F800F8CCF6 /* ConstantsNamedImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D9C6320D5B6F800F8CCF6 /* ConstantsNamedImages.swift */; };
+		BE3D9C6620D5BEED00F8CCF6 /* UIImageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D9C6520D5BEED00F8CCF6 /* UIImageCategory.swift */; };
 		BE42D8121FE7419C004FF9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42D8111FE7419C004FF9C1 /* AppDelegate.swift */; };
 		BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42D8131FE7419C004FF9C1 /* LoginVC.swift */; };
 		BE42D8171FE7419C004FF9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE42D8151FE7419C004FF9C1 /* Main.storyboard */; };
@@ -51,6 +55,9 @@
 		BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */; };
 		BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1321209F804F003DC380 /* HandleMapSearch.swift */; };
 		BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */; };
+		BE6C9C6F20CE125B002B1A94 /* FaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */; };
+		BE6C9C7120CE172B002B1A94 /* ListTripsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */; };
+		BE6C9C7520CF6D8A002B1A94 /* CustomSavedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6C9C7420CF6D8A002B1A94 /* CustomSavedTVCell.swift */; };
 		BE6CA4DF20CC8F5700978B48 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */; };
 		BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */; };
 		BE6CA4F320CCA4C100978B48 /* Trips+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */; };
@@ -76,6 +83,7 @@
 		BE2EA37B20771D5200951A73 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripVC.swift; sourceTree = "<group>"; };
 		BE2ED6A8205EF1F1006086EF /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButtonProtocol.swift; sourceTree = "<group>"; };
 		BE33C494207ABFB00058B87D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE33F9A9201C273F00F45737 /* MapListFriendTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListFriendTripVC.swift; sourceTree = "<group>"; };
 		BE33F9AB201D08BB00F45737 /* CustomAnnotationV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnnotationV.xib; sourceTree = "<group>"; };
@@ -91,8 +99,11 @@
 		BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventTableVC.swift; sourceTree = "<group>"; };
 		BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Blur.swift"; sourceTree = "<group>"; };
 		BE349E9920687B540081422A /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
+		BE37ECEE20D6E34600D237DC /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		BE39E3CF202BDE340055B411 /* HeaderDetailV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderDetailV.xib; sourceTree = "<group>"; };
 		BE39E3D1202BE09C0055B411 /* HeaderDetailsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailsClass.swift; sourceTree = "<group>"; };
+		BE3D9C6320D5B6F800F8CCF6 /* ConstantsNamedImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsNamedImages.swift; sourceTree = "<group>"; };
+		BE3D9C6520D5BEED00F8CCF6 /* UIImageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCategory.swift; sourceTree = "<group>"; };
 		BE42D80E1FE7419C004FF9C1 /* Friend Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friend Trip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE42D8111FE7419C004FF9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE42D8131FE7419C004FF9C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -111,6 +122,9 @@
 		BE4A131F209F7A96003DC380 /* SearchBarTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableVC.swift; sourceTree = "<group>"; };
 		BE4A1321209F804F003DC380 /* HandleMapSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMapSearch.swift; sourceTree = "<group>"; };
 		BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHomeVC.swift; sourceTree = "<group>"; };
+		BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceConstants.swift; sourceTree = "<group>"; };
+		BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTripsTVC.swift; sourceTree = "<group>"; };
+		BE6C9C7420CF6D8A002B1A94 /* CustomSavedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSavedTVCell.swift; sourceTree = "<group>"; };
 		BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trips+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -158,13 +172,11 @@
 		BE10935D204500BF007E9FA0 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				BE19D94320E4591100EE6B10 /* viewModel */,
 				BE4A12F62097A767003DC380 /* view */,
-				BE42D8131FE7419C004FF9C1 /* LoginVC.swift */,
 				BE10935E204500FB007E9FA0 /* LoginPresenter.swift */,
 				BE1093602045013E007E9FA0 /* LoginFBRequest.swift */,
 				BE2EA3752074752500951A73 /* APIUser.swift */,
-				BE2EA3772074754300951A73 /* UserResponseModel.swift */,
-				BE2EA37B20771D5200951A73 /* UserViewModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -176,6 +188,15 @@
 				BEF032312055ECCC00316F19 /* ProfileViewModel.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		BE19D94320E4591100EE6B10 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE2EA3772074754300951A73 /* UserResponseModel.swift */,
+				BE2EA37B20771D5200951A73 /* UserViewModel.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		BE2EA3742074701700951A73 /* home */ = {
@@ -190,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				BE6CA4DC20CC2D9C00978B48 /* viewModel */,
-				BE2ED6A7205EF1AE006086EF /* model */,
 				BE2ED6A5205EE8ED006086EF /* NewTripVC.swift */,
 				BE33F9DA2027A53E00F45737 /* DetailEventTableVC.swift */,
 				BE2EA3722071039700951A73 /* DetailTripVC.swift */,
@@ -203,6 +223,10 @@
 		BE2ED6A7205EF1AE006086EF /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BE48B3721FF1341000A1AB1C /* UserFace.swift */,
+				BE48B3701FF133A500A1AB1C /* UserPicture.swift */,
+				BE48B3741FF1349200A1AB1C /* DataPicture.swift */,
+				BEED6E3920C0DC2900BCD991 /* LocationModel.swift */,
 				BE2ED6A8205EF1F1006086EF /* Trip.swift */,
 			);
 			path = model;
@@ -264,6 +288,7 @@
 		BE42D8101FE7419C004FF9C1 /* Friend Trip */ = {
 			isa = PBXGroup;
 			children = (
+				BE6C9C7220CF6D41002B1A94 /* listTrips */,
 				BE6CA4DD20CC8F2400978B48 /* dao */,
 				BE4A12F72097D59D003DC380 /* protocol */,
 				BE2EA3742074701700951A73 /* home */,
@@ -283,6 +308,10 @@
 				BE42D8201FE7419C004FF9C1 /* Info.plist */,
 				BE42D8181FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld */,
 				BE33F9DC2027AD0100F45737 /* UIVIew+Blur.swift */,
+				BE6C9C6E20CE125B002B1A94 /* FaceConstants.swift */,
+				BE3D9C6320D5B6F800F8CCF6 /* ConstantsNamedImages.swift */,
+				BE3D9C6520D5BEED00F8CCF6 /* UIImageCategory.swift */,
+				BE37ECEE20D6E34600D237DC /* GlobalConstants.swift */,
 			);
 			path = "Friend Trip";
 			sourceTree = "<group>";
@@ -290,10 +319,6 @@
 		BE48B36D1FF12DFC00A1AB1C /* model */ = {
 			isa = PBXGroup;
 			children = (
-				BE48B3721FF1341000A1AB1C /* UserFace.swift */,
-				BE48B3701FF133A500A1AB1C /* UserPicture.swift */,
-				BE48B3741FF1349200A1AB1C /* DataPicture.swift */,
-				BEED6E3920C0DC2900BCD991 /* LocationModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -311,6 +336,7 @@
 		BE4A12F62097A767003DC380 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BE42D8131FE7419C004FF9C1 /* LoginVC.swift */,
 				BE4A12F42097A75E003DC380 /* WellcomeVC.swift */,
 			);
 			path = view;
@@ -335,6 +361,24 @@
 			path = filter;
 			sourceTree = "<group>";
 		};
+		BE6C9C7220CF6D41002B1A94 /* listTrips */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9C7320CF6D65002B1A94 /* savedList */,
+				BE6C9C7020CE172B002B1A94 /* ListTripsTVC.swift */,
+				BE30C4F220D9E7020074C7E6 /* CellButtonProtocol.swift */,
+			);
+			path = listTrips;
+			sourceTree = "<group>";
+		};
+		BE6C9C7320CF6D65002B1A94 /* savedList */ = {
+			isa = PBXGroup;
+			children = (
+				BE6C9C7420CF6D8A002B1A94 /* CustomSavedTVCell.swift */,
+			);
+			path = savedList;
+			sourceTree = "<group>";
+		};
 		BE6CA4DC20CC2D9C00978B48 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +390,7 @@
 		BE6CA4DD20CC8F2400978B48 /* dao */ = {
 			isa = PBXGroup;
 			children = (
+				BE2ED6A7205EF1AE006086EF /* model */,
 				BE6CA4F020CCA4C100978B48 /* Trips+CoreDataClass.swift */,
 				BE6CA4F120CCA4C100978B48 /* Trips+CoreDataProperties.swift */,
 				BE6CA4DE20CC8F5700978B48 /* PersistenceService.swift */,
@@ -518,8 +563,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6C9C7120CE172B002B1A94 /* ListTripsTVC.swift in Sources */,
+				BE3D9C6620D5BEED00F8CCF6 /* UIImageCategory.swift in Sources */,
 				BE4A1322209F804F003DC380 /* HandleMapSearch.swift in Sources */,
 				BE2EA3732071039700951A73 /* DetailTripVC.swift in Sources */,
+				BE37ECEF20D6E34600D237DC /* GlobalConstants.swift in Sources */,
 				BE6CA4F220CCA4C100978B48 /* Trips+CoreDataClass.swift in Sources */,
 				BEED6E3620B9E70C00BCD991 /* SearchDisplay.swift in Sources */,
 				BE4A1320209F7A96003DC380 /* SearchBarTableVC.swift in Sources */,
@@ -538,6 +586,7 @@
 				BE48B37E1FF1BCCD00A1AB1C /* HomeVC.swift in Sources */,
 				BE33F9B4201D752A00F45737 /* CustomCallOutClass.swift in Sources */,
 				ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */,
+				BE3D9C6420D5B6F800F8CCF6 /* ConstantsNamedImages.swift in Sources */,
 				BE33F9DD2027AD0100F45737 /* UIVIew+Blur.swift in Sources */,
 				BE349E9A20687B540081422A /* TripViewModel.swift in Sources */,
 				BE4A12F92097D5C5003DC380 /* ProtocolView.swift in Sources */,
@@ -550,6 +599,8 @@
 				BE33F9DB2027A53E00F45737 /* DetailEventTableVC.swift in Sources */,
 				BE33F9B0201D688200F45737 /* CustomAnnotationView.swift in Sources */,
 				BE42D81A1FE7419C004FF9C1 /* Friend_Trip.xcdatamodeld in Sources */,
+				BE6C9C7520CF6D8A002B1A94 /* CustomSavedTVCell.swift in Sources */,
+				BE6C9C6F20CE125B002B1A94 /* FaceConstants.swift in Sources */,
 				BE2EA3762074752500951A73 /* APIUser.swift in Sources */,
 				BE2ED6A9205EF1F1006086EF /* Trip.swift in Sources */,
 				BE2EA37C20771D5200951A73 /* UserViewModel.swift in Sources */,
@@ -557,6 +608,7 @@
 				BECE11B720B1D66000801596 /* FloatLabelTextField.swift in Sources */,
 				BECE11B520A79BAE00801596 /* MapProtocol.swift in Sources */,
 				BE2EA3782074754300951A73 /* UserResponseModel.swift in Sources */,
+				BE30C4F320D9E7020074C7E6 /* CellButtonProtocol.swift in Sources */,
 				BE1093612045013E007E9FA0 /* LoginFBRequest.swift in Sources */,
 				BE48B3751FF1349200A1AB1C /* DataPicture.swift in Sources */,
 				BE33F9AE201D09D200F45737 /* CustomAnnotation.swift in Sources */,
@@ -700,14 +752,17 @@
 			baseConfigurationReference = EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ52M4QL3U;
 				INFOPLIST_FILE = "Friend Trip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.lf.Friend-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -716,14 +771,17 @@
 			baseConfigurationReference = 4DA5AA56C91D331A0916FA1E /* Pods-Friend Trip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ52M4QL3U;
 				INFOPLIST_FILE = "Friend Trip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.lf.Friend-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

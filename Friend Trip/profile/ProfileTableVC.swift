@@ -18,6 +18,7 @@ class ProfileTableVC: UITableViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var viewBackGround: UIView!
     @IBOutlet weak var btnLogout: UIButton!
+    var userVM: UserViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,33 @@ class ProfileTableVC: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         setupViews()
+         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let listTrips = segue.destination as? ListTripsTVC {
+            if segue.identifier == GlobalConstants.SegueIdentifier.MY_TRIPS {
+                listTrips.userVM = userVM
+                listTrips.typeList = .MYTRIP
+            }
+            if segue.identifier == GlobalConstants.SegueIdentifier.SAVED_TRIPS {
+                listTrips.userVM = userVM
+                listTrips.typeList = .SAVED
+            }
+
+            if segue.identifier == GlobalConstants.SegueIdentifier.CONFIRMED_TRIPS {
+                listTrips.userVM = userVM
+                listTrips.typeList = .CONFIRMED
+            }
+        }
+    }
+
     func getUserInfo() {
 
         indicatorView.startAnimating()
@@ -42,6 +69,8 @@ class ProfileTableVC: UITableViewController {
                         guard let userFace = UserFace(JSON: result) else {
                             return
                         }
+
+                        self.userVM = UserViewModel(userFace: userFace)
 
                         let userViewModel = ProfileViewModel(userFace: userFace)
                         let urlImage = URL(string: userViewModel.imageURL)
@@ -73,10 +102,8 @@ class ProfileTableVC: UITableViewController {
     }
 
     func setGradientBackGround(){
-
         let colorTop = UIColor(named: "ColorOrangeGrandientTop")
         let colorBottom = UIColor(named: "ColorPinkGradientBottom")
-
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors =  [colorTop, colorBottom].map{$0?.cgColor}
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -87,8 +114,9 @@ class ProfileTableVC: UITableViewController {
         viewBackGround.layer.addSublayer(gradientLayer)
         viewBackGround.bringSubview(toFront: imageViewProfile)
         viewBackGround.bringSubview(toFront: btnLogout)
-
     }
+
+
 
 }
 
