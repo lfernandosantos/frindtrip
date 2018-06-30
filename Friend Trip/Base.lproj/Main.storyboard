@@ -276,18 +276,18 @@
                         <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="2l8-YW-Soe">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="2l8-YW-Soe">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="305"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-X3-e2D">
-                                    <rect key="frame" x="40.666666666666657" y="70" width="333" height="333"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-X3-e2D">
+                                    <rect key="frame" x="77.5" y="70" width="165" height="165"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Uaa-X3-e2D" secondAttribute="height" multiplier="1:1" id="dOj-Mg-0C8"/>
                                     </constraints>
                                 </imageView>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oM1-wO-Mdj">
-                                    <rect key="frame" x="150" y="226.66666666666666" width="20" height="20"/>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oM1-wO-Mdj">
+                                    <rect key="frame" x="150" y="142.5" width="20" height="20"/>
                                 </activityIndicatorView>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGJ-gz-nYL">
                                     <rect key="frame" x="276" y="16" width="20" height="24"/>
@@ -315,7 +315,7 @@
                                 <constraint firstAttribute="bottom" secondItem="Uaa-X3-e2D" secondAttribute="bottom" constant="70" id="pbs-M2-0JV"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="DMc-QD-Df4">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="DMc-QD-Df4">
                             <rect key="frame" x="0.0" y="528" width="320" height="63"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2210,15 +2210,15 @@ kVqRXZFqkW+Rd5F6kX+Rh5GKkZyRn5GkAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAkaY
         </image>
         <image name="home" width="32" height="29"/>
         <image name="ic_chat" width="128" height="128"/>
-        <image name="ic_eventos_confirmados" width="52" height="51"/>
-        <image name="ic_eventos_criados" width="55" height="55"/>
-        <image name="ic_eventos_salvos" width="52" height="52"/>
+        <image name="ic_eventos_confirmados" width="44" height="43"/>
+        <image name="ic_eventos_criados" width="44" height="43"/>
+        <image name="ic_eventos_salvos" width="43" height="44"/>
         <image name="ic_favorito" width="128" height="128"/>
         <image name="ic_favorito_selected" width="96" height="96"/>
         <image name="ic_filter" width="42" height="44"/>
-        <image name="ic_profile_email" width="52" height="43"/>
+        <image name="ic_profile_email" width="33" height="24"/>
         <image name="ic_profile_tab" width="43" height="43"/>
-        <image name="ic_username" width="50" height="45"/>
+        <image name="ic_username" width="35" height="41"/>
         <image name="icons" width="1276" height="299"/>
         <image name="img_adventure" width="1024" height="681"/>
         <image name="logo" width="3592" height="1917"/>
