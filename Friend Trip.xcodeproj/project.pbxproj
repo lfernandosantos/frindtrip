@@ -70,6 +70,9 @@
 		BEED6E3820C0A58300BCD991 /* TripProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3720C0A58300BCD991 /* TripProtocol.swift */; };
 		BEED6E3A20C0DC2900BCD991 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED6E3920C0DC2900BCD991 /* LocationModel.swift */; };
 		BEF032322055ECCC00316F19 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF032312055ECCC00316F19 /* ProfileViewModel.swift */; };
+		BEF05CCF20E99C4100A9EF1C /* FilterTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF05CCE20E99C4100A9EF1C /* FilterTripVC.swift */; };
+		BEF05CD120E9A1D800A9EF1C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF05CD020E9A1D800A9EF1C /* DateCollectionViewCell.swift */; };
+		BEF05CD320E9A3D100A9EF1C /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF05CD220E9A3D100A9EF1C /* CalendarVars.swift */; };
 		ED85D05620B65E4B00FBE3E6 /* MapViewSetLocalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +143,9 @@
 		BEED6E3720C0A58300BCD991 /* TripProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripProtocol.swift; sourceTree = "<group>"; };
 		BEED6E3920C0DC2900BCD991 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		BEF032312055ECCC00316F19 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		BEF05CCE20E99C4100A9EF1C /* FilterTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTripVC.swift; sourceTree = "<group>"; };
+		BEF05CD020E9A1D800A9EF1C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEF05CD220E9A3D100A9EF1C /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		ED85D05520B65E4B00FBE3E6 /* MapViewSetLocalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSetLocalVC.swift; sourceTree = "<group>"; };
 		EED1006A8B0674EA04709ED3 /* Pods-Friend Trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend Trip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend Trip/Pods-Friend Trip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,6 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				BE5E13DD2086E9E100949CAA /* FilterHomeVC.swift */,
+				BEF05CCE20E99C4100A9EF1C /* FilterTripVC.swift */,
+				BEF05CD020E9A1D800A9EF1C /* DateCollectionViewCell.swift */,
+				BEF05CD220E9A3D100A9EF1C /* CalendarVars.swift */,
 			);
 			path = filter;
 			sourceTree = "<group>";
@@ -591,7 +600,10 @@
 				BE33F9CD202008A000F45737 /* StarbucksAnnotation.swift in Sources */,
 				BE48B3731FF1341000A1AB1C /* UserFace.swift in Sources */,
 				BE48B3781FF146AD00A1AB1C /* DefaultColors.swift in Sources */,
+				BEF05CCF20E99C4100A9EF1C /* FilterTripVC.swift in Sources */,
 				BE33665920DB3A1F00121E5E /* ChatTripCollectionVC.swift in Sources */,
+				BEF05CD320E9A3D100A9EF1C /* CalendarVars.swift in Sources */,
+				BEF05CD120E9A1D800A9EF1C /* DateCollectionViewCell.swift in Sources */,
 				BEED6E3820C0A58300BCD991 /* TripProtocol.swift in Sources */,
 				BE5E13DE2086E9E100949CAA /* FilterHomeVC.swift in Sources */,
 				BE42D8141FE7419C004FF9C1 /* LoginVC.swift in Sources */,
