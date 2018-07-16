@@ -28,4 +28,6 @@ struct GlobalConstants {
             case MYTRIP
         }
     }
+
+    let dateHoraFormat = "MM-dd-yyyy HH:mm"
 }
